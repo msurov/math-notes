@@ -1,0 +1,387 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Алгебра Грассмана; внешнее произведение
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Пример для трёхмерного пространства 
+\begin_inset Formula $a,b\in\mathbb{R}^{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+с компонентами 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a=a_{1}e_{1}+a_{2}e_{2}+a_{3}e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b=b_{1}e_{1}+b_{2}e_{2}+b_{3}e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+внешенее произведение определяется как:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\mathcircumflex b=\left(a_{1}b_{2}-a_{2}b_{1}\right)e_{1}\mathcircumflex e_{2}+\left(a_{3}b_{1}-a_{1}b_{3}\right)e_{3}\mathcircumflex e_{1}+\left(a_{2}b_{3}-a_{3}b_{2}\right)e_{2}\mathcircumflex e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $\left(e_{1}\mathcircumflex e_{2},e_{3}\mathcircumflex e_{1},e_{2}\mathcircumflex e_{3}\right)$
+\end_inset
+
+ -- базис нового пространства 
+\begin_inset Formula $\Lambda^{2}\left(\mathbb{R}^{3}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\series bold
+Для любого 
+\begin_inset Formula $n$
+\end_inset
+
+-мерного векторного пространства 
+\begin_inset Formula $a,b\in\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+внешнее произведение определяется как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(a\mathcircumflex b\right)_{ij}=\frac{1}{2}\left(a_{i}b_{j}-a_{j}b_{i}\right)\cdot e_{i}\mathcircumflex e_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Сравниваем с тем, что было в трёхмерном случае:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2a\mathcircumflex b=\left(a_{1}b_{2}-a_{2}b_{1}\right)e_{1}\mathcircumflex e_{2}+\left(a_{2}b_{1}-a_{1}b_{2}\right)e_{2}\mathcircumflex e_{1}+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(a_{1}b_{3}-a_{3}b_{1}\right)e_{1}\mathcircumflex e_{3}+\left(a_{3}b_{1}-a_{1}b_{3}\right)e_{3}\mathcircumflex e_{1}+$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(a_{2}b_{3}-a_{3}b_{2}\right)e_{2}\mathcircumflex e_{3}+\left(a_{3}b_{2}-a_{2}b_{3}\right)e_{3}\mathcircumflex e_{2}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2\left(a_{1}b_{2}-a_{2}b_{1}\right)e_{1}\mathcircumflex e_{2}+2\left(a_{1}b_{3}-a_{3}b_{1}\right)e_{1}\mathcircumflex e_{3}+2\left(a_{2}b_{3}-a_{3}b_{2}\right)e_{2}\mathcircumflex e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\mathcircumflex b=\left(a_{1}b_{2}-a_{2}b_{1}\right)e_{1}\mathcircumflex e_{2}+\left(a_{1}b_{3}-a_{3}b_{1}\right)e_{1}\mathcircumflex e_{3}+\left(a_{2}b_{3}-a_{3}b_{2}\right)e_{2}\mathcircumflex e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Тензоры
+\end_layout
+
+\begin_layout Subsection
+Векторы
+\end_layout
+
+\begin_layout Standard
+Рассмотрим вектор 
+\begin_inset Formula $a\in\mathbb{V}$
+\end_inset
+
+.
+ Пусть в 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+ задан базис 
+\begin_inset Formula $\left\{ e_{1},e_{2},..,e_{n}\right\} $
+\end_inset
+
+.
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ можно разложить по этому базису:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a=a^{i}e_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это по сути свойство линейного пространства -- любой вектор можно представить
+ в виде линейной комбинации 
+\begin_inset Formula $n$
+\end_inset
+
+ базисных векторов.
+\end_layout
+
+\begin_layout Subsection
+Ковекторы
+\end_layout
+
+\begin_layout Standard
+Рассмотрим множество операторов, которые, воздействуя на элементы пространства
+ 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+, дают число:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p\in\mathbb{V}^{\star}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p:\mathbb{V}\to\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пространство 
+\begin_inset Formula $\mathbb{V}^{\star}$
+\end_inset
+
+ -- дуальное к 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+ -- так же, как и 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+, является линейным.
+ Кроме того, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\mathbb{V}^{\star}\right)^{\star}=\mathbb{V}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dim\mathbb{V^{\star}}=\dim\mathbb{V}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Поэтому, у дуального пространства можно ввести свой базис 
+\begin_inset Formula $\left\{ e^{1},e^{2},...,e^{n}\right\} $
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p=p_{i}e^{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Обычно базисные вектора дуального пространства вводят так, чтобы 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e_{i}e^{j}=\delta_{i}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Тензоры
+\end_layout
+
+\begin_layout Standard
+Ковариантный тензор первого ранга -- ковектор.
+ Ковариантный тензор второго ранга -- оператор, который воздействуя на 2
+ вектора даёт число:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T:\mathbb{V}\times\mathbb{V}\to\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Контрвариантные тензоры второго ранга
+\end_layout
+
+\begin_layout Standard
+Рассмотрим тензор ковариантный второго ранга 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ В некотором базисе 
+\begin_inset Formula $\left\{ e_{1},e_{2},..,e_{n}\right\} $
+\end_inset
+
+ он записывается как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T=T_{ij}e_{i}\otimes e_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Внешнее произведение 2-х векторов даёт тензор 2-го ранга
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Lambda\left(V\right)=T\left(V\right)/I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V$
+\end_inset
+
+ -- векторное пространство
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\mathcircumflex b=a\otimes b\,\mod I$
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

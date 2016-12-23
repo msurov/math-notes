@@ -1,0 +1,1516 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Симплектическая форма
+\end_layout
+
+\begin_layout Standard
+Симплектическая форма -- кососимметрическая билинейная форма (оператор 
+\begin_inset Formula $\mathbb{V}\times\mathbb{V}\to\mathbb{R}$
+\end_inset
+
+), определённая на чётномерном линейном (векторном) пространстве.
+\end_layout
+
+\begin_layout Subsection
+Пример симплектического многообразия
+\end_layout
+
+\begin_layout Standard
+В простейшем случае симпликтическое многообразие задаётся как 
+\begin_inset Formula $\left(\mathbb{E}^{2n},\omega_{0}\right)$
+\end_inset
+
+, где 2-форма (симплектическая форма) 
+\begin_inset Formula $\omega_{0}:\,\mathbb{E}^{2n}\times\mathbb{E}^{2n}\to\mathbb{R}$
+\end_inset
+
+ имеет вид
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega_{0}\left(u,v\right)=\left\langle Ju,v\right\rangle $
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $J=\begin{pmatrix}0 & I\\
+-I & 0
+\end{pmatrix}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left\langle \cdot,\cdot\right\rangle $
+\end_inset
+
+ -- скалярное произведение.
+\end_layout
+
+\begin_layout Standard
+В координатной форме:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left\langle u,v\right\rangle =\delta_{ij}u^{i}v^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega_{0}\left(u,v\right)=J_{ij}u^{i}v^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+свойства:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u,v\right)=-\omega\left(v,u\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u,\alpha v+\beta w\right)=\alpha\omega\left(u,v\right)+\beta\omega\left(u,w\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ортогональное дополнение 
+\end_layout
+
+\begin_layout Standard
+Выбираем подмножество 
+\begin_inset Formula $E\subset\mathbb{E}^{2n}$
+\end_inset
+
+ (например, один вектор: 
+\begin_inset Formula $E=\left\{ v\right\} $
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Для подмножества 
+\begin_inset Formula $E$
+\end_inset
+
+ существует связанное с ним ортогональное дополнение 
+\begin_inset Formula $E^{\perp}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E^{\perp}=\left\{ u\in\mathbb{E}^{2n}|\omega\left(u,v\right)=0\forall v\in E\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Иначе говоря, 
+\begin_inset Formula $E^{\perp}$
+\end_inset
+
+ -- множество всех векторов, для которых симплектическая форма равна нулю:
+ 
+\begin_inset Formula $\omega\left(E,E^{\perp}\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Пример 1
+\end_layout
+
+\begin_layout Standard
+Для многообразия 
+\begin_inset Formula $\left(\mathbb{E}^{2n},\omega_{0}\right)$
+\end_inset
+
+ получаем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E=\left\{ v_{1},v_{2},...,v_{k}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega_{0}\left(u,v\in E\right)=0$
+\end_inset
+
+ или 
+\begin_inset Formula $\omega_{0}\left(v\in E,u\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega_{0}\left(v\in E,u\right)=J_{ij}v_{k}^{i}u^{j}=K_{kj}u^{j}=K\cdot u=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=\ker K$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=\ker\begin{pmatrix}v_{1}^{T}J\\
+v_{2}^{T}J\\
+\vdots\\
+v_{k}^{T}J
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Пример 2
+\end_layout
+
+\begin_layout Standard
+Рассмтроим 
+\begin_inset Formula $\left(\mathbb{E}^{4},\omega_{0}\right)$
+\end_inset
+
+ и 
+\begin_inset Formula $v_{1}=\begin{pmatrix}1\\
+0\\
+0\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{2}=\begin{pmatrix}0\\
+1\\
+0\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $E=\left\{ v_{1},v_{2}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $K=\begin{pmatrix}v_{1}^{T}J\\
+v_{2}^{T}J
+\end{pmatrix}=\begin{pmatrix}0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=\ker\begin{pmatrix}0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}=\begin{pmatrix}1\\
+0\\
+0\\
+0
+\end{pmatrix},\begin{pmatrix}0\\
+1\\
+0\\
+0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Таким образом, 
+\begin_inset Formula $E^{\perp}=E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Канонический базис симплектической формы
+\end_layout
+
+\begin_layout Standard
+Любое симплектическое многообразие 
+\begin_inset Formula $\left(\mathbb{V},\omega\right)$
+\end_inset
+
+ (векторное пространство размерности 
+\begin_inset Formula $2n$
+\end_inset
+
+ с определённой на нём кососимметричной невырожденной 2-формой) гомеоморфно
+ 
+\begin_inset Formula $\left(\mathbb{R}^{2n},\omega_{0}\right)$
+\end_inset
+
+, т.е.
+ всегда можно найти 
+\begin_inset Formula $2n$
+\end_inset
+
+ векторов (базисных векторов) 
+\begin_inset Formula $e_{1},e_{2},...,e_{n},f_{1},f_{2},...,f_{n}$
+\end_inset
+
+, для которых выполняется:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(e_{i},e_{j}\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(f_{i},f_{j}\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(f_{i},e_{j}\right)=\delta_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Если базис векторного пространства задан векторами 
+\begin_inset Formula $z_{i}$
+\end_inset
+
+, то базис симплектической формы 
+\begin_inset Formula $\left(e,f\right)$
+\end_inset
+
+ находится как линейное преобразование 
+\begin_inset Formula $z_{1}=\alpha_{1}\cdot e_{1}+\alpha_{2}\cdot e_{2}+...+\beta_{1}f_{1}+\beta_{2}f_{2}+...$
+\end_inset
+
+;
+\begin_inset Formula $\alpha,\beta\in\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+или в матричной форме
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(z_{1},z_{2},...z_{2n}\right)^{T}=A\cdot\left(e_{1},e_{2},...e_{n},f_{1},f_{2},...f_{n}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $E=\left(e_{1},e_{2},...e_{n},f_{1},f_{2},...f_{n}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Z=\left(z_{1},z_{2},...z_{2n}\right)^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $Z_{ij}=A_{ik}\cdot E_{kj}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $z_{i}^{j}=Z_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{i}^{j}=E_{ij}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $f_{i}^{j}=E_{ij+n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\omega\left(z_{i},z_{j}\right)=\left\langle Jz_{i},z_{j}\right\rangle =J_{\alpha\beta}z_{i}^{\alpha}z_{j}^{\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $z_{i}^{\alpha}=Z_{i\alpha}=A_{ik}\cdot E_{k\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $z_{j}^{\beta}=Z_{j\beta}=A_{jv}\cdot E_{v\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $J_{\alpha\beta}z_{i}^{\alpha}z_{j}^{\beta}=J_{\alpha\beta}A_{ik}\cdot E_{k\alpha}A_{jv}\cdot E_{v\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $A_{ik}\cdot A_{jv}\cdot J_{\alpha\beta}\cdot E_{k\alpha}\cdot E_{v\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $J_{\alpha\beta}\cdot E_{k\alpha}\cdot E_{v\beta}=\left(EJE^{T}\right)_{kv}=J_{kv}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $J_{\alpha\beta}z_{i}^{\alpha}z_{j}^{\beta}=AJA^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Таким образом 
+\begin_inset Formula $\omega\left(z_{i},z_{j}\right)=A_{ik}\cdot A_{jv}\cdot J_{kv}$
+\end_inset
+
+.
+ Значение формы на векторах 
+\begin_inset Formula $z$
+\end_inset
+
+ мы можем вычислить, т.е.
+ 
+\begin_inset Formula $\omega\left(z_{i},z_{j}\right)$
+\end_inset
+
+ -- известно.
+ Матрица 
+\begin_inset Formula $J$
+\end_inset
+
+ тоже известна.
+ Нужно найти решить уравнение 
+\begin_inset Formula $\omega\left(z_{i},z_{j}\right)=A_{ik}\cdot A_{jv}\cdot J_{kv}$
+\end_inset
+
+ относительно матрицы 
+\begin_inset Formula $A$
+\end_inset
+
+, тогда получим разложение векторов 
+\begin_inset Formula $e,f$
+\end_inset
+
+ по векторам 
+\begin_inset Formula $z$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Таким образом определяется базис пространства 
+\begin_inset Formula $\left(\mathbb{V},\omega\right)$
+\end_inset
+
+!
+\end_layout
+
+\begin_layout Standard
+произвольный вектор 
+\begin_inset Formula $u$
+\end_inset
+
+ можно разложить по базисным векторам 
+\begin_inset Formula $\left(e,f\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=u_{\alpha}e_{\alpha}+u_{n+\alpha}f_{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это другой подход к определению формы: есть 
+\begin_inset Formula $2n$
+\end_inset
+
+ линейно независимых векторов, определён билинейный оператор 
+\begin_inset Formula $\omega$
+\end_inset
+
+ для каждой пары из набора базисных векторов, это означает, что мы можем
+ посчитать значение 
+\begin_inset Formula $\omega$
+\end_inset
+
+ от любого вектора в координатах:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u,v\right)=\omega\left(u_{\alpha}e_{\alpha}+u_{n+\alpha}f_{\alpha},v_{\alpha}e_{\alpha}+v_{n+\alpha}f_{\alpha}\right)=\omega\left(u_{\alpha}e_{\alpha},v_{\alpha}e_{\alpha}+v_{n+\alpha}f_{\alpha}\right)+\omega\left(u_{n+\alpha}f_{\alpha},v_{\alpha}e_{\alpha}+v_{n+\alpha}f_{\alpha}\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u_{\alpha}e_{\alpha},v_{\alpha}e_{\alpha}\right)+\omega\left(u_{\alpha}e_{\alpha},v_{n+\alpha}f_{\alpha}\right)+\omega\left(u_{n+\alpha}f_{\alpha},v_{\alpha}e_{\alpha}\right)+\omega\left(u_{n+\alpha}f_{\alpha},v_{n+\alpha}f_{\alpha}\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u_{\alpha}e_{\alpha},v_{n+\alpha}f_{\alpha}\right)+\omega\left(u_{n+\alpha}f_{\alpha},v_{\alpha}e_{\alpha}\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u_{\alpha}e_{\alpha},v_{n+\alpha}f_{\alpha}\right)+\omega\left(u_{n+\alpha}f_{\alpha},v_{\alpha}e_{\alpha}\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[u_{1}\omega\left(e_{1},v_{n+\alpha}f_{\alpha}\right)+u_{2}\omega\left(e_{2},v_{n+\alpha}f_{\alpha}\right)+...\right]+\left[u_{n+1}\omega\left(f_{1},v_{\alpha}e_{\alpha}\right)+u_{n+2}\omega\left(f_{2},v_{\alpha}e_{\alpha}\right)+...\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\left[u_{1}v_{n+1}\omega\left(e_{1},f_{1}\right)+u_{1}v_{n+2}\omega\left(e_{1},f_{2}\right)+...\right]+\left[u_{2}v_{n+1}\omega\left(e_{2},f_{1}\right)+u_{2}v_{n+2}\omega\left(e_{2},f_{2}\right)+...\right]+...\right]+\left[\left[u_{n+1}v_{1}\omega\left(f_{1},e_{1}\right)+u_{n+1}v_{2}\omega\left(f_{1},e_{2}\right)+...\right]+\left[u_{n+2}v_{1}\omega\left(f_{2},e_{1}\right)+u_{n+2}v_{2}\omega\left(f_{2},e_{2}\right)+...\right]+...\right]=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[u_{1}v_{n+1}\omega\left(e_{1},f_{1}\right)+u_{2}v_{n+2}\omega\left(e_{2},f_{2}\right)+...\right]+\left[u_{n+1}v_{1}\omega\left(f_{1},e_{1}\right)+u_{n+2}v_{2}\omega\left(f_{2},e_{2}\right)+\right]=-u_{\alpha}v_{n+\alpha}+u_{n+\alpha}v_{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(u,v\right)=u_{n+\alpha}v_{\alpha}-u_{\alpha}v_{n+\alpha}$
+\end_inset
+
+ в базисе 
+\begin_inset Formula $\left(e,f\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Пример 1
+\end_layout
+
+\begin_layout Standard
+В пространстве 
+\begin_inset Formula $\mathbb{E}^{4}$
+\end_inset
+
+ матрица 
+\begin_inset Formula $J=\begin{pmatrix}0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+-1 & 0 & 0 & 0\\
+0 & -1 & 0 & 0
+\end{pmatrix}$
+\end_inset
+
+ и базис 
+\begin_inset Formula $e_{1}=\begin{pmatrix}1\\
+0\\
+0\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $e_{2}=\begin{pmatrix}0\\
+1\\
+0\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{1}=\begin{pmatrix}0\\
+0\\
+1\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{2}=\begin{pmatrix}0\\
+0\\
+0\\
+1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Пример 2
+\end_layout
+
+\begin_layout Standard
+В пространстве 
+\begin_inset Formula $\mathbb{E}^{4}$
+\end_inset
+
+ матрица 
+\begin_inset Formula $J=\begin{pmatrix}0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+-1 & 0 & 0 & 0\\
+0 & -1 & 0 & 0
+\end{pmatrix}$
+\end_inset
+
+ и базис 
+\begin_inset Formula $e_{1}=\begin{pmatrix}1\\
+0\\
+1\\
+2
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $e_{2}=\begin{pmatrix}0\\
+1\\
+2\\
+4
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{1}=\begin{pmatrix}4\\
+-2\\
+1\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{2}=\begin{pmatrix}-2\\
+1\\
+0\\
+1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $X=\begin{pmatrix}A & B\\
+C & D
+\end{pmatrix}$
+\end_inset
+
+ -- симплектическая матрица, т.е.
+ 
+\begin_inset Formula $\omega_{0}\left(Xu,Xv\right)=\omega_{0}\left(u,v\right)$
+\end_inset
+
+ а значит 
+\begin_inset Formula $X$
+\end_inset
+
+ должна удовлетворять 
+\begin_inset Formula $X^{T}JX=J$
+\end_inset
+
+, а для матриц 
+\begin_inset Formula $A,B,C,D$
+\end_inset
+
+ должно выполняться:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $A^{T}D-C^{T}B=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $A^{T}C=C^{T}A$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D^{T}B=B^{T}D$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Выберем
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $A=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+тогда
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C=C^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $B=B^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $CB=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Выберем
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C=\begin{pmatrix}1 & 2\\
+2 & 4
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $B=\begin{pmatrix}4 & -2\\
+-2 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Тогда 
+\begin_inset Formula $X=\begin{pmatrix}1 & 0 & 4 & -2\\
+0 & 1 & -2 & 1\\
+1 & 2 & 1 & 0\\
+2 & 4 & 0 & 1
+\end{pmatrix}$
+\end_inset
+
+ -- симплектическая матрица, а это означает, что
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $e_{1}=\begin{pmatrix}1\\
+0\\
+1\\
+2
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $e_{2}=\begin{pmatrix}0\\
+1\\
+2\\
+4
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{1}=\begin{pmatrix}4\\
+-2\\
+1\\
+0
+\end{pmatrix}$
+\end_inset
+
+, 
+\begin_inset Formula $f_{2}=\begin{pmatrix}-2\\
+1\\
+0\\
+1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+проверяем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(e_{1},e_{2}\right)=\left\langle Je_{1},e_{2}\right\rangle =\left(1,2,-1,0\right)\cdot\left(0,1,2,4\right)^{T}=2-2=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\omega\left(f_{1},f_{2}\right)=\left\langle Jf_{1},f_{2}\right\rangle =\left(1,0,-4,2\right)\cdot\left(-2,1,0,1\right)^{T}=-2+2=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(f_{1},e_{1}\right)=\left\langle Jf_{1},e_{1}\right\rangle =\left(1,0,-4,2\right)\cdot\left(1,0,1,2\right)^{T}=1-4+4=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega\left(f_{2},e_{2}\right)=\left\langle Jf_{2},e_{2}\right\rangle =\left(0,1,2,-1\right)\cdot\left(0,1,2,4\right)^{T}=1+4-4=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Вывод: существует очень много различных канонических базисов.
+\end_layout
+
+\begin_layout Section
+Внешнее умножение векторов
+\end_layout
+
+\begin_layout Standard
+Для двух векторов
+\series bold
+ 
+\begin_inset Formula $a,b\in\mathbb{R}^{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a=a^{i}e_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b=b^{j}e_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+внешнее произведение 
+\begin_inset Formula $a\mathcircumflex b$
+\end_inset
+
+ вычисляется как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\mathcircumflex b=a^{i}b^{j}\cdot e_{i}\mathcircumflex e_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e_{i}\mathcircumflex e_{j}$
+\end_inset
+
+ -- базис пространства 
+\begin_inset Formula $\Lambda^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Свойства:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a\mathcircumflex b=-b\mathcircumflex a$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $e_{i}\mathcircumflex e_{j}=-e_{j}\mathcircumflex e_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a\mathcircumflex a=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(\alpha a+\beta b\right)\mathcircumflex c=\alpha a\mathcircumflex c+\beta b\mathcircumflex c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\left(\alpha a+\beta b\right)\mathcircumflex\left(\gamma c+\delta d\right)=\gamma\alpha a\mathcircumflex c+\delta\alpha a\mathcircumflex d+\gamma\beta b\mathcircumflex c+\delta\beta b\mathcircumflex d$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Пример
+\series bold
+ 
+\end_layout
+
+\begin_layout Standard
+Пусть 
+\series bold
+
+\begin_inset Formula $a,b\in\mathbb{R}^{3}$
+\end_inset
+
+
+\series default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a=a_{1}e_{1}+a_{2}e_{2}+a_{3}e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b=b_{1}e_{1}+b_{2}e_{2}+b_{3}e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда их внешенее произведение:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\mathcircumflex b=\left(a_{1}b_{2}-a_{2}b_{1}\right)e_{1}\mathcircumflex e_{2}+\left(a_{3}b_{1}-a_{1}b_{3}\right)e_{3}\mathcircumflex e_{1}+\left(a_{2}b_{3}-a_{3}b_{2}\right)e_{2}\mathcircumflex e_{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $\left(e_{1}\mathcircumflex e_{2},e_{3}\mathcircumflex e_{1},e_{2}\mathcircumflex e_{3}\right)$
+\end_inset
+
+ -- базис пространства 
+\begin_inset Formula $\Lambda^{2}\left(\mathbb{R}^{3}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Симплектическая форма как тензор
+\end_layout
+
+\begin_layout Subsection
+дуальное пространство
+\end_layout
+
+\begin_layout Standard
+Нужно рассмотреть дуальное к пространство 
+\begin_inset Formula $\mathbb{V}^{*}$
+\end_inset
+
+.
+ Элементы этого пространства -- операторы, которые, действуя на элементы
+ пространства 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+ дают числа
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g\in\mathbb{V}^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v\in\mathbb{V}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $gv\in\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Дуальное пространство так же, как и 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+, является линейным (работает суперпозиция):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g\left(\alpha v+\beta w\right)=\alpha gv+\beta gw$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g_{i}\left(\alpha v^{i}+\beta w^{i}\right)=\alpha g_{i}v^{i}+\beta g_{i}w^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Базисные элементы дуального пространства: 
+\begin_inset Formula $z^{1},z^{2},...,z^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Обычно они выбираются так, что
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z_{i}z^{j}=\delta_{i}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+например
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z_{1}z^{1}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z_{1}z^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Таким образом, любой элемент 
+\begin_inset Formula $g\in\mathbb{V}^{*}$
+\end_inset
+
+ можно разложить по базисным векторам
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g=g_{i}z^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+аналогично элементам векторного пространства
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=u^{j}z_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $gu=\left(g_{i}z^{i}\right)\left(u^{j}z_{j}\right)=g_{i}u^{j}z^{i}z_{j}=g_{i}u^{j}\delta_{j}^{i}=g_{i}u^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Симплектическая форма
+\end_layout
+
+\begin_layout Standard
+Если в пространстве 
+\begin_inset Formula $\mathbb{V}$
+\end_inset
+
+ задан канонический базис 
+\begin_inset Formula $z_{1},z_{2},...,z_{2n}$
+\end_inset
+
+, то существует дуальный ему базис 
+\begin_inset Formula $z^{1},z^{2},...,z^{2n}$
+\end_inset
+
+.
+ В этом базисе любой ковариантный вектор запишется как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g=g_{i}z^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+а любой ковариантный тензор второго ранга как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=a_{ij}z^{i}\otimes z^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Аналогично симплектическая форма, являясь антисимметричным тензором второго
+ ранга запишется как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=\omega_{ij}\left(z^{i}\otimes z^{j}-z^{j}\otimes z^{i}\right)=\omega_{ij}z^{i}\mathcircumflex z^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Как видно, при 
+\begin_inset Formula $i=j$
+\end_inset
+
+ получаем 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ То есть 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z^{i}\mathcircumflex z^{j}=z^{i}\otimes z^{j}-z^{j}\otimes z^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В каноническом базисе 
+\begin_inset Formula $\omega_{ij}$
+\end_inset
+
+ является матрицей 
+\begin_inset Formula $J=\left(\begin{array}{cc}
+0 & I\\
+-I & 0
+\end{array}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Для гамильтоновой системы в базисе 
+\begin_inset Formula $dp,dq$
+\end_inset
+
+ симплектическая форма принимает вид 
+\begin_inset Formula $\omega=dp\mathcircumflex dq$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+С другой стороны 
+\begin_inset Formula $\omega=d\theta$
+\end_inset
+
+, а 
+\begin_inset Formula $\theta=pdq$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+Внешняя производная от 1-формы 
+\begin_inset Formula $\alpha=f_{i}\cdot dx^{i}$
+\end_inset
+
+ равна 
+\begin_inset Formula $d\alpha=\sum_{i}df_{i}\mathcircumflex dx^{i}=\sum_{i,j}\frac{\partial f_{i}}{\partial x^{j}}dx^{j}\mathcircumflex dx^{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\theta=p_{i}dq^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d\left(pdq\right)=\frac{\partial p_{i}}{\partial p_{j}}dp_{j}\mathcircumflex dq^{i}+\frac{\partial p_{i}}{\partial q_{j}}dq_{j}\mathcircumflex dq^{i}=\frac{\partial p_{i}}{\partial p_{j}}dp_{j}\mathcircumflex dq^{i}=\delta_{i}^{j}dq_{j}\mathcircumflex dq^{i}=dq_{i}\mathcircumflex dq^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J=\int_{c\left(\gamma\right)}pdq=\int_{c\left(\gamma\right)}M_{ij}\dot{q}^{i}dq$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\end_body
+\end_document
