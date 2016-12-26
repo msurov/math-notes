@@ -2,8 +2,13 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass amsart
 \use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -25,6 +30,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -323,8 +329,8 @@
 
 \begin_layout Standard
 Ковариантный тензор первого ранга -- ковектор.
- Ковариантный тензор второго ранга -- оператор, который воздействуя на 2
- вектора даёт число:
+ Ковариантный тензор второго ранга -- билинейный оператор, который воздействуя
+ на 2 вектора даёт число:
 \end_layout
 
 \begin_layout Standard
@@ -335,15 +341,7 @@
 \end_layout
 
 \begin_layout Standard
-Контрвариантные тензоры второго ранга
-\end_layout
-
-\begin_layout Standard
-Рассмотрим тензор ковариантный второго ранга 
-\begin_inset Formula $T$
-\end_inset
-
-.
+Контрвариантные тензоры второго ранга.
  В некотором базисе 
 \begin_inset Formula $\left\{ e_{1},e_{2},..,e_{n}\right\} $
 \end_inset
@@ -352,10 +350,60 @@
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $T=T_{ij}e_{i}\otimes e_{j}$
+\begin_inset Formula $T=T_{ij}e^{i}\otimes e^{j}$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Example
+Если на вход тензора подать линейную комбинацию векторов, то получим линейную
+ комбинацию тензоров:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $T\left(\lambda a+b,\cdot\right)=T_{ij}e^{i}\otimes e^{j}\left(\lambda a+b,\cdot\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda a+b=\lambda a^{k}e_{k}+b^{k}e_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{ij}\left(\left(\lambda a^{k}e_{k}+b^{k}e_{k}\right)e^{i}\right)\left(e^{j}\right)=T_{ij}\left(\lambda a^{i}+b^{i}\right)e^{j}=\lambda T_{ij}a^{i}e^{j}+T_{ij}b^{i}e^{j}=\lambda T\left(a,\cdot\right)+T\left(b,\cdot\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T\left(\lambda a+b,\cdot\right)=\lambda T\left(a,\cdot\right)+T\left(b,\cdot\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Аналогично контрвариантный тензор:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T=T^{ij}e_{i}\otimes e_{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+только действует он на ковекторы.
 \end_layout
 
 \begin_layout Standard
