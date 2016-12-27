@@ -1,0 +1,826 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Принцип Наименьшего Действия Гамильтона 
+\end_layout
+
+\begin_layout Standard
+Действие: 
+\begin_inset Formula $S\left[q\left(t\right)\right]=\int_{t_{1}}^{t_{2}}L\left(q\left(t\right),\dot{q}\left(t\right)\right)dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+фиксированные концы: 
+\begin_inset Formula $q\left(t_{1}\right)=q_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $q\left(t_{2}\right)=q_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Лагранжиан: 
+\begin_inset Formula $L=T-U$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Кинетическая энергия -- 1 форма:
+\end_layout
+
+\begin_layout Standard
+обобщённые координаты
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $q:\mathcal{M}\to\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+обобщённая скорость системы вдоль траектории 
+\begin_inset Formula $\gamma:\mathbb{R}\to\mathcal{M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi:\mathcal{M}\to\mathbb{R}^{n}$
+\end_inset
+
+ -- карта
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\left(f\circ\gamma\right)=\frac{d}{dt}\left(f\circ\phi^{-1}\circ\phi\circ\gamma\right)=\frac{\partial}{\partial x}\left(f\circ\phi^{-1}\right)\frac{d}{dt}\left(\phi\circ\gamma\right)=\dot{\gamma}^{i}\frac{\partial}{\partial x^{i}}f=\dot{\gamma}\partial f$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\partial_{x}f$
+\end_inset
+
+ -- частные производные функции 
+\begin_inset Formula $f$
+\end_inset
+
+ на карте 
+\begin_inset Formula $x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если траектория 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ сразу записывается на карте с координатами 
+\begin_inset Formula $q^{i}$
+\end_inset
+
+, то 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\left(f\circ q\right)=\dot{q}^{i}\frac{\partial}{\partial q^{i}}f$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+получается, тут одной и той же буквой 
+\begin_inset Formula $q$
+\end_inset
+
+ обозначены
+\end_layout
+
+\begin_layout Enumerate
+карта многообразия 
+\begin_inset Formula $q:\mathcal{M}\to\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+координатная сетка на карте 
+\begin_inset Formula $\left\{ q^{1},q^{2},...,q^{n}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+кривая 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, т.е.
+ 
+\begin_inset Formula $q:\mathbb{R}\to\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В таких обозначениях обобщённая скорость -- вектор 
+\begin_inset Formula $\dot{q}^{i}\frac{\partial}{\partial q^{i}}$
+\end_inset
+
+ в базисе 
+\begin_inset Formula $\left\{ \frac{\partial}{\partial q^{1}},\frac{\partial}{\partial q^{2}},...\right\} $
+\end_inset
+
+ с компонентами 
+\begin_inset Formula $\dot{q}^{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+действуем на вектор скорости ковектором 
+\begin_inset Formula $T=\frac{p_{i}dq^{i}}{2}$
+\end_inset
+
+ на вектор скорости 
+\begin_inset Formula $\dot{q}^{i}\frac{\partial}{\partial q^{i}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T\left(\dot{q}^{j}\frac{\partial}{\partial q^{j}}\right)=\frac{p_{i}dq^{i}}{2}\dot{q}^{j}\frac{\partial}{\partial q^{j}}=\frac{1}{2}\dot{q}^{i}p_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Принцип Наименьшего Действия Мопертюи
+\end_layout
+
+\begin_layout Standard
+Полная энергия системы: 
+\begin_inset Formula $E=T+U$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+кинетическая энергия 
+\begin_inset Formula $T=\frac{g_{ij}\dot{q}^{i}\dot{q}^{j}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+импульс 
+\begin_inset Formula $p=\frac{\partial T}{\partial\dot{q}}=g_{ij}\dot{q}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T=\frac{p_{i}\dot{q}^{i}}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Действие:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=\int T-Udt=\int2T-Edt=\int2Tdt-\int Edt=S_{0}-\int Edt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=2\int Tdt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=\int p\cdot dq$
+\end_inset
+
+ 
+\begin_inset Formula $\mbox{ under}$
+\end_inset
+
+ constraint 
+\begin_inset Formula $T+U=\mbox{const}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Нужно искать минимум функционала 
+\begin_inset Formula $S_{0}$
+\end_inset
+
+ только на гиперповерхности 
+\begin_inset Formula $\frac{g_{ij}\dot{q}^{i}\dot{q}^{j}}{2}+U=E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=2\int Tdt=\int p_{i}\dot{q}^{i}dt=\int p_{i}\frac{dq^{i}}{dt}dt=\int p_{i}dq^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=\int pdq$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+элемент длины 
+\begin_inset Formula $ds^{2}=g_{ij}dq^{i}dq^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+кинетическая энергия: 
+\begin_inset Formula $T=\frac{1}{2}\left(\frac{ds}{dt}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2Tdt^{2}=ds^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $dt=\frac{ds}{\sqrt{2T}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2Tdt=2T\frac{ds}{\sqrt{2T}}=\sqrt{2T}ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=\int2Tdt=\int\sqrt{2T}ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=\sqrt{2}\int\sqrt{E-U}ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=\sqrt{2}\int\sqrt{E-U}\sqrt{g_{ij}\dot{q}^{i}\dot{q}^{j}}dt=\sqrt{2}\int\sqrt{\mu\dot{q}^{i}\dot{q}^{j}}dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu=\left(E-U\right)g$
+\end_inset
+
+ -- метрика Якоби
+\end_layout
+
+\begin_layout Section
+Уравнение геодезических и уравнение Лагранжа
+\end_layout
+
+\begin_layout Standard
+Исходный функционал Якоби (длина кривой)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{2}=\int\sqrt{L\left(q,\dot{q}\right)}dt\to\min$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}-\frac{\partial L}{\partial q}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\sqrt{L}}{\partial\dot{q}}=\frac{1}{2\sqrt{L}}\frac{\partial L}{\partial\dot{q}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\left(\frac{1}{2\sqrt{L}}\frac{\partial L}{\partial\dot{q}}\right)=\left(\frac{d}{dt}\frac{1}{2\sqrt{L}}\right)\frac{\partial L}{\partial\dot{q}}+\frac{1}{2\sqrt{L}}\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}=\left(\frac{d}{dt}\frac{1}{2\sqrt{L}}\right)\frac{\partial L}{\partial\dot{q}}+\frac{1}{2\sqrt{L}}\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\sqrt{L}}{\partial q}=\frac{1}{2\sqrt{L}}\frac{\partial L}{\partial q}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\frac{d}{dt}\frac{1}{2\sqrt{L}}\right)\frac{\partial L}{\partial\dot{q}}+\frac{1}{2\sqrt{L}}\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}-\frac{1}{2\sqrt{L}}\frac{\partial L}{\partial q}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[2\sqrt{L}\left(\frac{d}{dt}\frac{1}{2\sqrt{L}}\right)\frac{\partial L}{\partial\dot{q}}\right]+\left(\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}-\frac{\partial L}{\partial q}\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Новый функционал:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{1}=\int L\left(q,q_{s}\right)ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{ds}\frac{\partial L}{\partial q_{s}}-\frac{\partial L}{\partial q}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $L=g_{ij}q_{s}^{i}q_{s}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial q_{s}^{k}}L=2g_{ik}q_{s}^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{ds}\frac{\partial}{\partial q_{s}^{k}}L=2\frac{\partial g_{ik}}{\partial q^{j}}q_{s}^{i}q_{s}^{j}+2g_{ik}q_{ss}^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial q^{k}}L=\frac{\partial g_{ij}}{\partial q^{k}}q_{s}^{i}q_{s}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2\frac{\partial g_{ik}}{\partial q^{j}}q_{s}^{i}q_{s}^{j}+2g_{ik}q_{ss}^{i}-\frac{\partial g_{ij}}{\partial q^{k}}q_{s}^{i}q_{s}^{j}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g_{ik}q_{ss}^{i}+\left(\frac{\partial g_{ik}}{\partial q^{j}}-\frac{1}{2}\frac{\partial g_{ij}}{\partial q^{k}}\right)q_{s}^{i}q_{s}^{j}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+это уравнение относительно времени 
+\begin_inset Formula $t$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2g_{ik}\dot{q}^{i}t_{ss}+t_{s}^{2}\left(2g_{ik}\ddot{q}^{i}+\left[2\frac{\partial g_{ik}}{\partial q^{j}}-\frac{\partial g_{ij}}{\partial q^{k}}\right]\dot{q}^{i}\dot{q}^{j}\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2g_{ik}\dot{q}^{i}t_{ss}+t_{s}^{2}\left[\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}-\frac{\partial L}{\partial q}\right]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{2g_{ik}\dot{q}^{i}t_{ss}}{t_{s}^{2}}+\left[\frac{d}{dt}\frac{\partial L}{\partial\dot{q}}-\frac{\partial L}{\partial q}\right]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+подставляем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s_{t}=\sqrt{L\left(q,\dot{q}\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $t_{s}=\frac{1}{\sqrt{L\left(q,\dot{q}\right)}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+сравниваем 
+\begin_inset Formula $\left[2\sqrt{L}\left(\frac{d}{dt}\frac{1}{2\sqrt{L}}\right)\frac{\partial L}{\partial\dot{q}}\right]$
+\end_inset
+
+ с 
+\begin_inset Formula $\left[\frac{2g_{ik}\dot{q}^{i}t_{ss}}{t_{s}^{2}}\right]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2g_{ik}\dot{q}^{i}=\frac{\partial L}{\partial\dot{q}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial L}{\partial\dot{q}}\cdot t_{ss}/t_{s}^{2}=\frac{\partial L}{\partial\dot{q}}\cdot\left(\frac{1}{\sqrt{L}}\right)_{s}\cdot L=\frac{\partial L}{\partial\dot{q}}\cdot\left(\frac{1}{\sqrt{L}}\right)_{t}t_{s}\cdot L=\frac{\partial L}{\partial\dot{q}}\cdot\left(\frac{1}{\sqrt{L}}\right)_{t}\sqrt{L}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=\sqrt{L}\cdot\frac{\partial L}{\partial\dot{q}}\cdot\left(\frac{d}{dt}\frac{1}{\sqrt{L}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B=L\cdot\frac{\partial L}{\partial\dot{q}}\cdot\frac{d}{ds}\frac{1}{\sqrt{L}}=\sqrt{L}\cdot\frac{\partial L}{\partial\dot{q}}\cdot\left(\frac{d}{dt}\frac{1}{\sqrt{L}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вывод:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{2}=\int\sqrt{\mu_{ij}\dot{q}^{i}\dot{q}^{j}}dt$
+\end_inset
+
+ -- исходный функционал, минимизирующий длину кривой на многообразии.
+ Инвариантен к репараметризации, т.е.
+ 
+\begin_inset Formula $\int\sqrt{\mu_{ij}q_{\tau}^{i}q_{\tau}^{j}}\frac{d\tau}{dt}dt=\int\sqrt{\mu_{ij}q_{\tau}^{i}q_{\tau}^{j}}d\tau$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{1}=\int\mu_{ij}q_{s}^{i}q_{s}^{j}ds$
+\end_inset
+
+ -- новый функционал.
+ Его минимум совпадает с минимумом 
+\begin_inset Formula $S_{2}$
+\end_inset
+
+ если 
+\begin_inset Formula $s$
+\end_inset
+
+ -- естественный параметр, т.е.
+ 
+\begin_inset Formula $s=\int\sqrt{\mu_{ij}\dot{q}^{i}\dot{q}^{j}}dt$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Существует 2 принципа наименьшего действия
+\end_layout
+
+\begin_layout Standard
+Принцип наименьшего действия Гамильтона: 
+\begin_inset Formula $S=\int_{t_{1}}^{t_{2}}L\left(q,\dot{q}\right)dt\to\min_{q(t)}$
+\end_inset
+
+ с фиксированными концами 
+\begin_inset Formula $q\left(t_{1}\right)=q_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $q\left(t_{2}\right)=q_{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Принцип наименьшего действия Мопертюи: 
+\begin_inset Formula $S_{0}=\sqrt{2}\int\sqrt{E-U\left(q\right)}ds\to\min_{q(t)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+справедлив только в случае, когда энергия в системе сохраняется.
+\end_layout
+
+\begin_layout Section
+Принцип наименьшего действия в метрике Якоби относительно естественного
+ параметра
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{0}=\int_{t_{1}}^{t_{2}}\sqrt{\mu\dot{q}^{i}\dot{q}^{j}}dt\to\min_{q\left(t\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S_{new}=\int_{s_{1}}^{s_{2}}\mu q_{s}^{i}q_{s}^{j}ds\to\min_{q\left(s\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu=\left(E-U\right)g$
+\end_inset
+
+ -- метрика Якоби
+\end_layout
+
+\begin_layout Section
+Минимизация функционала
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{a,b}\left(q\right)=\frac{1}{2}\int_{a}^{b}\mu_{ij}q_{s}^{i}q_{s}^{j}ds=\frac{1}{2}\int_{a}^{b}\mu\left(q_{s},q_{s}\right)ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu\left(v,w\right)=\left(E-U\left(q\right)\right)g\left(v,w\right)$
+\end_inset
+
+ -- метрика Якоби
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $df_{a,b}\left(q\right)X=\frac{1}{2}\frac{\partial}{\partial q}\int_{a}^{b}\mu\left(q_{s},q_{s}\right)ds=\frac{1}{2}\int_{a}^{b}\left[\frac{\partial}{\partial q}\mu\left(q_{s},q_{s}\right)\right]Xds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial q}\mu\left(q_{s},q_{s}\right)=\frac{\partial}{\partial q}\left(E-U\right)g_{ij}\dot{q}^{i}\dot{q}^{j}=-\frac{\partial U}{\partial q^{k}}g_{ij}\dot{q}^{i}\dot{q}^{j}+\left(E-U\right)\frac{\partial g_{ij}}{\partial q^{k}}\dot{q}^{i}\dot{q}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $df_{a,b}\left(q\right)=\frac{1}{2}\int_{a}^{b}-\frac{\partial U}{\partial q^{k}}g_{ij}\dot{q}^{i}\dot{q}^{j}+\left(E-U\right)\frac{\partial g_{ij}}{\partial q^{k}}\dot{q}^{i}\dot{q}^{j}ds=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\frac{1}{2}\int_{a}^{b}\frac{\partial U}{\partial q^{k}}g_{ij}\dot{q}^{i}\dot{q}^{j}ds+\frac{1}{2}\int_{a}^{b}\left(E-U\right)\frac{\partial g_{ij}}{\partial q^{k}}\dot{q}^{i}\dot{q}^{j}ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\nabla f\right)_{x}\cdot v=df_{x}\left(v\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial f}{\partial x^{i}}dx^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\end_body
+\end_document
