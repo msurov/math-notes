@@ -1,0 +1,890 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Голономный базис
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e_{i}=\frac{\partial}{\partial x^{i}}$
+\end_inset
+
+ -- базисные векторы на карте 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e^{i}=dx^{i}$
+\end_inset
+
+ -- базисные ковекторы на карте 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e_{i}e^{j}=\frac{\partial}{\partial x^{i}}dx^{j}=\delta_{i}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[e_{i},e_{j}\right]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[u,v\right]=\nabla_{u}v-\nabla_{v}u$
+\end_inset
+
+ -- скобка Ли
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[e_{i},e_{j}\right]=\nabla_{e_{i}}e_{j}-\nabla_{e_{j}}e_{i}=\Gamma_{ij}^{k}e_{k}-\Gamma_{ji}^{k}e_{k}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Связность
+\end_layout
+
+\begin_layout Standard
+Дифференциальный оператор 
+\begin_inset Formula $\nabla$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Градиент
+\end_layout
+
+\begin_layout Standard
+Во всех простых случаях работает как обычная частная производная
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla f=\frac{\partial f}{\partial x^{i}}e^{i}$
+\end_inset
+
+ -- градиент функции 
+\begin_inset Formula $f$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}f=\frac{\partial f}{\partial x^{i}}e^{i}v^{j}e_{j}=\frac{\partial f}{\partial x^{i}}v^{i}$
+\end_inset
+
+ -- производная функции 
+\begin_inset Formula $f$
+\end_inset
+
+ по направлению поля 
+\begin_inset Formula $v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v\cdot f=v^{j}e_{j}f=v^{j}\frac{\partial}{\partial x^{j}}f=\frac{\partial f}{\partial x^{i}}v^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{v}f=v\cdot f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Производная векторного поля по направлению
+\end_layout
+
+\begin_layout Standard
+Производная векторного поля 
+\begin_inset Formula $v$
+\end_inset
+
+ вдоль поля 
+\begin_inset Formula $u$
+\end_inset
+
+ -- 
+\begin_inset Formula $\nabla_{v}u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Накладываются те же самые требования:
+\end_layout
+
+\begin_layout Enumerate
+линейность по 
+\begin_inset Formula $v$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\nabla_{\alpha v+\beta w}f=\alpha\nabla_{v}f+\beta\nabla_{\beta w}f$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+производная сложной функции
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\left(fu\right)=\left(\nabla_{v}f\right)u+f\left(\nabla_{v}u\right)=\left(vf\right)g+f\left(\nabla_{v}u\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Вычисляем что получится в индексной форме в соответствии с этими правилами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=u^{i}e_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v=v^{i}e_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v^{i}e_{i}}u^{j}e_{j}=v^{i}\nabla_{e_{i}}u^{j}e_{j}=v^{i}e_{j}\underbrace{\nabla_{e_{i}}u^{j}}_{\left(1\right)}+v^{i}u^{j}\underbrace{\nabla_{e_{i}}e_{j}}_{\left(2\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Первое слагаемое 
+\begin_inset Formula $v^{i}e_{j}\nabla_{e_{i}}u^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\nabla_{e_{i}}u^{j}$
+\end_inset
+
+ -- производные по направлению векторного поля 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ от скалярной функции 
+\begin_inset Formula $u^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{e_{i}}u^{j}=\frac{\partial u^{j}}{\partial x^{k}}e^{k}\cdot\left(\delta_{i}^{l}e_{l}\right)=\frac{\partial u^{j}}{\partial x^{k}}\delta_{i}^{l}e^{k}e_{l}=\frac{\partial u^{j}}{\partial x^{k}}\delta_{i}^{l}\delta_{l}^{k}=\frac{\partial u^{j}}{\partial x^{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{e_{i}}u^{j}=\frac{\partial u^{j}}{\partial x^{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+или просто 
+\begin_inset Formula $\nabla_{i}u^{j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Второе слагаемое 
+\begin_inset Formula $v^{i}u^{j}\nabla_{e_{i}}e_{j}$
+\end_inset
+
+ обозначаем как
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\nabla_{e_{i}}e_{j}=\frac{\partial e_{j}}{\partial x^{i}}=\Gamma_{ij}^{k}e_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{e_{i}}e_{j}=\Gamma_{ij}^{k}e_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+В результате, получаем производную векторного поля 
+\begin_inset Formula $u$
+\end_inset
+
+ по направлению поля 
+\begin_inset Formula $v$
+\end_inset
+
+ в индексной форме:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{v}u=\nabla_{v^{i}e_{i}}u^{j}e_{j}=\frac{\partial u^{k}}{\partial x^{i}}v^{i}e_{k}+v^{i}u^{j}\Gamma_{ij}^{k}e_{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Производная ковекторного поля 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ вдоль векторного поля 
+\begin_inset Formula $v$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная считается довольно просто: 
+\begin_inset Formula $\nabla_{v}\left(\alpha\left(u\right)\right)=\left(\nabla_{v}\alpha\right)u+\alpha\nabla_{v}u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(\nabla_{v}\alpha\right)u=\nabla_{v}\left(\alpha\left(u\right)\right)-\alpha\left(\nabla_{v}u\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В координатной нотации чуть иначе:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\alpha=\nabla_{v^{i}e_{i}}\alpha_{j}e^{j}=v^{i}\nabla_{e_{i}}\alpha_{j}e^{j}=v^{i}\left(\nabla_{e_{i}}\alpha_{j}\right)e^{j}+v^{i}\alpha_{j}\nabla_{e_{i}}e^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v^{i}\left(\frac{\partial\alpha_{j}}{\partial x^{i}}\right)e^{j}+v^{i}\alpha_{j}\nabla_{e_{i}}e^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{e_{i}}e^{j}=-\Gamma_{ik}^{j}e^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v^{i}\left(\frac{\partial\alpha_{j}}{\partial x^{i}}\right)e^{j}-v^{i}\alpha_{j}\Gamma_{ik}^{j}e^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{v}\alpha=v^{i}\left(\frac{\partial\alpha_{k}}{\partial x^{i}}\right)e^{k}-v^{i}\alpha_{j}\Gamma_{ik}^{j}e^{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\alpha=v^{i}\left[\frac{\partial\alpha_{k}}{\partial x^{i}}-\alpha_{j}\Gamma_{ik}^{j}\right]e^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\alpha$
+\end_inset
+
+ -- 1-форма
+\end_layout
+
+\begin_layout Standard
+действует на вектор 
+\begin_inset Formula $u$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\nabla_{v}\alpha\right)u=v^{i}\left[\frac{\partial\alpha_{k}}{\partial x^{i}}-\alpha_{j}\Gamma_{ik}^{j}\right]e^{k}u^{n}e_{n}=v^{i}\left[\frac{\partial\alpha_{k}}{\partial x^{i}}-\alpha_{j}\Gamma_{ik}^{j}\right]u^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(\nabla_{v}\alpha\right)u=\frac{\partial\alpha_{k}}{\partial x^{i}}v^{i}u^{k}-v^{i}\alpha_{j}\Gamma_{ik}^{j}u^{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+вычисляем 
+\begin_inset Formula $\nabla_{v}\left(\alpha\left(u\right)\right)-\alpha\left(\nabla_{v}u\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha\left(\nabla_{v}u\right)=\frac{\partial u^{k}}{\partial x^{i}}v^{i}\alpha_{k}+v^{i}\alpha_{j}\Gamma_{ik}^{j}u^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\left(\alpha\left(u\right)\right)=\nabla_{v^{k}e_{k}}\alpha_{i}u^{i}=v^{k}\nabla_{e_{k}}\alpha_{i}u^{i}=v^{k}\frac{\partial}{\partial x^{k}}\alpha_{i}u^{i}=v^{k}\frac{\partial\alpha_{i}}{\partial x^{k}}u^{i}+v^{k}\alpha_{i}\frac{\partial u^{i}}{\partial x^{k}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\left(\alpha\left(u\right)\right)-\alpha\left(\nabla_{v}u\right)=v^{k}\frac{\partial\alpha_{i}}{\partial x^{k}}u^{i}-v^{i}\alpha_{j}\Gamma_{ik}^{j}u^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+и сравниваем с тем, что было:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\alpha_{k}}{\partial x^{i}}v^{i}u^{k}-v^{i}\alpha_{j}\Gamma_{ik}^{j}u^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Всё сходится:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\nabla_{v}\alpha\right)u=\nabla_{v}\left(\alpha\left(u\right)\right)-\alpha\nabla_{v}u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Геодезические
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{\dot{\gamma}}\dot{\gamma}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\gamma}^{i}\frac{\partial\dot{\gamma}^{k}}{\partial x^{i}}e_{k}+\dot{\gamma}^{i}\dot{\gamma}^{j}\Gamma_{ij}^{k}e_{k}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\dot{\gamma}^{i}\frac{\partial\dot{\gamma}^{k}}{\partial x^{i}}+\dot{\gamma}^{i}\dot{\gamma}^{j}\Gamma_{ij}^{k}\right]e_{k}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\gamma}^{i}\frac{\partial\dot{\gamma}^{k}}{\partial x^{i}}+\dot{\gamma}^{i}\dot{\gamma}^{j}\Gamma_{ij}^{k}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dt}\dot{\gamma}^{i}=\frac{\partial\dot{\gamma}^{i}}{\partial x^{j}}\dot{\gamma}^{j}=\ddot{\gamma}^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $\ddot{\gamma}^{k}+\Gamma_{ij}^{k}\dot{\gamma}^{i}\dot{\gamma}^{j}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla g=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Градиент свёртки
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu=\mu_{ij}e^{i}\otimes e^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u=u^{i}e_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu uu=\mu_{ij}u^{i}u^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\mu uu=\left(\nabla_{v}\mu u\right)u+\mu u\left(\nabla_{v}u\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f=\int\mu\left(u,u\right)d\tau$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{v}f=\int\nabla_{v}\mu\left(u,u\right)d\tau$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{v}\mu uu=\left(\nabla_{v}\mu u\right)u+\mu u\left(\nabla_{v}u\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\nabla_{v}\mu u\right)u=\frac{\partial\mu_{nk}u^{n}}{\partial x^{i}}v^{i}u^{k}-v^{i}u^{n}u^{k}\mu_{nj}\Gamma_{ik}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu u\left(\nabla_{v}u\right)=\mu_{ij}u^{j}e^{i}\left(\frac{\partial u^{k}}{\partial x^{i}}v^{i}e_{k}+v^{i}u^{j}\Gamma_{ij}^{k}e_{k}\right)=\frac{\partial u^{n}}{\partial x^{i}}\mu_{nm}v^{i}u^{m}+\mu_{nm}\Gamma_{ij}^{n}u^{m}u^{j}v^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\frac{\partial\mu_{nm}u^{n}}{\partial x^{i}}-\frac{\partial u^{n}}{\partial x^{i}}\mu_{nm}\right]v^{i}u^{m}-\left[v^{i}u^{n}u^{k}\mu_{nj}\Gamma_{ik}^{j}+\mu_{nm}\Gamma_{ij}^{n}u^{m}u^{j}v^{i}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\mu_{nm}u^{n}}{\partial x^{i}}=\frac{\partial\mu_{nm}}{\partial x^{i}}u^{n}+\mu_{nm}\frac{\partial u^{n}}{\partial x^{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[\frac{\partial\mu_{nm}}{\partial x^{i}}\right]u^{n}u^{m}v^{i}-\left[\Gamma_{nik}u^{n}+\Gamma_{lik}u^{l}\right]u^{k}v^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\end_body
+\end_document

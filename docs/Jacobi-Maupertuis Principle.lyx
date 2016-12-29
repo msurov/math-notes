@@ -719,42 +719,14 @@
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $f_{a,b}\left(q\right)=\frac{1}{2}\int_{a}^{b}\mu_{ij}q_{s}^{i}q_{s}^{j}ds=\frac{1}{2}\int_{a}^{b}\mu\left(q_{s},q_{s}\right)ds$
+\begin_inset Formula $f=\int_{a}^{b}\mu_{ij}\dot{q}^{i}\dot{q}^{j}d\tau$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\mu\left(v,w\right)=\left(E-U\left(q\right)\right)g\left(v,w\right)$
-\end_inset
-
- -- метрика Якоби
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $df_{a,b}\left(q\right)X=\frac{1}{2}\frac{\partial}{\partial q}\int_{a}^{b}\mu\left(q_{s},q_{s}\right)ds=\frac{1}{2}\int_{a}^{b}\left[\frac{\partial}{\partial q}\mu\left(q_{s},q_{s}\right)\right]Xds$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{\partial}{\partial q}\mu\left(q_{s},q_{s}\right)=\frac{\partial}{\partial q}\left(E-U\right)g_{ij}\dot{q}^{i}\dot{q}^{j}=-\frac{\partial U}{\partial q^{k}}g_{ij}\dot{q}^{i}\dot{q}^{j}+\left(E-U\right)\frac{\partial g_{ij}}{\partial q^{k}}\dot{q}^{i}\dot{q}^{j}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $df_{a,b}\left(q\right)=\frac{1}{2}\int_{a}^{b}-\frac{\partial U}{\partial q^{k}}g_{ij}\dot{q}^{i}\dot{q}^{j}+\left(E-U\right)\frac{\partial g_{ij}}{\partial q^{k}}\dot{q}^{i}\dot{q}^{j}ds=$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $-\frac{1}{2}\int_{a}^{b}\frac{\partial U}{\partial q^{k}}g_{ij}\dot{q}^{i}\dot{q}^{j}ds+\frac{1}{2}\int_{a}^{b}\left(E-U\right)\frac{\partial g_{ij}}{\partial q^{k}}\dot{q}^{i}\dot{q}^{j}ds$
+\begin_inset Formula $df-?$
 \end_inset
 
 
@@ -765,17 +737,100 @@
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\left(\nabla f\right)_{x}\cdot v=df_{x}\left(v\right)$
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu_{ij}dx^{i}dx^{j}\dot{\gamma}^{n}\frac{\partial}{\partial x^{n}}\dot{\gamma}^{m}\frac{\partial}{\partial x^{m}}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\frac{\partial f}{\partial x^{i}}dx^{i}$
+\begin_inset Formula $\mu_{ij}e^{i}\otimes e^{j}\cdot X^{n}X^{m}e_{n}\otimes e_{m}$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{V}\left[\mu_{ij}e^{i}\otimes e^{j}\cdot X^{n}X^{m}e_{n}\otimes e_{m}\right]=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
 \end_layout
 
 \begin_layout Standard
