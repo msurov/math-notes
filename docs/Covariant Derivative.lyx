@@ -655,6 +655,134 @@ status open
 \end_layout
 
 \begin_layout Section
+Производная векторного поля вдоль гладкой кривой
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $D_{t}u=\nabla_{\dot{\gamma}\left(t\right)}u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Параллельный перенос вектора вдоль кривой
+\end_layout
+
+\begin_layout Standard
+Пусть в точек 
+\begin_inset Formula $p\in\mathcal{M}$
+\end_inset
+
+ задан вектор 
+\begin_inset Formula $v_{p}$
+\end_inset
+
+.
+ Пусть через эту точку проходит кривая 
+\begin_inset Formula $\gamma\left(t\right)$
+\end_inset
+
+.
+ Вопрос: как переместить вектор 
+\begin_inset Formula $v_{p}$
+\end_inset
+
+ вдоль этой кривой?
+\end_layout
+
+\begin_layout Standard
+Нужно построить векторное поле 
+\begin_inset Formula $v$
+\end_inset
+
+, которое в точек 
+\begin_inset Formula $p$
+\end_inset
+
+ будет равно 
+\begin_inset Formula $v_{p}$
+\end_inset
+
+, и производная этого поля вдоль кривой 
+\begin_inset Formula $\gamma\left(t\right)$
+\end_inset
+
+ будет равна нулю (поле не меняется вдоль кривой):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v_{p}=v_{0}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{\dot{\gamma}\left(t\right)}v=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получаем систему уравнений:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial v^{k}}{\partial x^{i}}\dot{\gamma}^{i}+\Gamma_{ij}^{k}\dot{\gamma}^{i}v^{j}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dv^{k}}{dt}+\Gamma_{ij}^{k}\dot{\gamma}^{i}v^{j}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+при 
+\begin_inset Formula $v\left(0\right)=v_{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Это линейное нестационарное уравнение:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dv^{k}}{dt}=\left[-\Gamma_{ij}^{k}\left(\dot{\gamma}^{i}\left(t\right)\right)\dot{\gamma}^{i}\left(t\right)\right]v^{j}=A_{j}^{k}\left(t\right)\cdot v^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для такого уравнения существует фундаментальное решение, обозначается как
+ 
+\begin_inset Formula $\Gamma\left(\gamma\right)_{t_{1}}^{t_{2}}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v\left(t_{2}\right)=\Gamma\left(\gamma\right)_{t_{1}}^{t_{2}}\cdot v\left(t_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Геодезические
 \end_layout
 
@@ -719,8 +847,33 @@ status open
 
 \end_layout
 
+\begin_layout Section
+Связность Леви-Чивиты
+\end_layout
+
 \begin_layout Standard
+Требования:
+\end_layout
+
+\begin_layout Itemize
+Риманово многообразие с метрикой 
+\begin_inset Formula $g$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ковариантная производная метрического тензора равна нулю 
 \begin_inset Formula $\nabla g=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Отсутствие кручения 
+\begin_inset Formula $\nabla_{X}Y-\nabla_{Y}X-\left[X,Y\right]=0$
 \end_inset
 
 

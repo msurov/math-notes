@@ -68,36 +68,211 @@
 
 \begin_body
 
+\begin_layout Section
+Геодезический поток
+\end_layout
+
 \begin_layout Standard
-\begin_inset Formula $H=\frac{1}{2}g^{ij}p_{i}p_{j}$
+Есть векторное поле 
+\begin_inset Formula $V$
+\end_inset
+
+ на римановом многообразии 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+.
+ Это поле в каждой точке определяет начальные условия для соответствующей
+ геодезической 
+\begin_inset Formula $\gamma\left(s\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ddot{\gamma}^{k}+\Gamma_{ij}^{k}\dot{\gamma}^{i}\dot{\gamma}^{j}=0$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $Y=\dot{x}^{i}\frac{\partial}{\partial x^{i}}-\Gamma_{jk}^{i}\dot{x}^{j}\dot{x}^{k}\frac{\partial}{\partial\dot{x}^{i}}$
+\begin_inset Formula $\gamma_{p}\left(0\right)=p$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-где
-\end_layout
+\begin_inset Formula $\dot{\gamma}_{p}\left(0\right)=V_{p}$
+\end_inset
 
-\begin_layout Standard
-\begin_inset Formula $p^{i}=g^{ij}p_{j}=\dot{x}^{i}$
+ 
+\begin_inset Formula $\forall p\in\mathcal{M}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\dot{p}^{i}=-\Gamma_{jk}^{i}p^{j}p^{k}$
+То есть 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ -- касательный вектор к геодезической в точке 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Сдвигаем этот вектор 
+\begin_inset Formula $V_{p}$
+\end_inset
+
+ вдоль геодезической на 
+\begin_inset Formula $s$
+\end_inset
+
+, получаем новое векторное поле:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{s}\left(V\right):T\mathcal{M}\to T\mathcal{M}$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $G_{s}\left(V\right)$
+\end_inset
+
+ -- однопараметрическая группа диффеоморфизмов на 
+\begin_inset Formula $T\mathcal{M}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+В силу того, что геодезическая является аффинно параметризованной, длина
+ касательного к геодезической вектора постоянна (по определению аффинной
+ параметризации):
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $g\left(G_{s}\left(V\right),G_{s}\left(V\right)\right)=g\left(V,V\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Группа Ли:
+\end_layout
+
+\begin_layout Standard
+каждое 
+\begin_inset Formula $s\in\mathbb{R}$
+\end_inset
+
+ определяет элемент группы 
+\begin_inset Formula $G_{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+оператор умножения элементов -- последовательное действие двух операторов
+ 
+\begin_inset Formula $G_{s}\circ G_{r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+единичный элемент группы -- 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+обратный элемент группы -- 
+\begin_inset Formula $G_{-s}\circ G_{s}=G_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Скобка Ли
+\end_layout
+
+\begin_layout Standard
+Параллельный перенос вектора вдоль интегральных кривых одного поля, потом
+ вдоль другого:
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
 \end_layout
 
 \end_body
