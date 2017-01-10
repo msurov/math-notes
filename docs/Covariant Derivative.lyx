@@ -670,7 +670,7 @@ status open
 \end_layout
 
 \begin_layout Standard
-Пусть в точек 
+Пусть в точке 
 \begin_inset Formula $p\in\mathcal{M}$
 \end_inset
 
@@ -684,7 +684,7 @@ status open
 \end_inset
 
 .
- Вопрос: как переместить вектор 
+ Вопрос: как параллельно переместить вектор 
 \begin_inset Formula $v_{p}$
 \end_inset
 
@@ -696,7 +696,7 @@ status open
 \begin_inset Formula $v$
 \end_inset
 
-, которое в точек 
+, которое в точке 
 \begin_inset Formula $p$
 \end_inset
 
@@ -708,7 +708,7 @@ status open
 \begin_inset Formula $\gamma\left(t\right)$
 \end_inset
 
- будет равна нулю (поле не меняется вдоль кривой):
+ будет равна нулю:
 \end_layout
 
 \begin_layout Standard
