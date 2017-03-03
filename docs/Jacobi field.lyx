@@ -1,0 +1,859 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+Параллельный перенос
+\end_layout
+
+\begin_layout Standard
+Поле Якоби -- векторное поле 
+\begin_inset Formula $J$
+\end_inset
+
+ на геодезической 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, удовлетворяющее уравнению:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\dot{\gamma}}\nabla_{\dot{\gamma}}J+R\left(J,\dot{\gamma}\right)\dot{\gamma}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+По сути определяет вариацию в направлении 
+\begin_inset Quotes eld
+\end_inset
+
+ортогональном
+\begin_inset Quotes erd
+\end_inset
+
+ геодезической в малой её окрестности.
+\end_layout
+
+\begin_layout Subsection
+Построение ортонормированного базиса в окрестности геодезической
+\end_layout
+
+\begin_layout Standard
+Вспоминаем параллельный перенос вектора 
+\begin_inset Formula $v$
+\end_inset
+
+ вдоль кривой 
+\begin_inset Formula $\lambda$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\dot{\lambda}}v=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{d}{dt}v^{k}\left(t\right)+\Gamma_{ij}^{k}\dot{\lambda}^{j}\left(t\right)v^{i}\left(t\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В данном случае будем двигать поле 
+\begin_inset Formula $\upsilon$
+\end_inset
+
+ вдоль геодезической 
+\begin_inset Formula $\gamma$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla_{\dot{\gamma}}\upsilon=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{d}{dt}\upsilon^{k}\left(t\right)+\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)\upsilon^{i}\left(t\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получаем систему из 
+\begin_inset Formula $n$
+\end_inset
+
+ линейных однородных нестационарных уравнений первого порядка:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d}{dt}\upsilon=\underbrace{-\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)}_{A\left(t\right)}\upsilon^{i}\left(t\right)=A\left(t\right)\upsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Её решение записывается через матричную экспоненту:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\upsilon\left(t\right)=\exp\left(A\left(t\right)t\right)\upsilon_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пусть теперь задан ортонормированный набор 
+\begin_inset Formula $n$
+\end_inset
+
+ векторов в точке 
+\begin_inset Formula $\gamma\left(0\right)$
+\end_inset
+
+: 
+\begin_inset Formula $\left\{ \upsilon_{n}\left(0\right)\right\} $
+\end_inset
+
+, пусть 
+\begin_inset Formula $\dot{\gamma}\left(0\right)=\upsilon_{1}\left(0\right)$
+\end_inset
+
+.
+ Применим к этим векторам параллельный перенос вдоль 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, получим ортонормированный базис 
+\begin_inset Formula $E=\left\{ \upsilon_{n}\left(t\right)\right\} $
+\end_inset
+
+ вдоль 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Поиск поля Якоби
+\end_layout
+
+\begin_layout Standard
+Разложим поле Якоби по базису 
+\begin_inset Formula $E$
+\end_inset
+
+: 
+\begin_inset Formula $J^{k}=y^{n}\left(t\right)\upsilon_{n}^{k}\left(t\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Вычислим 
+\begin_inset Formula $\nabla_{\dot{\gamma}}J$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{\dot{\gamma}}J=\nabla_{\dot{\gamma}}y^{n}\upsilon_{n}^{k}=\underbrace{\left(\nabla_{\dot{\gamma}}y^{n}\right)}_{=\frac{dy^{n}}{dt}}\upsilon_{n}^{k}+y^{n}\underbrace{\left(\nabla_{\dot{\gamma}}\upsilon_{n}^{k}\right)}_{=0}=\frac{dy^{n}}{dt}\upsilon_{n}^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+второе равно нулю по определению базиса 
+\begin_inset Formula $\upsilon_{n}^{k}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Standard
+первое -- производная функции 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ вдоль кривой 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, а это по определению 
+\begin_inset Formula $\frac{y^{n}\left(t\right)}{dt}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+То же самое в компонентной форме:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{\dot{\gamma}}J=\frac{d}{dt}J^{k}\left(t\right)+\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)J^{i}\left(t\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{d}{dt}y^{n}\left(t\right)\upsilon_{n}^{k}\left(t\right)+\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)y^{n}\left(t\right)\upsilon_{n}^{i}\left(t\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{dy^{n}\left(t\right)}{dt}\upsilon_{n}^{k}\left(t\right)+y^{n}\left(t\right)\frac{d\upsilon_{n}^{k}\left(t\right)}{dt}+\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)y^{n}\left(t\right)\upsilon_{n}^{i}\left(t\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{dy^{n}\left(t\right)}{dt}\upsilon_{n}^{k}\left(t\right)+y^{n}\left(t\right)\underbrace{\left[\frac{d\upsilon_{n}^{k}\left(t\right)}{dt}+\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)\upsilon_{n}^{i}\left(t\right)\right]}_{=0}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{dy^{n}\left(t\right)}{dt}\upsilon_{n}^{k}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nabla_{\dot{\gamma}}J=\frac{dy^{n}\left(t\right)}{dt}\upsilon_{n}^{k}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вычислим аналогично 
+\begin_inset Formula $\nabla_{\dot{\gamma}}\nabla_{\dot{\gamma}}J$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\nabla_{\dot{\gamma}}\frac{dy^{n}}{dt}\upsilon_{n}^{k}=\underbrace{\left(\nabla_{\dot{\gamma}}\frac{dy^{n}}{dt}\right)}_{=\frac{d^{2}y^{n}}{dt^{2}}}\upsilon_{n}^{k}+\frac{dy^{n}}{dt}\underbrace{\left(\nabla_{\dot{\gamma}}\upsilon_{n}^{k}\right)}_{=0}=\frac{d^{2}y^{n}}{dt^{2}}\upsilon_{n}^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+получим
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d^{2}y^{n}}{dt^{2}}\upsilon_{n}^{k}+R_{pq}y^{n}\upsilon_{n}^{p}\dot{\gamma}^{q}\dot{\gamma}^{k}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+В итоге получаем систему 
+\begin_inset Formula $n$
+\end_inset
+
+ линейных однородных нестационарных дифференциальных уравнений второго порядка:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\upsilon_{n}^{k}\cdot\frac{d^{2}y^{n}}{dt^{2}}+\left(R_{pq}\upsilon_{n}^{p}\dot{\gamma}^{q}\dot{\gamma}^{k}\right)y^{n}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{d^{2}y^{i}}{dt^{2}}+P_{k}^{i}\left(t\right)y^{k}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\gamma}\left(t\right)=\frac{d}{dt}\gamma\left(t\right)$
+\end_inset
+
+ -- производная геодезической;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\upsilon_{n}\left(t\right)=\exp\left\{ -\Gamma_{ij}^{k}\dot{\gamma}^{j}\left(t\right)t\right\} \upsilon_{n}\left(0\right)$
+\end_inset
+
+ -- 
+\begin_inset Formula $n$
+\end_inset
+
+-й элемент ортонормированного базиса к геодезической (получается из матричной
+ экспоненты);
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\left(\cdot,\cdot\right)$
+\end_inset
+
+ -- тензор Риччи;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y\left(t\right)$
+\end_inset
+
+ -- коэффициенты разложения поля Якоби по базису 
+\begin_inset Formula $\left\{ \upsilon_{n}\left(t\right)\right\} $
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{k}^{i}\left(t\right)=...$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Геодезические
+\end_layout
+
+\begin_layout Standard
+Геодезическая минимизирует функционал 
+\begin_inset Formula $E\left(\gamma\right)=\frac{1}{2}\int_{t_{1}}^{t_{2}}\left\Vert \dot{\gamma}\left(t\right)\right\Vert ^{2}dt$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Между точками 
+\begin_inset Formula $p$
+\end_inset
+
+ и 
+\begin_inset Formula $q\in\mathcal{M}$
+\end_inset
+
+ задана геодезическая 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ Рассматриваем малую окрестность этой геодезической -- множество кривых,
+ с теми же концами.
+ Обозначим это множество 
+\begin_inset Formula $\Omega\left(\mathcal{M},p,q\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Пусть задана функция 
+\begin_inset Formula $\alpha\left(u,t\right):\left(-\epsilon,\epsilon\right)\times\mathbb{R}\to\mathcal{M}$
+\end_inset
+
+, которая обладает следующими свойствами:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\left(0,t\right)=\gamma\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\left(u,0\right)=\gamma\left(0\right)=p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\left(u,1\right)=\gamma\left(1\right)=q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Эта функция -- вариация геодезической 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ по параметру 
+\begin_inset Formula $u$
+\end_inset
+
+.
+ Она задаёт векторное поле: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X\left(t\right)=\frac{\partial\alpha}{\partial u}|_{u=0,t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E\left(\alpha\left(u\right)\right)=\frac{1}{2}\int_{t_{1}}^{t_{2}}\left\Vert \frac{\partial\alpha\left(u,t\right)}{\partial t}\right\Vert ^{2}dt$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Производная 
+\begin_inset Formula $\frac{1}{2}\frac{dE\left(\alpha\left(u\right)\right)}{du}|_{u=0}=-\int_{0}^{1}\left\langle v\left(t\right),a\left(t\right)\right\rangle g\left(t\right)dt$
+\end_inset
+
+, где 
+\begin_inset Formula $a\left(t\right)=\nabla_{\dot{\gamma}}\dot{\gamma}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Сопряжённые точки 
+\end_layout
+
+\begin_layout Standard
+Пусть есть частное ненулевое решение уравнения Якоби 
+\begin_inset Formula $J\left(t\right)$
+\end_inset
+
+.
+ Пусть для каких-то 
+\begin_inset Formula $0\leq t_{1}<t_{2}\leq1$
+\end_inset
+
+ выполняется 
+\begin_inset Formula $J\left(t_{1}\right)=0$
+\end_inset
+
+, 
+\begin_inset Formula $J\left(t_{2}\right)=0$
+\end_inset
+
+.
+ Тогда точки 
+\begin_inset Formula $A=\gamma\left(t_{1}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $B=\gamma\left(t_{2}\right)$
+\end_inset
+
+ называются 
+\series bold
+сопряжёнными
+\series default
+ вдоль геодезической 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Определим ядро функционала гессиана 
+\begin_inset Formula $d^{2}E$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W=\left\{ J\in T_{\gamma}\Omega\,|\,d^{2}E\left(J,\forall J_{2}\right)=0\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+иначе говоря, 
+\begin_inset Formula $W$
+\end_inset
+
+ -- множество всех векторов 
+\begin_inset Formula $J$
+\end_inset
+
+, для которых форма 
+\begin_inset Formula $d^{2}E\left(J,\cdot\right)$
+\end_inset
+
+ является вырожденной.
+ Степенью 
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+Есть геодезическая 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ Рассмотрим вариацию этой гедезической вдоль 2-х направлений -- 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+ и 
+\begin_inset Formula $u_{2}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $u_{1}=u_{1}\left(t\right)$
+\end_inset
+
+ и 
+\begin_inset Formula $u_{2}=u_{2}\left(t\right)$
+\end_inset
+
+ -- это векторные поля ортогональные кривой 
+\begin_inset Formula $\gamma\left(t\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename geodesic_variation.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Варьированная кривая -- 
+\begin_inset Formula $\alpha\left(u_{1},u_{2},t\right)=\gamma\left(t\right)+...$
+\end_inset
+
+ обладает свойствами:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\left(0,0,t\right)=\gamma\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{\partial\alpha}{\partial u_{1}}\left(0,0,t\right)=u_{1}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{\partial\alpha}{\partial u_{2}}\left(0,0,t\right)=u_{2}\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Далее, функционал 
+\begin_inset Formula $E$
+\end_inset
+
+ можно посчитать от любой кривой, концы которой 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J$
+\end_inset
+
+ -- Якобиево Поле, причём 
+\begin_inset Formula $J_{p}=J_{q}=0$
+\end_inset
+
+.
+ Тогда 
+\begin_inset Formula $d^{2}E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+.
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\begin_layout Standard
+/
+\end_layout
+
+\end_body
+\end_document

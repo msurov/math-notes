@@ -1,0 +1,241 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Группа Ли:
+\end_layout
+
+\begin_layout Subsection
+Однопараметрическая группа диффеоморфизмов, Группа Ли.
+\end_layout
+
+\begin_layout Standard
+Есть векторное поле 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ В каждой точке (в её малой окрестности) это поле локально определяет решение
+ дифференциального уравнения, интегральную кривую.
+ Пусть из точки 
+\begin_inset Formula $p\in\mathcal{M}$
+\end_inset
+
+ выходит интегральная кривая кривая 
+\begin_inset Formula $\gamma_{p}:\mathbb{R}\to\mathcal{M}$
+\end_inset
+
+: 
+\begin_inset Formula $\gamma_{p}\left(0\right)=p$
+\end_inset
+
+, 
+\begin_inset Formula $\dot{\gamma}_{p}\left(0\right)=X_{p}$
+\end_inset
+
+.
+ В силу теоремы о единственности решения, эти кривые в малой окрестности
+ однозначно определены для каждой точки 
+\begin_inset Formula $p\in\mathcal{M}$
+\end_inset
+
+.
+ Единственное, нужно потребовать, чтобы кривые не уходили за границу 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+, т.е.
+ чтобы поле на 
+\begin_inset Formula $\partial\mathcal{M}$
+\end_inset
+
+ равнялось нулю.
+ Теперь мы каждую точку 
+\begin_inset Formula $p$
+\end_inset
+
+ из 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ двигаем вдоль соответствующей кривой 
+\begin_inset Formula $\gamma_{p}$
+\end_inset
+
+ на расстояние 
+\begin_inset Formula $s$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{s}:\,p\mapsto\gamma_{p}\left(s\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G_{s}$
+\end_inset
+
+ -- однопараметрическая группа диффеоморфизмов.
+ 
+\end_layout
+
+\begin_layout Standard
+Каждое число 
+\begin_inset Formula $s\in\left(-\epsilon,\epsilon\right)\subset\mathbb{R}$
+\end_inset
+
+ определяет элемент этой группы 
+\begin_inset Formula $G_{s}$
+\end_inset
+
+.
+ Таким образом, существует однозначное отображение 
+\begin_inset Formula $\mathbb{R}\to G_{s}$
+\end_inset
+
+, значит 
+\begin_inset Formula $G$
+\end_inset
+
+ -- одномерное многообразие.
+\end_layout
+
+\begin_layout Standard
+Для каждого сдвига 
+\begin_inset Formula $G_{s}$
+\end_inset
+
+ найдётся сдвиг 
+\begin_inset Formula $G_{-s}$
+\end_inset
+
+: 
+\begin_inset Formula $G_{-s}\circ G_{s}=id$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тождественное отображение 
+\begin_inset Formula $G_{0}:\,\mathcal{M}\to\mathcal{M}$
+\end_inset
+
+.
+ Значит множество 
+\begin_inset Formula $G$
+\end_inset
+
+ -- группа.
+\end_layout
+
+\begin_layout Standard
+Итог: векторное поле 
+\begin_inset Formula $X$
+\end_inset
+
+ определяет множество сдвигов 
+\begin_inset Formula $G$
+\end_inset
+
+ на многообразии 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+.
+ Это множество само является многообразием и вместе с тем является группой.
+ 
+\end_layout
+
+\begin_layout Standard
+Многообразие, элементы которого удовлетворяют групповым свойствам, называется
+ 
+\series bold
+группой Ли
+\series default
+.
+\end_layout
+
+\begin_layout Section
+Скобка Ли
+\end_layout
+
+\begin_layout Standard
+Параллельный перенос вектора вдоль интегральных кривых одного поля, потом
+ вдоль другого:
+\end_layout
+
+\end_body
+\end_document
