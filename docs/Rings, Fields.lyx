@@ -67,7 +67,7 @@ figs-within-sections
 \color #008000
 \end_index
 \leftmargin 2cm
-\topmargin 1cm
+\topmargin 2cm
 \rightmargin 1cm
 \bottommargin 2cm
 \headheight 1cm
@@ -186,7 +186,49 @@ figs-within-sections
 \end_inset
 
 .
- 
+ Пусть есть 2 поля 
+\begin_inset Formula $P\subset K$
+\end_inset
+
+.
+ Автоморфизм -- поле 
+\begin_inset Formula $\psi:$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\psi\left(x\right)=x$
+\end_inset
+
+, 
+\begin_inset Formula $\forall x\in P$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\psi\left(x\pm y\right)=\psi\left(x\right)\pm\psi\left(y\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\forall x,y\in K$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\psi\left(xy\right)=\psi\left(x\right)\psi\left(y\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\forall x,y\in K$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example
@@ -791,6 +833,165 @@ a & 2c & ab
 
 .
  Неалгебраические числа -- трансцендентные числа.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Группа -- непустое множество 
+\begin_inset Formula $G$
+\end_inset
+
+ с действующим над ним билинейным оператором 
+\begin_inset Formula $\circ$
+\end_inset
+
+, единичным элементом 
+\begin_inset Formula $e$
+\end_inset
+
+, обладающими следующими свойствами:
+\end_layout
+
+\begin_layout Itemize
+билинейный оператор 
+\begin_inset Formula $\circ$
+\end_inset
+
+: 
+\begin_inset Formula $G\times G\to G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+ассоциативность 
+\begin_inset Formula $\left(g_{1}\circ g_{2}\right)\circ g_{3}=g_{1}\circ\left(g_{2}\circ g_{3}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+существует единичный элемент 
+\begin_inset Formula $g\circ e=e\circ g=g$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+для любого элемента существует обратный 
+\begin_inset Formula $\forall g\in G$
+\end_inset
+
+: 
+\begin_inset Formula $\exists g^{-1}\in G:$
+\end_inset
+
+ 
+\begin_inset Formula $g\circ g^{-1}=g^{-1}\circ g=e$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Группа
+\begin_inset space ~
+\end_inset
+
+автоморфизмов -- множество всех автоморфизмов 
+\begin_inset Formula $P/K$
+\end_inset
+
+ (поля 
+\begin_inset Formula $P$
+\end_inset
+
+ над полем 
+\begin_inset Formula $K$
+\end_inset
+
+), т.е.
+ множество всех отображения 
+\begin_inset Formula $\psi:P\to P$
+\end_inset
+
+, сохраняющих все элементы из поля 
+\begin_inset Formula $K$
+\end_inset
+
+, т.е.
+ 
+\begin_inset Formula $\psi|_{K}=id$
+\end_inset
+
+ и коммутирующих с операциями 
+\begin_inset Formula $+,-,\cdot,/$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "80line%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+Рассмотрим какой-нибудь автоморфизм 
+\begin_inset Formula $\psi$
+\end_inset
+
+ поля 
+\begin_inset Formula $\mathbb{Q}\left[\sqrt[3]{2}\right]$
+\end_inset
+
+ над полем 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+По определению, 
+\begin_inset Formula $\psi\left(q\right)=q$
+\end_inset
+
+ 
+\begin_inset Formula $\forall q\in\mathbb{Q}$
+\end_inset
+
+.
+ Вычислим 
+\begin_inset Formula $b^{3}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $b^{3}=\psi\left(\sqrt[3]{2}\right)^{3}=\psi\left(\sqrt[3]{2}\right)\cdot\psi\left(\sqrt[3]{2}\right)\cdot\psi\left(\sqrt[3]{2}\right)=\psi\left(\sqrt[3]{2}\cdot\sqrt[3]{2}\cdot\sqrt[3]{2}\right)=\psi\left(2\right)=2$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Labeling
