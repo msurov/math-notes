@@ -1,0 +1,785 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Производная комплексной функции
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{df}{dz}=\lim_{\Delta z\to0}\frac{f\left(z+\Delta z\right)-f\left(z\right)}{\Delta z}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Предел последовательности
+\end_layout
+
+\begin_layout Standard
+Запись 
+\begin_inset Formula $\lim_{\Delta z\to0}p\left(\Delta z\right)$
+\end_inset
+
+ означает
+\end_layout
+
+\begin_layout Enumerate
+выбираем произвольную последовательность комплексных чисел 
+\begin_inset Formula $Z=\left\{ \Delta z_{1},\Delta z_{2},\ldots\right\} $
+\end_inset
+
+, предел которой равен 
+\begin_inset Formula $0$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+вычисляем функцию 
+\begin_inset Formula $p$
+\end_inset
+
+ от каждого элемента этой последовательности -- получаем другую последовательнос
+ть 
+\begin_inset Formula $P=\left\{ p\left(\Delta z_{1}\right),p\left(\Delta z_{2}\right),\ldots\right\} $
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+если предел последовательности 
+\begin_inset Formula $P$
+\end_inset
+
+ не зависит от того, каким именно образом мы составили последовательность
+ 
+\begin_inset Formula $Z$
+\end_inset
+
+, то предел 
+\begin_inset Formula $\lim_{\Delta z\to0}p\left(\Delta z\right)$
+\end_inset
+
+ существует.
+\end_layout
+
+\begin_layout Standard
+Для комплексных чисел данное замечание является существенным, т.к.
+ последовательность 
+\begin_inset Formula $Z$
+\end_inset
+
+ может быть 
+\begin_inset Formula $Z_{1}=\left\{ \Delta x_{1}+i\cdot0,\Delta x_{2}+i\cdot0,\ldots\right\} $
+\end_inset
+
+, а может быть 
+\begin_inset Formula $Z_{2}=\left\{ i\cdot\Delta y_{1},i\cdot\Delta y_{1},\ldots\right\} $
+\end_inset
+
+ и в обоих случаях последовательность 
+\begin_inset Formula $P=\left\{ p\left(\Delta z_{1}\right),p\left(\Delta z_{2}\right),\ldots\right\} $
+\end_inset
+
+ должна сходиться к одному и тому же значению.
+ Это очень сильное условие.
+\end_layout
+
+\begin_layout Standard
+Если для функции 
+\begin_inset Formula $f$
+\end_inset
+
+ предел 
+\begin_inset Formula $\lim_{\Delta z\to0}\frac{f\left(z+\Delta z\right)-f\left(z\right)}{\Delta z}$
+\end_inset
+
+ существует, то она называется 
+\series bold
+аналитической
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(z\right)=f\left(x,y\right)=u\left(x,y\right)+iv\left(x,y\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{df}{dz}=\lim_{\Delta z\to0}\frac{u\left(z+\Delta z\right)-u\left(z\right)}{\Delta z}+i\lim_{\Delta z\to0}\frac{v\left(z+\Delta z\right)-v\left(z\right)}{\Delta z}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выберем 
+\begin_inset Formula $Z_{1}=\left\{ \Delta x_{1}+i\cdot0,\Delta x_{2}+i\cdot0,\ldots\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{df}{dz}=\lim_{\Delta x\to0}\frac{f\left(x+\Delta x,y\right)-f\left(x,y\right)}{\Delta x}=\frac{\partial f}{\partial x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+с другой стороны 
+\begin_inset Formula $Z_{2}=\left\{ i\cdot\Delta y_{1},i\cdot\Delta y_{1},\ldots\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{df}{dz}=\lim_{i\Delta y\to0}\frac{f\left(x,y+\Delta y\right)-f\left(x,y\right)}{i\Delta y}=-i\frac{\partial f}{\partial y}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+то есть:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial f}{\partial x}=-i\frac{\partial f}{\partial y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Условие Коши-Римана
+\series default
+: 
+\end_layout
+
+\begin_layout Section*
+Интеграл по комплексной кривой
+\end_layout
+
+\begin_layout Standard
+Есть косплексная кривая 
+\begin_inset Formula $\Gamma:\mathbb{R}\to\mathbb{C}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Разбиваем кривую 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ точками 
+\begin_inset Formula $\zeta_{0},\zeta_{1},\zeta_{2},...,\zeta_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Отрезок между соседними точками 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\Delta\zeta_{i}=\zeta_{i}-\zeta_{i-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\zeta_{i}^{*}$
+\end_inset
+
+ -- произвольная точка отрезка 
+\begin_inset Formula $\Delta\zeta_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Интеграл -- это предел
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{\Gamma}f\left(\zeta\right)d\zeta=\lim_{\max_{j}\left|\Delta\zeta_{j}\right|\to0}\sum_{i=1}^{n}f\left(\zeta_{i}^{*}\right)\Delta\zeta_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Опять же, предел не зависит от способа разбиаения и выбора 
+\begin_inset Formula $\zeta_{i}^{*}$
+\end_inset
+
+, то интеграл существует.
+\end_layout
+
+\begin_layout Standard
+Отрезки 
+\begin_inset Formula $\Delta\zeta_{i}$
+\end_inset
+
+ на комплексной плоскости имеют компоненты 
+\begin_inset Formula $\Delta\zeta_{i}=\Delta\xi_{i}+i\Delta\eta_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+А функция 
+\begin_inset Formula $f\left(z\right)=u\left(z\right)+iv\left(z\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{\Gamma}f\left(\zeta\right)d\zeta=\lim_{\max_{j}\sqrt{\Delta\xi_{j}^{2}+\Delta\eta_{j}^{2}}\to0}\sum_{i=1}^{n}u\left(\zeta_{i}^{*}\right)\Delta\xi_{i}-v\left(\zeta_{i}^{*}\right)\Delta\eta_{i}+iv\left(\zeta_{i}^{*}\right)\Delta\xi_{i}+iu\left(\zeta_{i}^{*}\right)\Delta\eta_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\int_{\Gamma}f\left(\zeta\right)d\zeta=\int_{\Gamma}u\left(\xi,\eta\right)d\xi-v\left(\xi,\eta\right)d\eta+i\int_{\Gamma}v\left(\xi,\eta\right)d\xi+u\left(\xi,\eta\right)d\eta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Таким образом 
+\begin_inset Formula $\int_{\Gamma}f\left(\zeta\right)d\zeta$
+\end_inset
+
+ -- криволинейный интеграл второго рода
+\end_layout
+
+\begin_layout Subsection*
+Если контур 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ замкнут
+\end_layout
+
+\begin_layout Standard
+если 
+\begin_inset Formula $u$
+\end_inset
+
+ и 
+\begin_inset Formula $v$
+\end_inset
+
+ непрерывны, то 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{\Gamma}u\left(\xi,\eta\right)d\xi-v\left(\xi,\eta\right)d\eta=-\int\int_{\mathcal{J}}\left(\frac{\partial u}{\partial\eta}+\frac{\partial v}{\partial\xi}\right)d\xi d\eta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{\Gamma}v\left(\xi,\eta\right)d\xi+u\left(\xi,\eta\right)d\eta=\int\int_{\mathcal{J}}\left(\frac{\partial u}{\partial\xi}-\frac{\partial v}{\partial\eta}\right)d\xi d\eta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+отсюда
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\int_{\Gamma}f\left(\zeta\right)d\zeta=-\int\int_{\mathcal{J}}\left(\frac{\partial u}{\partial\eta}+\frac{\partial v}{\partial\xi}\right)d\xi d\eta+i\int\int_{\mathcal{J}}\left(\frac{\partial u}{\partial\xi}-\frac{\partial v}{\partial\eta}\right)d\xi d\eta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\int_{\Gamma}f\left(\zeta\right)d\zeta=\int\int_{\mathcal{J}}\left(-\frac{\partial u}{\partial\eta}-\frac{\partial v}{\partial\xi}+i\frac{\partial u}{\partial\xi}-i\frac{\partial v}{\partial\eta}\right)d\xi d\eta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+если функция 
+\begin_inset Formula $f$
+\end_inset
+
+ аналитическая, то имеет место условие Коши-Римана: 
+\begin_inset Formula $\frac{\partial u}{\partial\xi}+i\frac{\partial v}{\partial\xi}=\frac{\partial v}{\partial\eta}-i\frac{\partial u}{\partial\eta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или 
+\begin_inset Formula $i\frac{\partial u}{\partial\xi}-\frac{\partial v}{\partial\xi}-i\frac{\partial v}{\partial\eta}-\frac{\partial u}{\partial\eta}=0$
+\end_inset
+
+.
+ Сравниваем с тем, что стоит под интегралом:
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $-\frac{\partial u}{\partial\eta}-\frac{\partial v}{\partial\xi}+i\frac{\partial u}{\partial\xi}-i\frac{\partial v}{\partial\eta}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Получается, что если 
+\begin_inset Formula $f$
+\end_inset
+
+ являестя аналитической во всей области 
+\begin_inset Formula $\mathcal{J}$
+\end_inset
+
+, окружённой контуром 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+, то 
+\begin_inset Formula $\int_{\Gamma}f\left(\zeta\right)d\zeta=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Формула Коши
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2\pi i}\int_{\Gamma}\frac{f\left(\zeta\right)}{\zeta-z_{0}}d\zeta=\begin{cases}
+f\left(z_{0}\right) & z_{0}\mbox{inside}\Gamma\\
+0 & z_{0}\mbox{outside}\Gamma
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f$
+\end_inset
+
+ -- аналитическая функция
+\end_layout
+
+\begin_layout Standard
+Рассмотрим произвольную аналитическую в области 
+\begin_inset Formula $D$
+\end_inset
+
+ функцию 
+\begin_inset Formula $f$
+\end_inset
+
+, опишем в 
+\begin_inset Formula $D$
+\end_inset
+
+ контур радиуса 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+ вокруг точки 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+.
+ Контур можно задать параметрически 
+\begin_inset Formula $\Gamma:$
+\end_inset
+
+ 
+\begin_inset Formula $\phi\mapsto z_{0}+R_{0}e^{i\phi}$
+\end_inset
+
+.
+ Вычислим интеграл
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\int_{\Gamma}\frac{f\left(\zeta\right)}{\zeta-z_{0}}d\zeta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+сделаем замену переменной 
+\begin_inset Formula $\zeta\mapsto\phi$
+\end_inset
+
+, 
+\begin_inset Formula $d\zeta=iR_{0}e^{i\phi}d\phi$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{\Gamma}\frac{f\left(\zeta\right)}{\zeta-z_{0}}d\zeta=\int_{0}^{2\pi}\frac{f\left(z_{0}+R_{0}e^{i\phi}\right)}{z_{0}+R_{0}e^{i\phi}-z_{0}}iR_{0}e^{i\phi}d\phi=i\int_{0}^{2\pi}f\left(z_{0}+R_{0}e^{i\phi}\right)d\phi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(z_{0}\right)=\frac{1}{2\pi i}\int_{\Gamma}\frac{f\left(\zeta\right)}{\zeta-z_{0}}d\zeta=\frac{1}{2\pi}\int_{0}^{2\pi}f\left(z_{0}+R_{0}e^{i\phi}\right)d\phi=\frac{1}{2\pi R_{0}}\int_{0}^{2\pi}f\left(\zeta\right)R_{0}d\phi=\frac{1}{2\pi R_{0}}\int_{0}^{2\pi}f\left(\zeta\right)ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(z_{0}\right)=\frac{1}{2\pi R_{0}}\int_{0}^{2\pi}f\left(\zeta\right)ds$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Интеграл, зависящий от параметра
+\end_layout
+
+\begin_layout Standard
+По формуле Коши, значение аналитической функции в точке 
+\begin_inset Formula $z$
+\end_inset
+
+, находящейся внутри контура 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ можно вычислить по формуле
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(z\right)=\frac{1}{2\pi i}\int_{\Gamma}\frac{f\left(\zeta\right)}{\zeta-z}d\zeta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{df}{dz}=\frac{1}{2\pi i}\int_{\Gamma}\frac{\partial}{\partial z}\frac{f\left(\zeta\right)}{\zeta-z}d\zeta=\frac{1}{2\pi i}\int_{\Gamma}\frac{f\left(\zeta\right)}{\left(\zeta-z\right)^{2}}d\zeta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
