@@ -82,35 +82,84 @@
 \end_inset
 
 .
- Требуем, чтобы касательный к кривой вектор был ортогонален векторному полю
+ Требуем, чтобы касательный к кривой вектор был ортогонален изменению поля
  
 \begin_inset Formula $v$
 \end_inset
 
-.
+, то есть производная поля 
+\begin_inset Formula $v$
+\end_inset
+
+ по направлению 
+\begin_inset Formula $\dot{\lambda}$
+\end_inset
+
+ была равна нулю:
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\nabla_{\dot{\lambda}\left(t\right)}v=0$
+\begin_inset Formula $\nabla_{\dot{\lambda}}v=0$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Comment
+status collapsed
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
-\begin_inset Formula $\dot{\lambda}^{i}\frac{\partial v^{k}}{\partial x^{i}}e_{k}+\Gamma_{ij}^{k}\dot{\lambda}^{j}v^{i}e_{k}=0$
+\begin_layout Plain Layout
+вспоминаем, что 
+\begin_inset Formula $v=v^{k}e_{k}$
+\end_inset
+
+; тогда
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\partial v^{k}e_{k}}{\partial x^{i}}=\frac{\partial v^{k}}{\partial x^{i}}+v^{k}\frac{\partial e_{k}}{\partial x^{i}}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{\partial v^{k}e_{k}}{\partial x^{i}}=\frac{\partial v^{k}}{\partial x^{i}}+\Gamma_{ik}^{j}e_{j}v^{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+по определению 
+\begin_inset Formula $\frac{\partial e_{k}}{\partial x^{i}}=\Gamma_{ik}^{j}e_{j}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\lambda}^{i}\left(\frac{\partial v^{k}e_{k}}{\partial x^{i}}\right)=\dot{\lambda}^{i}\left(\frac{\partial v^{k}}{\partial x^{i}}e_{k}+v^{k}\Gamma_{ik}^{j}e_{j}\right)=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial v^{k}}{\partial x^{i}}\dot{\lambda}^{i}e_{k}+\Gamma_{is}^{k}v^{s}\dot{\lambda}^{i}e_{k}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial v^{k}}{\partial x^{i}}\dot{\lambda}^{i}+\Gamma_{is}^{k}v^{s}\dot{\lambda}^{i}=0$
 \end_inset
 
 
@@ -303,7 +352,7 @@ status open
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\upsilon\left(t\right)=\exp\left(A\left(t\right)t\right)\upsilon_{0}
+\upsilon\left(t\right)=\exp\left\{ \int_{0}^{t}A\left(v\right)dv\right\} \upsilon_{0}
 \]
 
 \end_inset

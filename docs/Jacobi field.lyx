@@ -229,7 +229,7 @@
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\upsilon\left(t\right)=\exp\left(A\left(t\right)t\right)\upsilon_{0}
+\upsilon\left(t\right)=\exp\left(\int_{0}^{t}A\left(w\right)dw\right)\upsilon_{0}
 \]
 
 \end_inset
