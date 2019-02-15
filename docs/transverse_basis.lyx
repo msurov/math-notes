@@ -2,12 +2,17 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass amsart
 \use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
-\language english
+\language russian
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman default
 \font_sans default
@@ -25,7 +30,17 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\use_hyperref false
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -55,7 +70,7 @@
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language french
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -69,285 +84,221 @@
 \begin_body
 
 \begin_layout Section
-Подход 1
+Постановка задачи
 \end_layout
 
 \begin_layout Standard
-Ортонормированное дополнение вектора 
-\begin_inset Formula $\frac{d\gamma}{ds}\in\mathbb{R}^{n}$
+Дана замкнутая гладкая кривая 
+\begin_inset Formula $\gamma_{s}:\,\mathbb{R}\to\mathbb{R}^{n}$
 \end_inset
 
- -- столбики матрицы 
-\begin_inset Formula $E$
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-E^{T}E & = & I_{n-1,n-1}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{d\gamma^{T}}{ds}E & = & 0_{n-1}
-\end{eqnarray*}
-
-\end_inset
-
-Дифференцирую второе уравнение по 
+ с естественным папарметром 
 \begin_inset Formula $s$
 \end_inset
 
-:
+.
+ Предположим, кривая имеет единичную длину, тогда условие периодичности
+ запишется как: 
+\begin_inset Formula $\gamma_{0}=\gamma_{1}$
+\end_inset
+
+.
+ Обозначим 
+\begin_inset Formula $\tau:=\frac{d\gamma}{ds}$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa:=\frac{d^{2}\gamma}{ds^{2}}$
+\end_inset
+
+ соответственно касательный вектор и вектор кривизны.
 \end_layout
 
 \begin_layout Standard
+Необходимо построить ортонормированный базис 
 \begin_inset Formula 
 \begin{eqnarray*}
-\frac{d\gamma^{T}}{ds}\frac{dE}{ds}+\frac{d^{2}\gamma^{T}}{ds^{2}}E & = & 0
+E_{s} & = & \left(e_{s}^{1},e_{s}^{2},...,e_{s}^{n-1}\right):\,\mathbb{R}\to\mathbb{R}^{n\times n-1}
 \end{eqnarray*}
 
 \end_inset
 
-Ищу динамику 
-\begin_inset Formula $E$
-\end_inset
-
- в форме
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{dE}{dt} & = & AE
-\end{eqnarray*}
-
-\end_inset
-
-тогда 
-\begin_inset Formula $\frac{dE}{ds}=\frac{dE}{dt}\frac{dt}{ds}=\frac{dt}{ds}AE$
-\end_inset
-
-, подставляю в уравнение
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{d\gamma^{T}}{ds}\frac{dt}{ds}AE+\frac{d^{2}\gamma^{T}}{ds^{2}}E & = & 0
-\end{eqnarray*}
-
-\end_inset
-
-или
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\left[\frac{d\gamma^{T}}{ds}\frac{dt}{ds}A+\frac{d^{2}\gamma^{T}}{ds^{2}}\right]E & = & 0
-\end{eqnarray*}
-
-\end_inset
-
-Слева от 
-\begin_inset Formula $E$
-\end_inset
-
- стоит её аннигилятор.
- Но ведь мы знаем аннигилятор матрицы 
-\begin_inset Formula $E$
-\end_inset
-
- -- это 
-\begin_inset Formula $\frac{d\gamma}{ds}$
-\end_inset
-
-! Значит, 
-\begin_inset Formula $A$
-\end_inset
-
- такая, что
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\left[\frac{d\gamma^{T}}{ds}\frac{dt}{ds}A+\frac{d^{2}\gamma^{T}}{ds^{2}}\right] & = & k\frac{d\gamma^{T}}{ds}
-\end{eqnarray*}
-
-\end_inset
-
-или 
-\begin_inset Note Comment
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Formula $\frac{d\gamma^{T}}{ds}A=k\frac{d\gamma^{T}}{ds}-\frac{d^{2}\gamma^{T}}{ds^{2}}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula $A=kI-\frac{d\gamma}{ds}\frac{d^{2}\gamma^{T}}{ds^{2}}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-A & = & \frac{ds}{dt}\left(kI-\tau\kappa^{T}\right)
-\end{eqnarray*}
-
-\end_inset
-
-здесь 
+ ортогонального дополнения вектора 
 \begin_inset Formula $\tau$
 \end_inset
 
- -- касательный вектор, 
-\begin_inset Formula $\kappa$
+ в каждой точке кривой, причём
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $E_{0}=E_{1}$
 \end_inset
 
- -- вектор кривизны, 
-\begin_inset Formula $k$
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $E_{s}^{T}E_{s}=I_{n-1\times n-1}$
 \end_inset
 
- -- произвольная скалярная функция.
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $E_{s}\in C^{1}\left(\mathbb{R}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\tau_{s}^{T}E_{s}=0$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
-Подход 2
+Построение базиса
 \end_layout
 
 \begin_layout Standard
-Пусть теперь 
-\begin_inset Formula $R$
+Дифференцируем уравнение 
+\begin_inset Formula $\tau_{s}^{T}E_{s}=0$
 \end_inset
 
- состоит и вектора 
-\begin_inset Formula $\tau$
+ по 
+\begin_inset Formula $s$
 \end_inset
 
- и его ортогонального дополнения.
- То есть 
+: 
 \begin_inset Formula 
 \begin{eqnarray*}
-R^{T}R & = & I\\
-\tau^{T}R & = & \text{diag}\left(1,0,0,...\right)
+\tau^{T}\frac{dE}{ds}+\kappa^{T}E & = & 0
 \end{eqnarray*}
 
 \end_inset
 
-дифференцируем
+Предположим, что динамика 
+\begin_inset Formula $\frac{dE}{ds}$
+\end_inset
+
+ представима в виде 
 \begin_inset Formula 
 \begin{eqnarray*}
-\tau^{T}\frac{dR}{ds}+\kappa^{T}R & = & 0
+\frac{dE}{ds} & = & AE,
 \end{eqnarray*}
 
 \end_inset
 
-ищем динамику
-\begin_inset Formula $R$
+где 
+\begin_inset Formula $A=A\left(s\right)$
 \end_inset
 
- в форме 
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{dR}{dt} & = & AR
-\end{eqnarray*}
-
+ -- кососимметрическая (в силу того, что 
+\begin_inset Formula $E$
 \end_inset
 
-далее аналогично 
+ ортогональная) матричная функция, тогда
+\lang english
+
 \begin_inset Formula 
 \begin{eqnarray*}
-\tau^{T}\frac{dt}{ds}AR+\kappa^{T}R & = & 0
-\end{eqnarray*}
-
-\end_inset
-
-Здесь единственное решение: 
-\begin_inset Formula 
-\begin{eqnarray*}
-\tau^{T}\frac{dt}{ds}A+\kappa & ^{T}= & 0
-\end{eqnarray*}
-
-\end_inset
-
-Значит
-\begin_inset Formula 
-\begin{eqnarray*}
-\tau^{T}\frac{dt}{ds}\left[A=-\frac{ds}{dt}\tau\kappa^{T}\right]+\kappa^{T} & = & 0
-\end{eqnarray*}
-
-\end_inset
-
-в итоге:
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{dR}{dt} & = & -\frac{d\gamma}{dt}\kappa^{T}R
+\left[\tau^{T}A+\kappa^{T}\right]E & = & 0.
 \end{eqnarray*}
 
 \end_inset
 
 
-\end_layout
+\lang russian
+Значит, выражение в квадратных скобках должно являться левым аннигилятором
+ матрицы 
+\begin_inset Formula $E$
+\end_inset
 
-\begin_layout Standard
-\begin_inset space ~
+.
+ Выберем 
+\begin_inset Formula 
+\begin{eqnarray*}
+A & = & \kappa\tau^{T}-\tau\kappa^{T}=\kappa\wedge\tau.
+\end{eqnarray*}
+
+\end_inset
+
+Проверяем 
+\lang english
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\tau^{T}\kappa\tau^{T}-\tau^{T}\tau\kappa^{T}+\kappa^{T}\right)E & =\\
+\tau^{T}\kappa\tau^{T}E & = & 0.
+\end{eqnarray*}
+
 \end_inset
 
 
+\lang russian
+Выписываем в явном виде дифференциальное уравнение для матрицы 
+\begin_inset Formula $E$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{dE}{ds} & = & \kappa\wedge\tau\cdot E.\label{eq:dE}
+\end{eqnarray}
+
+\end_inset
+
+Интегрируя уравнение 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dE"
+
+\end_inset
+
+ с начальными условиями 
+\begin_inset Formula $E_{0}:$
+\end_inset
+
+ 
+\begin_inset Formula $\tau^{T}E_{0}=0$
+\end_inset
+
+, 
+\begin_inset Formula $E_{0}^{T}E_{0}=I$
+\end_inset
+
+, получим матрицу 
+\begin_inset Formula $E_{s}$
+\end_inset
+
+, удовлетворяющую условиям (2),(3),(4) задачи.
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
+Легко проверить, что 
+\begin_inset Formula $E_{n}^{T}E_{0}\in SO\left(n-1,\mathbb{R}\right)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
+, значит матричный логарифм 
+\begin_inset Formula $\log E_{n}^{T}E_{0}$
 \end_inset
 
+ определяется однозначно.
+ Определим новый базис 
+\begin_inset Formula 
+\begin{eqnarray*}
+F_{s} & = & E_{s}e^{s\log E_{1}^{T}E_{0}}.
+\end{eqnarray*}
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
+Легко видеть, что базис 
+\begin_inset Formula $F$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
+ удовлетворяет условию (1).
 \end_layout
 
 \end_body
