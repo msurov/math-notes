@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from misc.math import integrate
 from scipy.linalg import expm, logm
+from time import time
 
 
 
@@ -138,7 +139,6 @@ def test2():
     ndim = 5
     gamma = Curve(ndim)
 
-
     def A(t):
         cur, = gamma.curvature(t)
         d, = gamma.der1(t)
@@ -151,8 +151,11 @@ def test2():
     tau0, = gamma.tangent(0.)
     E0 = get_perp(tau0)
     t, E = integrate(rhs, E0, [0, T], step=1e-3)
-
     En = E[-1]
+    # print En.T.dot(E0)
+    # print E0.dot(E0.T)
+
+
     log_EnE0 = logm(En.T.dot(E0))
     F = [Ei.dot(expm(ti / T * log_EnE0)) for ti,Ei in zip(t,E)]
 
@@ -182,11 +185,11 @@ def test3():
     tau0, = gamma.tangent(0.)
     R0 = get_basis(tau0)
     t, R = integrate(rhs, R0, [0, T], step=1e-3)
+    Rn = R[-1]
 
     assert np.all([abs(np.linalg.det(Ri) - 1) < 1e-6 for Ri in R]), 'R is not a rotation matrix'
     assert np.all([np.allclose(Ri.T.dot(Ri), np.eye(ndim)) for Ri in R]), 'R is not a rotation matrix'
 
-    Rn = R[-1]
     log_RnR0 = logm(Rn.T.dot(R0))
     F = [Ri.dot(expm(ti / T * log_RnR0)) for ti,Ri in zip(t,R)]
 
@@ -203,4 +206,4 @@ def test3():
 
 if __name__ == '__main__':
     np.set_printoptions(suppress=True, linewidth=200)
-    test3()
+    test2()
