@@ -104,121 +104,6 @@ B-Сплайн:
 
 \end_layout
 
-\begin_layout Section*
-Интерполяция
-\end_layout
-
-\begin_layout Standard
-У меня есть 
-\begin_inset Formula $K$
-\end_inset
-
- точек: 
-\begin_inset Formula $x_{0},...,x_{K-1}$
-\end_inset
-
-, 
-\begin_inset Formula $y_{0},...,y_{K-1}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Subsection*
-Способ 1
-\end_layout
-
-\begin_layout Standard
-Выбираю узлы 
-\begin_inset Formula $t=\left(\underbrace{x_{0},x_{0},...}_{p},\underbrace{x_{0},x_{1},...,x_{K-1}}_{K},\underbrace{x_{K-1},x_{K-1},...}_{p}\right)$
-\end_inset
-
-; 
-\begin_inset Formula $\dim t=2p+K$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Управляющие точки 
-\begin_inset Formula $c=\left(c_{0},c_{1},...,c_{K+p-2}\right)$
-\end_inset
-
-; 
-\begin_inset Formula $N=\dim c=K+p-1$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\dim t-p-1=\dim c$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Проблема в том, что получившаяся система ЛУ будет иметь K независимых уравнений,
- а неизвестных 
-\begin_inset Formula $K+p-1$
-\end_inset
-
- – нужны дополнительные условия на концах или регуляризация (н-р минимизация
- второй производной)
-\end_layout
-
-\begin_layout Subsection*
-Способ 2
-\end_layout
-
-\begin_layout Standard
-Выбираю узлы 
-\begin_inset Formula $t=\left(\underbrace{x_{0},x_{0},...}_{p},\underbrace{x_{0},x_{2},x_{3},...x_{K-3},x_{K-1}}_{K},\underbrace{x_{K-1},x_{K-1},...}_{p}\right)$
-\end_inset
-
-; 
-\begin_inset Formula $\dim t=2p+K-2$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Система ЛУ будет разрешима однозначно.
-\end_layout
-
-\begin_layout Subsection*
-Валидные индексы для функций 
-\begin_inset Formula $B_{i,p}\left(x\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Можем вычислить 
-\begin_inset Formula $B_{i,p}\left(x\right)$
-\end_inset
-
- для любого 
-\begin_inset Formula $i$
-\end_inset
-
- из отрезка 
-\begin_inset Formula $\left[0,K+p-1\right]$
-\end_inset
-
-, т.к.
- 
-\begin_inset Formula $x\in\left[t_{p},t_{K+p-1}\right)$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection*
 Формулы для базисных функций
 \end_layout
@@ -236,12 +121,16 @@ B-Сплайн:
 \end_inset
 
  базисных функций.
- Из них 
+ Для конкретного 
+\begin_inset Formula $x$
+\end_inset
+
+ из них 
 \begin_inset Formula $p+1$
 \end_inset
 
  будут отличными от нуля, остальные будут равны нулю.
- Вычисляются функции по формуле
+ Вычисляются функции по итеративной формуле
 \end_layout
 
 \begin_layout Standard
@@ -262,10 +151,33 @@ B-Сплайн:
 \end_layout
 
 \begin_layout Standard
-Формула плохая, посчитать очень сложно.
+где 
+\begin_inset Formula $t$
+\end_inset
+
+ – узлы сплайна, 
+\begin_inset Formula $c$
+\end_inset
+
+ – контрольные точки.
+ Контрольных точек должно быть столько же, сколько и базисных функций.
+ Узлов должно быть больше на 
+\begin_inset Formula $p-1$
+\end_inset
+
+ (см.
+ ниже почему).
+\end_layout
+
+\begin_layout Standard
+Формула плохая, посчитать что-то очень сложно.
  Лучше идти с другой стороны.
  Нужно вычислить базисные функции в точке 
 \begin_inset Formula $x\in\left[t_{l},t_{l+1}\right)$
+\end_inset
+
+ из интервала 
+\begin_inset Formula $l$
 \end_inset
 
 .
@@ -323,7 +235,7 @@ B-Сплайн:
 \end_layout
 
 \begin_layout Standard
-и т.д., или
+и т.д., или в явном виде:
 \end_layout
 
 \begin_layout Itemize
@@ -469,8 +381,211 @@ B-Сплайн:
 
 \end_layout
 
+\begin_layout Standard
+Массив узлов обычно выглядит как 
+\begin_inset Formula $t=\left(\underbrace{x_{0},x_{0},...}_{p},\underbrace{x_{0},x_{1},x_{2},x_{3},...x_{K-3},x_{K-2},x_{K-1}}_{K},\underbrace{x_{K-1},x_{K-1},...}_{p}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выбираем 
+\begin_inset Formula $l$
+\end_inset
+
+ так, что 
+\begin_inset Formula $x\in\left[t_{l},t_{l+1}\right)$
+\end_inset
+
+ или, если 
+\begin_inset Formula $x<t_{0}$
+\end_inset
+
+, то 
+\begin_inset Formula $l=p$
+\end_inset
+
+ и если 
+\begin_inset Formula $x>t_{K-1}$
+\end_inset
+
+, то 
+\begin_inset Formula $l=K-2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+В результате 
+\begin_inset Formula $l$
+\end_inset
+
+ всегда пренадлежит отрезку 
+\begin_inset Formula $\left[p,K-2\right]$
+\end_inset
+
+.
+ При вычислении суммы при 
+\begin_inset Formula $l=p$
+\end_inset
+
+ ненулевыми будут 
+\begin_inset Formula $\left\{ B_{p,p},B_{p-1,p},\dots,B_{0,p}\right\} $
+\end_inset
+
+.
+ А при вычислении суммы при 
+\begin_inset Formula $l=K-2$
+\end_inset
+
+ ненулевыми будут 
+\begin_inset Formula $\left\{ B_{K-2,p},p,B_{K-3,p},\dots,B_{K-2-p,p}\right\} $
+\end_inset
+
+; при вычислении коэффициентов придётся рассчитать 
+\begin_inset Formula $\frac{x-t_{l}}{t_{l+p}-t_{l}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Поэтому узлов должно быть на 
+\begin_inset Formula $p-1$
+\end_inset
+
+ больше, чем контрольных точек.
+\end_layout
+
 \begin_layout Subsection*
-МНК
+Производная сплайна
+\end_layout
+
+\begin_layout Standard
+вычисляется так:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dy}{dx}=\sum_{i=0}^{N-1}c_{i}\frac{dB_{i,p}\left(x\right)}{dx}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dx}B_{i,p}=k\left(\frac{B_{i,p-1}}{t_{i+p}-t_{i}}-\frac{B_{i+1,p-1}}{t_{i+p+1}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+при этом порядок сплайна уменьшается на 1, количество узлов на 2, количество
+ контрольных точек тоже на 2.
+\end_layout
+
+\begin_layout Section*
+Интерполяция
+\end_layout
+
+\begin_layout Standard
+У меня есть 
+\begin_inset Formula $K$
+\end_inset
+
+ точек: 
+\begin_inset Formula $x_{0},...,x_{K-1}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{0},...,y_{K-1}$
+\end_inset
+
+, через которые должен пройти сплайн.
+ То есть, 
+\begin_inset Formula $K$
+\end_inset
+
+ ограничений.
+\end_layout
+
+\begin_layout Subsection*
+Формирование узлов
+\end_layout
+
+\begin_layout Subsection*
+Способ 1
+\end_layout
+
+\begin_layout Standard
+Выбираю узлы 
+\begin_inset Formula $t=\left(\underbrace{x_{0},x_{0},...}_{p},\underbrace{x_{0},x_{1},...,x_{K-1}}_{K},\underbrace{x_{K-1},x_{K-1},...}_{p}\right)$
+\end_inset
+
+; 
+\begin_inset Formula $\dim t=2p+K$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Управляющие точки 
+\begin_inset Formula $c=\left(c_{0},c_{1},...,c_{K+p-2}\right)$
+\end_inset
+
+; 
+\begin_inset Formula $N=\dim c=K+p-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dim t-p-1=\dim c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Проблема в том, что получившаяся система ЛУ будет иметь 
+\begin_inset Formula $K$
+\end_inset
+
+ независимых уравнений, а неизвестных 
+\begin_inset Formula $K+p-1$
+\end_inset
+
+ – нужны дополнительные условия на концах или регуляризация (н-р минимизация
+ второй производной)
+\end_layout
+
+\begin_layout Subsection*
+Способ 2
+\end_layout
+
+\begin_layout Standard
+Выбираю узлы 
+\begin_inset Formula $t=\left(\underbrace{x_{0},x_{0},...}_{p},\underbrace{x_{0},x_{2},x_{3},...x_{K-3},x_{K-1}}_{K},\underbrace{x_{K-1},x_{K-1},...}_{p}\right)$
+\end_inset
+
+; 
+\begin_inset Formula $\dim t=2p+K-2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Система ЛУ будет разрешима однозначно.
+ Так зачастую делают солверы – выкидывают 2 точки.
+\end_layout
+
+\begin_layout Subsection*
+Интерполяция
 \end_layout
 
 \begin_layout Standard
@@ -519,6 +634,123 @@ B-Сплайн:
 
 , 
 \begin_inset Formula $k\in0..K-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Итого: всего 
+\begin_inset Formula $K$
+\end_inset
+
+ уравненией и 
+\begin_inset Formula $N=K+p-1$
+\end_inset
+
+ неизвестных.
+\end_layout
+
+\begin_layout Standard
+Решаем систему
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{k}=\sum_{i}B_{i}\left(x_{k}\right)c_{i}=\sum_{i}B_{k,i}c_{i}=Bc$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Bc=y$
+\end_inset
+
+; 
+\begin_inset Formula $c-?$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+нужно ещё 
+\begin_inset Formula $p-1$
+\end_inset
+
+ уравнений
+\end_layout
+
+\begin_layout Standard
+дополняем условие на производные на концах:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{i}B_{i}^{'}\left(t_{0}\right)c_{i}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{i}B_{i}^{'}\left(t_{k}\right)c_{i}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Smoothing spline + производные
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dx}B_{i,p}=k\left(\frac{B_{i,p-1}}{t_{i+p}-t_{i}}-\frac{B_{i+1,p-1}}{t_{i+p+1}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $e=\frac{1}{2}\sum_{k}\left(y_{k}-\sum_{i=0}^{N}c_{i}B_{i,p}\left(x_{k}\right)\right)^{2}+\frac{1}{2}\left(y_{0}^{'}-\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{0}\right)\right)^{2}+\frac{1}{2}\left(y_{N}^{'}-\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{N}\right)\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial c_{n}}e=\sum_{k}\left(\sum_{i=0}^{N}c_{i}B_{i,p}\left(x_{k}\right)-y_{k}\right)B_{n,p}\left(x_{k}\right)+\left(\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{0}\right)-y_{0}^{'}\right)B_{n,p}^{'}\left(t_{0}\right)+\left(\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{N}\right)-y_{N}^{'}\right)B_{n,p}^{'}\left(t_{N}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)+\sum_{i=0}^{N}\left[\sum_{k}B_{i,p}\left(x_{k}\right)B_{n,p}\left(x_{k}\right)\right]c_{i}+\sum_{i=0}^{N}\left[B_{i,p}^{'}\left(t_{0}\right)B_{n,p}^{'}\left(t_{0}\right)\right]c_{i}-y_{0}^{'}B_{n,p}^{'}\left(t_{0}\right)+\sum_{i=0}^{N}\left[B_{i,p}^{'}\left(t_{N}\right)B_{n,p}^{'}\left(t_{N}\right)\right]c_{i}-y_{N}^{'}B_{n,p}^{'}\left(t_{N}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[-\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)-y_{0}^{'}B_{n,p}^{'}\left(t_{0}\right)-y_{N}^{'}B_{n,p}^{'}\left(t_{N}\right)\right]+\sum_{i=0}^{N}\left[\sum_{k}B_{i,p}\left(x_{k}\right)B_{n,p}\left(x_{k}\right)+B_{i,p}^{'}\left(t_{0}\right)B_{n,p}^{'}\left(t_{0}\right)+B_{i,p}^{'}\left(t_{N}\right)B_{n,p}^{'}\left(t_{N}\right)\right]c_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{ni}=\sum_{k}B_{i,p}\left(x_{k}\right)B_{n,p}\left(x_{k}\right)+B_{i,p}^{'}\left(t_{0}\right)B_{n,p}^{'}\left(t_{0}\right)+B_{i,p}^{'}\left(t_{N}\right)B_{n,p}^{'}\left(t_{N}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b_{n}=\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)+y_{0}^{'}B_{n,p}^{'}\left(t_{0}\right)+y_{N}^{'}B_{n,p}^{'}\left(t_{N}\right)$
 \end_inset
 
 
@@ -614,162 +846,6 @@ B-Сплайн:
 
 \begin_layout Standard
 \begin_inset Formula $b_{n}=\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection*
-МНК + производные
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{d}{dx}B_{i,p}=k\left(\frac{B_{i,p-1}}{t_{i+p}-t_{i}}-\frac{B_{i+1,p-1}}{t_{i+p+1}-t_{i+1}}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $e=\frac{1}{2}\sum_{k}\left(y_{k}-\sum_{i=0}^{N}c_{i}B_{i,p}\left(x_{k}\right)\right)^{2}+\frac{1}{2}\left(y_{0}^{'}-\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{0}\right)\right)^{2}+\frac{1}{2}\left(y_{N}^{'}-\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{N}\right)\right)^{2}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{\partial}{\partial c_{n}}e=\sum_{k}\left(\sum_{i=0}^{N}c_{i}B_{i,p}\left(x_{k}\right)-y_{k}\right)B_{n,p}\left(x_{k}\right)+\left(\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{0}\right)-y_{0}^{'}\right)B_{n,p}^{'}\left(t_{0}\right)+\left(\sum_{i=0}^{N}c_{i}B_{i,p}^{'}\left(t_{N}\right)-y_{N}^{'}\right)B_{n,p}^{'}\left(t_{N}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $-\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)+\sum_{i=0}^{N}\left[\sum_{k}B_{i,p}\left(x_{k}\right)B_{n,p}\left(x_{k}\right)\right]c_{i}+\sum_{i=0}^{N}\left[B_{i,p}^{'}\left(t_{0}\right)B_{n,p}^{'}\left(t_{0}\right)\right]c_{i}-y_{0}^{'}B_{n,p}^{'}\left(t_{0}\right)+\sum_{i=0}^{N}\left[B_{i,p}^{'}\left(t_{N}\right)B_{n,p}^{'}\left(t_{N}\right)\right]c_{i}-y_{N}^{'}B_{n,p}^{'}\left(t_{N}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\left[-\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)-y_{0}^{'}B_{n,p}^{'}\left(t_{0}\right)-y_{N}^{'}B_{n,p}^{'}\left(t_{N}\right)\right]+\sum_{i=0}^{N}\left[\sum_{k}B_{i,p}\left(x_{k}\right)B_{n,p}\left(x_{k}\right)+B_{i,p}^{'}\left(t_{0}\right)B_{n,p}^{'}\left(t_{0}\right)+B_{i,p}^{'}\left(t_{N}\right)B_{n,p}^{'}\left(t_{N}\right)\right]c_{i}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-—
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $A_{ni}=\sum_{k}B_{i,p}\left(x_{k}\right)B_{n,p}\left(x_{k}\right)+B_{i,p}^{'}\left(t_{0}\right)B_{n,p}^{'}\left(t_{0}\right)+B_{i,p}^{'}\left(t_{N}\right)B_{n,p}^{'}\left(t_{N}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $b_{n}=\sum_{k}y_{k}B_{n,p}\left(x_{k}\right)+y_{0}^{'}B_{n,p}^{'}\left(t_{0}\right)+y_{N}^{'}B_{n,p}^{'}\left(t_{N}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection*
-Производные базисных функций
-\end_layout
-
-\begin_layout Standard
-вычисляются так:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\frac{d}{dx}B_{i,p}=k\left(\frac{B_{i,p-1}}{t_{i+p}-t_{i}}-\frac{B_{i+1,p-1}}{t_{i+p+1}-t_{i+1}}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
 

@@ -1,4 +1,3 @@
-import numpy as np
+# coding: utf-8
 
-
-
+x = 1

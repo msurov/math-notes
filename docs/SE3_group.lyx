@@ -1,0 +1,910 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Formula $SE\left(3\right)$
+\end_inset
+
+ – группа Ли
+\end_layout
+
+\begin_layout Standard
+Пусть на многообразии 
+\begin_inset Formula $SE\left(3\right)$
+\end_inset
+
+ задана кривая 
+\begin_inset Formula $T_{t}:\mathbb{R}\to SE\left(3\right)$
+\end_inset
+
+.
+ Выберем 2 близкие точки этой кривой 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ и 
+\begin_inset Formula $T_{\epsilon}$
+\end_inset
+
+ для малого параметра 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+ В силу того, что элементы 
+\begin_inset Formula $SE\left(3\right)$
+\end_inset
+
+ образуют группу, найдётся другая кривая 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+, удовлетворяющая:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{t}=T_{0}P_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{0}=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда для малого 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{\epsilon}=\begin{pmatrix}\exp\left\{ \epsilon\omega_{p}^{\land}\right\}  & \epsilon v\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выводится довольно просто.
+ усть 
+\begin_inset Formula $P_{\epsilon}=\begin{pmatrix}R_{\epsilon} & d_{\epsilon}\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+.
+ Тогда
+\end_layout
+
+\begin_layout Standard
+Поскольку 
+\begin_inset Formula $\dot{P}=\begin{pmatrix}\dot{R} & \dot{d}\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}\omega^{\land}R & \dot{d}\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{R}=\omega^{\land}R$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{0}=I$
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+получаем решение 
+\begin_inset Formula $R_{\epsilon}=\exp\left\{ \epsilon\omega^{\land}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Аналогично для 
+\begin_inset Formula $d_{\epsilon}=d_{0}+v\epsilon=v\epsilon$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+В итоге
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{\epsilon}=\begin{pmatrix}\exp\left\{ \epsilon\omega_{P}^{\land}\right\}  & \epsilon v_{P}\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Скорости 
+\begin_inset Formula $\omega_{P}$
+\end_inset
+
+ и 
+\begin_inset Formula $v_{P}$
+\end_inset
+
+ актуальны только для кривой 
+\begin_inset Formula $P$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Для кривой 
+\begin_inset Formula $T$
+\end_inset
+
+ будут другие скорости.
+ Как их вычислить? Просто вычисляем 
+\begin_inset Formula $\frac{d}{dt}T\vert_{0}$
+\end_inset
+
+ и 
+\begin_inset Formula $\frac{d}{dt}P\vert_{0}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{T}_{0}=T_{0}\dot{P}_{0}=T_{0}\begin{pmatrix}\omega_{T}^{\land} & v_{T}\\
+0 & 0
+\end{pmatrix}=\begin{pmatrix}\omega_{P}^{\land} & v_{P}\\
+0 & 0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получаем правило преобразования скоростей:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{0}\begin{pmatrix}\omega_{T}^{\land} & v_{T}\\
+0 & 0
+\end{pmatrix}=\begin{pmatrix}\omega_{P}^{\land} & v_{P}\\
+0 & 0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если 
+\begin_inset Formula $T_{0}=\begin{pmatrix}R & d\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+, то 
+\begin_inset Formula $R\omega_{T}=\omega_{P}$
+\end_inset
+
+, 
+\begin_inset Formula $Rv_{T}=v_{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $T_{\epsilon}=T_{0}P_{\epsilon}=T_{0}\cdot\begin{pmatrix}\exp\left\{ \epsilon R\omega_{T}^{\land}\right\}  & \epsilon Rv_{P}\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Матричная экспонента
+\end_layout
+
+\begin_layout Standard
+Есть несколько систем координат, имеющих различную ориентацию.
+ СК 
+\begin_inset Formula $A$
+\end_inset
+
+ имеет относительно мировой СК ориентацию 
+\begin_inset Formula $R_{wa}$
+\end_inset
+
+, СК 
+\begin_inset Formula $B$
+\end_inset
+
+ – 
+\begin_inset Formula $R_{wb}$
+\end_inset
+
+.
+ Относительная ориентация 
+\begin_inset Formula $R_{ab}=R_{wa}^{-1}R_{wb}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Матрицу 
+\begin_inset Formula $R_{ab}$
+\end_inset
+
+ можно параметризовать углом 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ и единичным вектором 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ То есть 
+\begin_inset Formula $\alpha,l_{a}=\text{angleaxis}\left(R_{ab}\right)$
+\end_inset
+
+.
+ В мировой системе координат этот вектор будет иметь компоненты 
+\begin_inset Formula $l_{w}=R_{wa}l_{a}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Для любой матрицы 
+\begin_inset Formula $S$
+\end_inset
+
+ из множества 
+\begin_inset Formula $\left\{ M\in\mathbb{R}^{3\times3}|M^{T}=-M\right\} $
+\end_inset
+
+ справедливо 
+\begin_inset Formula $\exp\left(S\right)\in SO\left(3\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Поворот вектора на угол вокруг другого вектора
+\end_layout
+
+\begin_layout Standard
+Я хочу повернуть вектор 
+\begin_inset Formula $v$
+\end_inset
+
+ вокруг вектора 
+\begin_inset Formula $l$
+\end_inset
+
+ на угол 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Такой поворот задаётся формулой Родрига
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v\mapsto v\cos\alpha+\left(k\times v\right)\sin\alpha+k\left(k\cdot v\right)\left(1-\cos\alpha\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Этот же поворот можно задать матрицей поворота
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v\mapsto Rv
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+R\left(\alpha,l\right) & =I+\sin\alpha l^{\land}+\left(1-\cos\alpha\right)l^{\land}l^{\land}\\
+R\left(\alpha,l\right) & =\exp\left(\alpha l^{\land}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+где 
+\begin_inset Formula $l^{\land}=\begin{pmatrix}0 & -l_{z} & l_{y}\\
+l_{z} & 0 & -l_{x}\\
+-l_{y} & l_{x} & 0
+\end{pmatrix}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(l^{\land}\right)^{T}=-l^{\land}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Касательное подпространство к группе движений
+\end_layout
+
+\begin_layout Standard
+На группе 
+\begin_inset Formula $SE\left(3\right)$
+\end_inset
+
+ задана кривая 
+\begin_inset Formula $T\left(t\right)$
+\end_inset
+
+.
+ Берём 2 точки этой кривой 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ и 
+\begin_inset Formula $T_{\epsilon}$
+\end_inset
+
+.
+ Матрица однородных преобразований 
+\begin_inset Formula $T_{t}$
+\end_inset
+
+ позволяет преобразовать координаты точки 
+\begin_inset Formula $p_{t}$
+\end_inset
+
+, заданной в системе координат 
+\begin_inset Formula $\text{Frame}_{t}$
+\end_inset
+
+, в мировую систему координат, то есть матрицу 
+\begin_inset Formula $T_{t}$
+\end_inset
+
+ стоит воспринимать как 
+\begin_inset Formula $T_{wt}$
+\end_inset
+
+, а матрицу 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ как 
+\begin_inset Formula $T_{w0}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{w}=T_{wa}p_{a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{w}=T_{w0}p_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+и т.д.
+\end_layout
+
+\begin_layout Standard
+Выберем точку 
+\begin_inset Formula $p$
+\end_inset
+
+, неподвижную относительно 
+\begin_inset Formula $T_{t}$
+\end_inset
+
+; её координаты в мировой СК будут
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{w}=T_{t}p.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Теперь, рассчитаем координаты этой точки в моменты времени 
+\begin_inset Formula $t=0$
+\end_inset
+
+ и 
+\begin_inset Formula $t=\epsilon$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{0}=T_{0}p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{\epsilon}=T_{\epsilon}p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вопрос: как нужно 
+\begin_inset Quotes eld
+\end_inset
+
+сдвинуть
+\begin_inset Quotes erd
+\end_inset
+
+ произвольную точку 
+\begin_inset Formula $p_{0}$
+\end_inset
+
+, чтобы получить 
+\begin_inset Formula $p_{\epsilon}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $XT_{0}=T_{\epsilon}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X=T_{\epsilon}T_{0}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Движется автомобиль.
+ С автомобилем связана система координат 
+\begin_inset Formula $\text{Frame}_{t}$
+\end_inset
+
+, преобразование из 
+\begin_inset Formula $\text{Frame}_{t}$
+\end_inset
+
+ в мировую СК (и одновременно с этим положение автомобиля в пространстве)
+ задаётся матрицей однородных преобразований 
+\begin_inset Formula $T_{t}$
+\end_inset
+
+.
+ Наблюдатель (допустим, камера) смотрит за движением автомобиля, находясь
+ в начале мировой системы координат.
+ Он делает 2 измерения: 
+\begin_inset Formula $T_{0}$
+\end_inset
+
+ в момент времени 
+\begin_inset Formula $t=0$
+\end_inset
+
+ и 
+\begin_inset Formula $T_{\epsilon}$
+\end_inset
+
+ в момент времени 
+\begin_inset Formula $t=\epsilon$
+\end_inset
+
+.
+ Вопрос: как сдвинуть автомобиль, чтобы совместить все точки автомобиля
+ в момент времени 
+\begin_inset Formula $0$
+\end_inset
+
+ и в момент времени 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+Сдвигаем произвольную точку кузова автомобиля 
+\begin_inset Formula $p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $p_{0}=T_{0}p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+в
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $p_{\epsilon}=T_{\epsilon}p$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $X_{\epsilon}p_{0}=p_{\epsilon}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $X_{\epsilon}T_{0}p=T_{\epsilon}p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Example
+Это верно для любого 
+\begin_inset Formula $p$
+\end_inset
+
+, значит
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $X_{\epsilon}=T_{\epsilon}T_{0}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $X_{\epsilon}$
+\end_inset
+
+ – элемент группы
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $X_{\epsilon}=\begin{bmatrix}R_{\epsilon} & d_{\epsilon}\\
+0 & 1
+\end{bmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $R_{\epsilon}$
+\end_inset
+
+ параметризуется единичным вектором в мировой СК 
+\begin_inset Formula $l$
+\end_inset
+
+ и углом 
+\begin_inset Formula $\alpha_{\epsilon}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $R_{\epsilon}=\exp\left\{ \alpha_{\epsilon}l^{\wedge}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $X_{\epsilon}=\begin{bmatrix}\exp\left\{ \epsilon\omega^{\wedge}\right\}  & \epsilon v\\
+0 & 1
+\end{bmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+\begin_inset Formula $T_{\epsilon}=\begin{bmatrix}\exp\left\{ \epsilon\omega^{\wedge}\right\}  & \epsilon v\\
+0 & 1
+\end{bmatrix}\cdot T_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

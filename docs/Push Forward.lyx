@@ -1,0 +1,367 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula $g\in G$
+\end_inset
+
+ – элемент группы Ли
+\end_layout
+
+\begin_layout Standard
+задана кривая 
+\begin_inset Formula $g\left(t\right)\in G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g_{0}=g\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+и
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g_{\epsilon}=g\left(\epsilon\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{\epsilon}=g_{\epsilon}\circ g_{0}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g_{\epsilon}=x_{\epsilon}\circ g_{0}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{0}=1$
+\end_inset
+
+ – единичный элемент группы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dg_{\epsilon}}{d\epsilon}=\frac{dx_{\epsilon}}{d\epsilon}g_{0}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{t}=g_{t}g_{0}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $g_{t}=p_{t}g_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{0}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+на группе Ли задана функция 
+\begin_inset Formula $f:G\to\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+задана кривая 
+\begin_inset Formula $g_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+нужно найти производную 
+\begin_inset Formula $\frac{df\circ g_{t}}{dt}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d\left(f\circ x^{-1}\circ x\circ g\right)}{dt}=\frac{\partial\left(f\circ x^{-1}\right)}{\partial x^{i}}\cdot\frac{d\left(x\circ g\right)^{i}}{dt}=\dot{g}_{t}^{i}\frac{\partial}{\partial x^{i}}f$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{g}_{t}^{i}\frac{\partial}{\partial x^{i}}\in TG$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $dx^{j}\frac{\partial}{\partial x^{i}}=\delta_{i}^{j}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Push forward
+\end_layout
+
+\begin_layout Standard
+Есть отображение между 2-я многообразиями 
+\begin_inset Formula $\phi:\,\mathcal{M}\to\mathcal{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пусть на 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ задана кривая 
+\begin_inset Formula $\gamma_{t}$
+\end_inset
+
+.
+ Образ этой кривой 
+\begin_inset Formula $\phi\circ\gamma_{t}=\delta_{t}\in\mathcal{N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+На многообразии 
+\begin_inset Formula $T\mathcal{M}$
+\end_inset
+
+ определено векторное поле
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\gamma}_{t}^{i}\frac{\partial}{\partial x^{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вопрос: какое поле соответствует этому на 
+\begin_inset Formula $T\mathcal{N}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{df\circ\delta_{t}}{dt}=\frac{df\circ\phi\circ\gamma_{t}}{dt}=\frac{df\circ y^{-1}\circ y\circ\phi\circ x^{-1}\circ x\circ\gamma_{t}}{dt}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d\left(f\circ y^{-1}\right)\circ\left(y\circ\phi\circ x^{-1}\right)\circ\left(x\circ\gamma_{t}\right)}{dt}=\frac{\partial\phi^{j}}{\partial x^{i}}\cdot\dot{\gamma}_{t}^{i}\cdot\frac{\partial}{\partial y^{j}}f$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+значит, векторное поле на 
+\begin_inset Formula $T\mathcal{N}$
+\end_inset
+
+ получится
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\gamma}_{t}^{i}\frac{\partial}{\partial x^{i}}\mapsto\frac{\partial\phi^{j}}{\partial x^{i}}\cdot\dot{\gamma}_{t}^{i}\cdot\frac{\partial}{\partial y^{j}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Y^{j}=\frac{\partial\phi^{j}}{\partial x^{i}}\cdot X^{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

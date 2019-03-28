@@ -168,7 +168,7 @@ def spline_basis_der(t, x, p=3):
     return D_B_arr
 
 
-def interpolate(x, y, p):
+def interpolate2(x, y, p):
     K = len(x)
     N = K + p - 1
 
@@ -181,16 +181,17 @@ def interpolate(x, y, p):
     A = np.zeros((N, N), dtype='float')
     b = np.zeros(N, dtype='float')
 
-    for j in range(0,N):
+    for k in range(0,K):
         for i in range(0,N):
-            A[j,i] += spline_B_der(t, t[0], i) * spline_B_der(t, t[0], j)
-            A[j,i] += spline_B_der(t, t[-1], i) * spline_B_der(t, t[-1], j)
-            for k in range(0,K):
-                A[j,i] += spline_B(t, x[k], i, p) * spline_B(t, x[k], j, p)
+            A[k,i] = spline_B(t, x[k], i, p)
 
-    for j in range(0, N):
-        for k in range(0, K):
-            b[j] += y[k] * spline_B(t, x[k], j, p)
+    for i in range(0,N):
+        A[K,i] = spline_B_der(t, t[0], i, p)
+        A[K+1,i] = spline_B_der(t, t[-1], i, p)
+
+
+    b[0:K] = y
+    b[K:K+2] = 0
 
     c = np.linalg.inv(A).dot(b)
     return t,c
@@ -205,7 +206,7 @@ x = np.linspace(0,1,100)
 y = np.exp(x)
 plt.plot(x, y, 'o')
 
-t,c = interpolate(x, y, 3)
+t,c = interpolate2(x, y, 3)
 
 print t
 print c

@@ -1,0 +1,373 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+Параметрически заданная кривая
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r=r\left(t\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $r:\,\mathbb{R}\to\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Естественный параметр
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s=\int^{t}\left\Vert \dot{r}\left(w\right)\right\Vert dw$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{s}=\frac{ds}{dt}=\left\Vert \dot{r}\right\Vert $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ddot{s}=\left\Vert \dot{r}\right\Vert =\sqrt{\dot{r}\cdot\dot{r}}=\frac{\dot{r}\cdot\ddot{r}}{\sqrt{\dot{r}\cdot\dot{r}}}=\frac{\dot{r}\cdot\ddot{r}}{\left\Vert \dot{r}\right\Vert }=\tau\cdot\ddot{r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Касательный вектор
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tau=\frac{d}{ds}r=\frac{dr}{dt}\frac{dt}{ds}=\frac{\dot{r}}{\dot{s}}=\frac{\dot{r}}{\left\Vert \dot{r}\right\Vert }$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\tau}=\frac{\ddot{r}\dot{s}-\dot{r}\ddot{s}}{\dot{s}^{2}}=\frac{\ddot{r}\left\Vert \dot{r}\right\Vert -\dot{r}\left(\tau\cdot\ddot{r}\right)}{\left\Vert \dot{r}\right\Vert ^{2}}=\frac{\ddot{r}}{\left\Vert \dot{r}\right\Vert }-\frac{\tau\left(\tau\cdot\ddot{r}\right)}{\left\Vert \dot{r}\right\Vert }$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\tau}=\frac{\ddot{r}\left\Vert \dot{r}\right\Vert -\dot{r}\frac{\dot{r}\cdot\ddot{r}}{\left\Vert \dot{r}\right\Vert }}{\left\Vert \dot{r}\right\Vert ^{2}}=\frac{\ddot{r}}{\left\Vert \dot{r}\right\Vert }-\dot{r}\frac{\dot{r}\cdot\ddot{r}}{\left\Vert \dot{r}\right\Vert ^{3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\tau}=\frac{1}{\left\Vert \dot{r}\right\Vert }\left(\ddot{r}-\tau\left(\tau\cdot\ddot{r}\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Кривизна
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\kappa=\frac{d}{ds}\tau=\frac{d}{dt}\tau\cdot\frac{dt}{ds}=\frac{\ddot{r}}{\left\Vert \dot{r}\right\Vert ^{2}}-\frac{\tau\left(\tau\cdot\ddot{r}\right)}{\left\Vert \dot{r}\right\Vert ^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\tau}=\kappa\dot{s}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\kappa=\frac{\ddot{r}\dot{s}-\dot{r}\ddot{s}}{\dot{s}^{3}}=\frac{1}{\left\Vert \dot{r}\right\Vert ^{3}}\cdot\left(\ddot{r}\left\Vert \dot{r}\right\Vert -\dot{r}\frac{\dot{r}\cdot\ddot{r}}{\left\Vert \dot{r}\right\Vert }\right)=\frac{\ddot{r}}{\left\Vert \dot{r}\right\Vert ^{2}}-\frac{\dot{r}\left(\dot{r}\cdot\ddot{r}\right)}{\left\Vert \dot{r}\right\Vert ^{4}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Плооская кривая
+\end_layout
+
+\begin_layout Standard
+векторное произведение на плоскости
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a\times b=a_{x}b_{y}-a_{y}b_{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a^{T}Sb=\left(a_{x},a_{y}\right)\begin{pmatrix}0 & -1\\
+1 & 0
+\end{pmatrix}\begin{pmatrix}b_{x}\\
+b_{y}
+\end{pmatrix}=\left(a_{x},a_{y}\right)\begin{pmatrix}-b_{y}\\
+b_{x}
+\end{pmatrix}=-a_{x}b_{y}+a_{y}b_{x}=-a\times b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Угол наклона касательной
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tan\alpha=\frac{\tau_{y}}{\tau_{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\alpha=\arctan\frac{\tau_{y}}{\tau_{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dx}\arctan x=\frac{1}{1+x^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\alpha}=\tau_{x}^{2}\cdot\frac{d}{dt}\left(\frac{\tau_{y}}{\tau_{x}}\right)=\dot{\tau}_{y}\tau_{x}-\tau_{y}\dot{\tau}_{x}=\tau\times\dot{\tau}=\tau\times\frac{\ddot{r}}{\left\Vert \dot{r}\right\Vert }=\frac{\dot{r}\times\ddot{r}}{\left\Vert \dot{r}\right\Vert ^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Смещённая от кривой на заданное расстояние 
+\begin_inset Formula $d$
+\end_inset
+
+ точка
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{p}=\dot{r}+d\dot{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p=r+dS\tau$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{p}=\dot{r}+dS\dot{\tau}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+нужно найти проекцию вектора скорости на направление 
+\begin_inset Formula $\tau$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{p}\cdot\tau=\dot{r}\cdot\tau+d\left(S\dot{\tau}\right)\cdot\tau=\dot{r}\cdot\tau+d\dot{\tau}\times\tau$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{p}\cdot\tau=\dot{r}\cdot\tau+d\dot{\tau}\times\tau=\frac{\dot{r}\cdot\dot{r}}{\left\Vert \dot{r}\right\Vert }+d\frac{\ddot{r}\times\tau}{\left\Vert \dot{r}\right\Vert }$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v=\left\Vert \dot{r}\right\Vert +d\frac{\ddot{r}\times\dot{r}}{\left\Vert \dot{r}\right\Vert ^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

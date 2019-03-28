@@ -1,0 +1,597 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Рассматриваем линейную систему 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{x} & =Ax+Bu\\
+y & =Cx
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пусть 
+\begin_inset Formula $u=\text{const}$
+\end_inset
+
+, вопрос: чему равен 
+\begin_inset Formula $x\left(t\right)$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+Для начала рассматриваем однородное уравнение
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{x}=Ax$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x=e^{A\left(t-t_{0}\right)}c$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x=Ae^{A\left(t-t_{0}\right)}+e^{A\left(t-t_{0}\right)}\dot{c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Ae^{A\left(t-t_{0}\right)}+e^{A\left(t-t_{0}\right)}\dot{c}=Ax+Bu$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{c}=e^{A\left(-t+t_{0}\right)}Bu$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $c=\int_{t_{0}}^{t}e^{A\left(t_{0}-v\right)}dv\cdot Bu+x_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x=e^{A\left(t-t_{0}\right)}\left[\int_{t_{0}}^{t}e^{A\left(t_{0}-v\right)}dv\cdot Bu+x_{0}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+проверяем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{x}=Ae^{A\left(t-t_{0}\right)}\left[\int_{t_{0}}^{t}e^{A\left(t_{0}-v\right)}dv\cdot Bu+x_{0}\right]+Bu=Ax+Bu$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+преобразуем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x=e^{A\left(t-t_{0}\right)}x_{0}+\int_{t_{0}}^{t}e^{A\left(t-v\right)}dv\cdot Bu$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+в дискретном виде 
+\begin_inset Formula $t=kh+h$
+\end_inset
+
+, 
+\begin_inset Formula $t_{0}=kh$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+1}=e^{Ah}x_{k}+\int_{kh}^{kh+h}e^{A\left(t-v\right)}dv\cdot Bu_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v=kh+w$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+1}=e^{Ah}x_{k}+\int_{0}^{h}e^{A\left(kh+h-kh-w\right)}dw\cdot Bu_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+1}=\underbrace{e^{Ah}}_{\Phi}x_{k}+\underbrace{\left[e^{Ah}\int_{0}^{h}e^{-Aw}dwB\right]}_{\Gamma}u_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Пример: вращающийся диск
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A=\begin{pmatrix}0 & 1\\
+0 & 0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B=\begin{pmatrix}0\\
+\frac{k}{J}
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Phi=e^{Ah}=\begin{pmatrix}1 & t\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Gamma=\frac{k}{J}\begin{pmatrix}\frac{h^{2}}{2}\\
+h
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Операторы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z\left\{ f\left(k\right)\right\} :=f\left(k+1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z^{n}\left\{ f\left(k\right)\right\} :=f\left(k+n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example: 
+\begin_inset Formula $Z^{-n}\left\{ f\left(k\right)\right\} :=f\left(k-n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example: 
+\begin_inset Formula $Z^{-1}\left\{ f\left(k\right)\right\} :=f\left(k-1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Delta\left\{ f\left(k\right)\right\} :=f\left(k\right)-f\left(k-1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Delta^{-1}\left\{ f\left(k\right)\right\} :=\sum_{i=0}^{k}f\left(i\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $I\left\{ f\left(k\right)\right\} :=f\left(k\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $N\left\{ f\left(k\right)\right\} :=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Example: 
+\begin_inset Formula $\Delta\left\{ f_{k}\right\} =f_{k}-f_{k-1}=I\left\{ f_{k}\right\} -Z^{-1}\left\{ f_{k}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Системы в операторной форме
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[a_{n}Z^{n}+a_{n-1}Z^{n-1}+...+a_{1}Z^{1}\right]\left\{ y\right\} =\left[b_{m}Z^{m}+b_{m-1}Z^{m-1}+...+b_{1}Z^{1}\right]\left\{ u\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y=\left[a_{n}Z^{n}+a_{n-1}Z^{n-1}+...+a_{1}Z^{1}\right]^{-1}\cdot\left[b_{m}Z^{m}+b_{m-1}Z^{m-1}+...+b_{1}Z^{1}\right]\left\{ u\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+или
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y=\frac{\left[b_{m}Z^{m}+b_{m-1}Z^{m-1}+...+b_{1}Z^{1}\right]}{\left[a_{n}Z^{n}+a_{n-1}Z^{n-1}+...+a_{1}Z^{1}\right]}\left\{ u\right\} =H\left\{ u\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H\left\{ \right\} :=\frac{\left[b_{m}Z^{m}+b_{m-1}Z^{m-1}+...+b_{1}Z^{1}\right]}{\left[a_{n}Z^{n}+a_{n-1}Z^{n-1}+...+a_{1}Z^{1}\right]}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+State-space to Operator form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+x_{k+1} & =Ax_{k}+Bu_{k}\\
+y_{k} & =Cx_{k}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $H\left\{ \right\} =\frac{C\text{adj}\left(ZI-A\right)B}{\det\left(ZI-A\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\text{adj}A:=\det A\cdot A^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Доказательство
+\end_layout
+
+\begin_layout Standard
+Просто дифференцируем выход
+\end_layout
+
+\begin_layout Standard
+характеристический полином
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\det\left(\lambda I-A\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{1}A+p_{2}AA+...+p_{n}A^{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{1}Ax+p_{2}AAx+...+p_{n}A^{n}x=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+1}=Ax_{k}+Bu_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+2}=Ax_{k+1}+Bu_{k+1}=AAx_{k}+ABu_{k}+Bu_{k+1}=A^{2}x_{k}+\left[ABu_{k}+Bu_{k+1}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+3}=A^{3}x_{k}+\left[AABu_{k}+ABu_{k+1}+Bu_{k+2}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+v}=A^{v}x_{k}+\left[...\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a_{1}x_{k+1}+a_{2}x_{k+2}+...+a_{v}x_{k+v}=\left[a_{1}A+a_{2}A^{2}+...+a_{v}A^{v}\right]x_{k}+\left[...\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a_{1},a_{2},...,a_{v}\in\mathbb{R}$
+\end_inset
+
+ – коэффициенты характеристического полинома матрицы 
+\begin_inset Formula $A$
+\end_inset
+
+, значит 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left[a_{1}A+a_{2}A^{2}+...+a_{v}A^{v}\right]=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a_{1}y_{k+1}+a_{2}y_{k+2}+...+a_{v}y_{k+v}=\left[...\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Решение дискретного уравнения
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k+1}=Ax_{k}+Bu_{k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{k}=A^{k}x_{0}+\sum_{m=0}^{k-1}A^{k-m-1}Bu_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{k}=CA^{k}x_{0}+C\sum_{m=0}^{k-1}A^{k-m-1}Bu_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ответ на 
+\begin_inset Formula $\delta$
+\end_inset
+
+ функцию
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{k}=CA^{k}x_{0}+C\sum_{m=0}^{k-1}A^{k-m-1}B\delta_{m}=CA^{k}x_{0}+CA^{k-1}B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Ljung"
+key "Ljung"
+literal "false"
+
+\end_inset
+
+ Ljung - Prediction Error Estimation Methods
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
