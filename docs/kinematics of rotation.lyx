@@ -229,6 +229,29 @@ a^{\wedge} & =\sum_{i}\left(a\times e_{i}\right)\otimes e_{i}
 \end_layout
 
 \begin_layout Proposition
+For any vectors 
+\begin_inset Formula $a,b\in\mathbb{R}^{3}$
+\end_inset
+
+ the following holds 
+\begin_inset Formula 
+\[
+a\times b=a^{\wedge}b.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
 If vector 
 \begin_inset Formula $a$
 \end_inset
@@ -392,6 +415,325 @@ Then the equations of kinematics are:
  & = & \omega_{\text{world}}^{\wedge}R.
 \end{eqnarray*}
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Угловая скорость
+\end_layout
+
+\begin_layout Standard
+Ориентация объекта в начальный момент времени задана матрицей 
+\begin_inset Formula $R_{1}$
+\end_inset
+
+.
+ По прошествии малого интервала времени 
+\begin_inset Formula $\delta t$
+\end_inset
+
+ ориентация изменилась и стала 
+\begin_inset Formula $R_{2}=R_{1}\delta R\approx R_{1}+R_{1}\delta r^{\wedge}$
+\end_inset
+
+.
+ Вычислим предел
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{R}=\lim_{\delta t\to0}\frac{R_{2}-R_{1}}{\delta t}=\lim_{\delta t\to0}\frac{R_{1}+R_{1}\delta r^{\wedge}-R_{1}}{\delta t}=R_{1}\lim_{\delta t\to0}\frac{\delta r^{\wedge}}{\delta t}.
+\]
+
+\end_inset
+
+Получем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R^{T}\dot{R}=\lim_{\delta t\to0}\frac{\delta r^{\wedge}}{\delta t}=\omega^{\wedge}
+\]
+
+\end_inset
+
+угловую скорость в собственной СК.
+ То есть 
+\begin_inset Formula 
+\[
+\dot{r}=\omega=\left(R^{T}\dot{R}\right)^{\vee}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Преобразования угловой скорости
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C$
+\end_inset
+
+ вращается относительно 
+\begin_inset Formula $B$
+\end_inset
+
+ с угловой скоростью 
+\begin_inset Formula $\omega_{bc}$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+ вращается относительно 
+\begin_inset Formula $A$
+\end_inset
+
+ с угловой скоростью 
+\begin_inset Formula $\omega_{ab}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Угловая скорость выражена в координатах вращающейся СК
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula 
+\begin{align*}
+\omega_{c,bc}^{\wedge} & =R_{bc}^{T}\dot{R}_{bc}\\
+\omega_{b,ab}^{\wedge} & =R_{ab}^{T}\dot{R}_{ab}\\
+\omega_{c,ac}^{\wedge} & =R_{ac}^{T}\dot{R}_{ac}\\
+ & =R_{bc}^{T}R_{ab}^{T}\dot{R}_{ab}R_{bc}+R_{bc}^{T}\dot{R}_{bc}\\
+ & =R_{bc}^{T}\omega_{b,ab}^{\wedge}R_{bc}+\omega_{c,bc}^{\wedge}\\
+ & =\left(R_{bc}^{T}\omega_{b,ab}\right)^{\wedge}+\omega_{c,bc}^{\wedge}\\
+\omega_{c,ac} & =R_{cb}\omega_{b,ab}+\omega_{c,bc}
+\end{align*}
+
+\end_inset
+
+Уравнение 
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega_{c,ac} & = & R_{cb}\omega_{b,ab}+\omega_{c,bc}
+\end{eqnarray*}
+
+\end_inset
+
+записанов в координатах системы 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Угловая скорость выражена в координатах неподвижной СК
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula 
+\begin{align*}
+\omega_{b,bc}^{\wedge} & =\dot{R}_{bc}R_{bc}^{T}\\
+\omega_{a,ab}^{\wedge} & =\dot{R}_{ab}R_{ab}^{T}\\
+\omega_{a,ac}^{\wedge} & =\dot{R}_{ac}R_{ac}^{T}\\
+ & =\left(\dot{R}_{ab}R_{bc}+R_{ab}\dot{R}_{bc}\right)\left(R_{bc}^{T}R_{ab}^{T}\right)\\
+ & =\dot{R}_{ab}R_{ab}^{T}+R_{ab}\dot{R}_{bc}R_{bc}^{T}R_{ab}^{T}\\
+ & =\omega_{a,ab}^{\wedge}+R_{ab}\omega_{b,bc}^{\wedge}R_{ab}^{T}\\
+ & =\omega_{a,ab}^{\wedge}+R_{ba}^{T}\omega_{b,bc}^{\wedge}R_{ba}\\
+ & =\omega_{a,ab}^{\wedge}+\left(R_{ba}^{T}\omega_{b,bc}\right)^{\wedge}\\
+\omega_{a,ac} & =\omega_{a,ab}+R_{ab}\omega_{b,bc}
+\end{align*}
+
+\end_inset
+
+Уравнение 
+\begin_inset Formula 
+\begin{eqnarray*}
+\omega_{a,ac} & = & \omega_{a,ab}+R_{ab}\omega_{b,bc}
+\end{eqnarray*}
+
+\end_inset
+
+записанов в координатах системы 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Как связаны 
+\begin_inset Formula $\omega_{b,bc}^{\wedge}$
+\end_inset
+
+ и 
+\begin_inset Formula $\omega_{c,bc}^{\wedge}$
+\end_inset
+
+? 
+\begin_inset Formula 
+\begin{align*}
+\omega_{b,bc}^{\wedge} & =\dot{R}_{bc}R_{bc}^{T}\\
+\omega_{c,bc}^{\wedge} & =R_{bc}^{T}\dot{R}_{bc}\\
+\omega_{c,bc}^{\wedge}R_{bc}^{T} & =R_{bc}^{T}\dot{R}_{bc}R_{bc}^{T}\\
+ & =R_{bc}^{T}\omega_{b,bc}^{\wedge}\\
+\omega_{c,bc}^{\wedge} & =R_{bc}^{T}\omega_{b,bc}^{\wedge}R_{bc}\\
+ & =\left(R_{bc}^{T}\omega_{b,bc}\right)^{\wedge}\\
+\omega_{c,bc} & =R_{cb}\omega_{b,bc}\\
+\omega_{b,bc}^{\wedge} & =R_{cb}^{T}\omega_{c,bc}^{\wedge}R_{cb}\\
+\omega_{b,bc} & =R_{bc}\omega_{c,bc}\\
+\end{align*}
+
+\end_inset
+
+получаем 
+\begin_inset Formula 
+\begin{align*}
+\omega_{c,bc} & =R_{cb}\omega_{b,bc}
+\end{align*}
+
+\end_inset
+
+и 
+\begin_inset Formula 
+\begin{align*}
+\omega_{b,bc} & =R_{bc}\omega_{c,bc}.
+\end{align*}
+
+\end_inset
+
+То есть они преобразуются как обычные вектора.
+\end_layout
+
+\begin_layout Enumerate
+Как связаны 
+\begin_inset Formula $\omega_{b,ab}$
+\end_inset
+
+ и 
+\begin_inset Formula $\omega_{a,ba}$
+\end_inset
+
+? 
+\begin_inset Formula 
+\[
+-\omega_{b,ab}^{\wedge}=\left(R_{ab}^{T}\dot{R}_{ab}\right)^{T}=\dot{R}_{ab}^{T}R_{ab}=\dot{R}_{ba}R_{ba}^{T}=\omega_{a,ba}^{\wedge},
+\]
+
+\end_inset
+
+то есть 
+\begin_inset Formula 
+\[
+-\omega_{b,ab}=\omega_{a,ba}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Как связаны 
+\begin_inset Formula $\omega_{a,ab}$
+\end_inset
+
+ и 
+\begin_inset Formula $\omega_{a,ba}$
+\end_inset
+
+? 
+\begin_inset Formula 
+\begin{align*}
+\omega_{a,ab}^{\wedge} & =\dot{R}_{ab}R_{ab}^{T}\\
+-\omega_{a,ab}^{\wedge} & =R_{ab}\dot{R}_{ab}^{T}\\
+ & =R_{ba}^{T}\dot{R}_{ba}\\
+ & =\omega_{a,ba}^{\wedge}
+\end{align*}
+
+\end_inset
+
+Тогда 
+\begin_inset Formula 
+\[
+-\omega_{a,ab}=\omega_{a,ba}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Как преобразуется угловое ускорение? 
+\begin_inset Formula 
+\begin{align*}
+\dot{\omega}_{b,ab} & =\frac{d}{dt}\omega_{b,ab}\\
+ & =\dot{R}_{ba}\omega_{a,ab}+R_{ba}\dot{\omega}_{a,ab}\\
+ & =R_{ba}R_{ba}^{T}\dot{R}_{ba}\omega_{a,ab}+R_{ba}\dot{\omega}_{a,ab}\\
+ & =R_{ba}\omega_{a,ba}^{\wedge}\omega_{a,ab}+R_{ba}\dot{\omega}_{a,ab}\\
+ & =R_{ba}\dot{\omega}_{a,ab}
+\end{align*}
+
+\end_inset
+
+То есть 
+\begin_inset Formula 
+\[
+\dot{\omega}_{b,ab}=R_{ba}\dot{\omega}_{a,ab}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Производная матрицы поворота 
+\begin_inset Formula 
+\begin{align*}
+\dot{R} & =R\omega^{\wedge}\\
+\ddot{R} & =R\omega^{\wedge}\omega^{\wedge}+R\dot{\omega}^{\wedge}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
