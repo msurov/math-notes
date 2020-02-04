@@ -1,0 +1,2385 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass IEEEtran
+\options onecolumn,12pt
+\use_default_options true
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style russian
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+B-SplineT
+\end_layout
+
+\begin_layout Standard
+B-SplineT – функция вида
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray}
+f\left(x\right) & = & \sum c_{i}B_{i,k}\left(x\right)\label{eq:bspline}
+\end{eqnarray}
+
+\end_inset
+
+где 
+\begin_inset Formula $c_{i}\in V$
+\end_inset
+
+ – коэффициенты сплайна (контрольные точки), а 
+\begin_inset Formula $B_{i,k}:K\to K$
+\end_inset
+
+ – полиномы порядка 
+\begin_inset Formula $k$
+\end_inset
+
+ от 
+\begin_inset Formula $x$
+\end_inset
+
+, определяемые рекурентным соотношением
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+B_{i,0} & = & \begin{cases}
+1 & x\in\left[t_{i},t_{i+1}\right)\\
+0
+\end{cases}\\
+B_{i,k} & = & \frac{x-t_{i}}{t_{i+k}-t_{i}}B_{i,k-1}+\frac{t_{i+k+1}-x}{t_{i+k+1}-t_{i+1}}B_{i+1,k-1}.
+\end{eqnarray*}
+
+\end_inset
+
+Здесь 
+\begin_inset Formula $t_{i}\in K$
+\end_inset
+
+ – узлы сплайна (неубывающая последовательность чисел).
+ Узлы обычно задаются следующим образом:
+\begin_inset Formula 
+\begin{eqnarray*}
+t & = & \left(\underbrace{t_{0},t_{0},...,t_{0}}_{k-\text{раз}},t_{0},t_{1},t_{2},...,t_{n},\underbrace{t_{n},t_{n},...,t_{n}}_{k-\text{раз}}\right)\in\mathbb{R}^{n+2k},
+\end{eqnarray*}
+
+\end_inset
+
+а коэффициенты: 
+\begin_inset Formula 
+\begin{eqnarray*}
+c & \in & V^{n+k}.
+\end{eqnarray*}
+
+\end_inset
+
+Такой подход позволяет несколько упростить алгоритм вычисления значения
+ сплайна и зафиксировать значения производных на концах.
+\end_layout
+
+\begin_layout Standard
+Множество 
+\begin_inset Formula $V$
+\end_inset
+
+ – линейное пространство над 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Это может быть множество матриц заданной размерности, множество вещественных
+ чисел и т.д.
+\end_layout
+
+\begin_layout Standard
+Для данного 
+\begin_inset Formula $x$
+\end_inset
+
+ из всей суммы ненулевые значения 
+\begin_inset Formula $B_{i,k}\left(x\right)\ne0$
+\end_inset
+
+ имеют только 
+\begin_inset Formula $k+1$
+\end_inset
+
+ функций, поэтому для вычисления выражения 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:bspline"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ нет необходимости считать всю сумму, достаточно вычислить лишь эти ненулевые
+ функции.
+\end_layout
+
+\begin_layout Subsection
+Алгоритм вычисления значения сплайна в заданной точке
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{i,r}=\frac{x-t_{i}}{t_{i+r}-t_{i}}B_{i,r-1}+\frac{t_{i+r+1}-x}{t_{i+r+1}-t_{i+1}}B_{i+1,r-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{j,r}=\frac{x-t_{i}}{t_{i+r}-t_{i}}d_{j,r-1}+\frac{t_{i+r+1}-x}{t_{i+r+1}-t_{i+1}}d_{i+1,r-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Обозначим
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,r} & : & =B_{i-k+j,r-1},\\
+i & \mapsto & i-k+j
+\end{eqnarray*}
+
+\end_inset
+
+тогда
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,r} & = & \frac{x-t_{i-k+j}}{t_{i-k+r+j}-t_{i-k+j}}d_{j,r-1}+\frac{t_{i+r+1-k+j}-x}{t_{i+r+1-k+j}-t_{i-k+1+j}}d_{i+1,r-1}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $d_{j,k}^{'}=k\left(\frac{d_{j,k-1}}{t_{i+j}-t_{i-k+j}}-\frac{d_{j+1,k-1}}{t_{i+j+1}-t_{i-k+j+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Для данного 
+\begin_inset Formula $x$
+\end_inset
+
+ найдём 
+\begin_inset Formula $i,$
+\end_inset
+
+ который удовлетворяет
+\begin_inset Formula 
+\begin{eqnarray*}
+i & : & x\in\left[t_{i},t_{i+1}\right),
+\end{eqnarray*}
+
+\end_inset
+
+или если 
+\begin_inset Formula $x$
+\end_inset
+
+ вне интервала 
+\begin_inset Formula $\left[t_{0},t_{\text{end}}\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+i & = & k\quad\text{if}\,x<t_{0}\\
+i & = & n-k-2\quad\text{if}\,x>t_{n}.
+\end{eqnarray*}
+
+\end_inset
+
+В силу того, что последовательность монотонная, 
+\begin_inset Formula $i$
+\end_inset
+
+ будет единственным.
+ Поиск будет иметь логарифмическую от длины 
+\begin_inset Formula $t$
+\end_inset
+
+ сложность.
+\end_layout
+
+\begin_layout Enumerate
+Заполним тиблицу D=
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i-k
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=k-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=k-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=k
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,0}=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k-1,1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k-2,2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k-1,2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=k
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{0,k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+, где коэффициенты 
+\begin_inset Formula $d_{j,r}$
+\end_inset
+
+ определяются формулой 
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,r} & = & \frac{x-t_{i-k+j}}{t_{i-k+r+j}-t_{i-k+j}}d_{j,r-1}+\frac{t_{i+r+1-k+j}-x}{t_{i+r+1-k+j}-t_{i-k+1+j}}d_{i+1,r-1}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Последняя строка таблицы 
+\begin_inset Formula $D$
+\end_inset
+
+ содержит ненулевые функции 
+\begin_inset Formula $B_{i+j-k,k}\left(x\right)$
+\end_inset
+
+.
+ Для нахождения значения сплайна в точке 
+\begin_inset Formula $x$
+\end_inset
+
+ достаточно вычислить 
+\begin_inset Formula 
+\[
+f=\sum_{j}c_{i+j-k}d_{j,k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Производная
+\end_layout
+
+\begin_layout Standard
+Производная от сплайна 
+\begin_inset Formula 
+\begin{eqnarray}
+\frac{df\left(x\right)}{dx} & = & \sum c_{i}\frac{dB_{i,k}\left(x\right)}{dx}\label{eq:bspline_derivative}
+\end{eqnarray}
+
+\end_inset
+
+определяется через производные 
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dB_{i,k}}{dx} & = & k\left(\frac{B_{i,k-1}}{t_{i+k}-t_{i}}-\frac{B_{i+1,k-1}}{t_{i+k+1}-t_{i+1}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+Получается, значение первой производной определяется значениями функций
+ 
+\begin_inset Formula $B_{i+1,k-1}\left(x\right)$
+\end_inset
+
+, взятых с некоторыми весовыми коэффициентами.
+ Выразим их через элементы таблицы 
+\begin_inset Formula $d_{j,k-1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,k}^{'} & : & =\frac{dB_{i+j-k,k}}{dx}=\frac{k}{t_{i+j}-t_{i-k+j}}d_{j,k-1}-\frac{k}{t_{i+j+1}-t_{i-k+j+1}}d_{j+1,k-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Таким образом, для вычисления первой производной сплайна получаем следующий
+ алгоритм
+\end_layout
+
+\begin_layout Enumerate
+Заполняем таблицу 
+\begin_inset Formula $D$
+\end_inset
+
+ до строки 
+\begin_inset Formula $r=k-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Заполняем последнюю строку 
+\begin_inset Formula $r=k$
+\end_inset
+
+ таблицы 
+\begin_inset Formula $D$
+\end_inset
+
+ значениями
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,k}^{'} & : & =\frac{dB_{i+j-k,k}}{dx}=\frac{k}{t_{i+j}-t_{i-k+j}}d_{j,k-1}-\frac{k}{t_{i+j+1}-t_{i-k+j+1}}d_{j+1,k-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Последняя строка таблицы 
+\begin_inset Formula $D$
+\end_inset
+
+ содержит значения функций 
+\begin_inset Formula $\frac{dB_{i,k}\left(x\right)}{dx}$
+\end_inset
+
+, вычисленные в точке 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Для вычисления значения производной сплайна достаточно посчитать сумму
+\begin_inset Formula 
+\[
+f^{'}=\sum_{j}c_{i+j-k}d_{j,k}^{'}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+В терминах табоицы 
+\begin_inset Formula $D$
+\end_inset
+
+ это
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{i}\frac{dB_{i,k}}{dx}=c_{i}k\left(\frac{B_{i,k-1}}{t_{i+k}-t_{i}}-\frac{B_{i+1,k-1}}{t_{i+k+1}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{i-k+j}k\left(\frac{B_{i-k+j,k-1}}{t_{i+j}-t_{i-k+j}}-\frac{B_{i-k+j+1,k-1}}{t_{i+j+1}-t_{i-k+j+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{j,k}^{'}=k\left(\frac{B_{i-k+j,k-1}}{t_{i+j}-t_{i-k+j}}-\frac{B_{i-k+j+1,k-1}}{t_{i+j+1}-t_{i-k+j+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{dB_{i,k}}{dx}=k\left(\frac{B_{i,k-1}}{t_{i+k}-t_{i}}-\frac{B_{i+1,k-1}}{t_{i+k+1}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{dB_{i,k-1}}{dx}=\left(k-1\right)\left(\frac{B_{i,k-2}}{t_{i+k-1}-t_{i}}-\frac{B_{i+1,k-2}}{t_{i+k}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{dB_{i+1,k-1}}{dx}=\left(k-1\right)\left(\frac{B_{i+1,k-2}}{t_{i+k}-t_{i+1}}-\frac{B_{i+2,k-2}}{t_{i+1+k}-t_{i+2}}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Производные высших порядков
+\end_layout
+
+\begin_layout Standard
+Вычислим вторую производную сплайна
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d^{2}f\left(x\right)}{dx^{2}} & = & \sum c_{i}\frac{d^{2}B_{i,k}\left(x\right)}{dx^{2}}.
+\end{eqnarray*}
+
+\end_inset
+
+Как видно, она определяется через
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{d^{2}B_{i,k}}{dx^{2}} & = & \frac{k}{t_{i+k}-t_{i}}\frac{dB_{i,k-1}}{dx}-\frac{k}{t_{i+k+1}-t_{i+1}}\frac{dB_{i+1,k-1}}{dx}
+\end{eqnarray*}
+
+\end_inset
+
+Значения 
+\begin_inset Formula $\frac{dB_{i,k-1}}{dx}$
+\end_inset
+
+ находятся при подстановке 
+\begin_inset Formula $k\mapsto k-1$
+\end_inset
+
+ в выражения для 
+\begin_inset Formula $\frac{dB_{i,k}}{dx}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{dB_{i,k-1}}{dx} & = & \left(k-1\right)\left(\frac{B_{i,k-2}}{t_{i+k-1}-t_{i}}-\frac{B_{i+1,k-2}}{t_{i+k}-t_{i+1}}\right).
+\end{eqnarray*}
+
+\end_inset
+
+Таким образом, для вычисления второй производной необходимо заполнить таблицу
+ 
+\begin_inset Formula $D$
+\end_inset
+
+ до строки 
+\begin_inset Formula $r=k-2$
+\end_inset
+
+, строку 
+\begin_inset Formula $r=k-1$
+\end_inset
+
+ заполнить значениями
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,k-1}^{'} & = & \frac{k-1}{t_{i+j-1}-t_{i-k+j}}d_{j,k-2}-\frac{k-1}{t_{i+j}-t_{i-k+j+1}}d_{j+1,k-2},
+\end{eqnarray*}
+
+\end_inset
+
+а строку 
+\begin_inset Formula $r=k$
+\end_inset
+
+ значениями
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,k}^{'} & = & \frac{k}{t_{i+j}-t_{i-k+j}}d_{j,k-1}^{'}-\frac{k}{t_{i+j+1}-t_{i-k+j+1}}d_{j+1,k-1}^{'}.
+\end{eqnarray*}
+
+\end_inset
+
+Для производной порядка 
+\begin_inset Formula $p$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Заполняем строки таблицы 
+\begin_inset Formula $D$
+\end_inset
+
+ до строки 
+\begin_inset Formula $k-p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Заполняем строку 
+\begin_inset Formula $k-p+1$
+\end_inset
+
+ коэффициентами
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j,k-p+1}^{'} & = & \frac{k-p+1}{t_{i+j-p+1}-t_{i-k+j}}d_{j,k-p}-\frac{k-p+1}{t_{i+j+1-p+1}-t_{i-k+j+1}}d_{j+1,k-p}.
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Заполняем остальные строки вполть до 
+\begin_inset Formula $r=k$
+\end_inset
+
+ аналогичными значениями.
+\end_layout
+
+\begin_layout Enumerate
+В итоге последняя строка таблицы 
+\begin_inset Formula $D$
+\end_inset
+
+ содержит значения 
+\begin_inset Formula $\frac{d^{p}B_{i-k+j,k}}{dx^{p}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\begin_layout Plain Layout
+Вторая производная
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{d^{2}B_{i,k}}{dx^{2}}=k\left(\frac{d_{i}^{'}}{t_{i+k}-t_{i}}-\frac{d_{i+1}^{'}}{t_{i+k+1}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+обозначим
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{i,k-1}^{'} & = & \left(k-1\right)\left(\frac{d_{i,k-2}}{t_{i+j-1}-t_{i-k+j}}-\frac{d_{i+1,k-2}}{t_{i+j}-t_{i-k+j+1}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\begin_layout Plain Layout
+Первая производная
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{eqnarray*}
+f' & = & \sum_{i}k\frac{c_{i}-c_{i-1}}{t_{i+k}-t_{i}}B_{i,k-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Нужно заполнить таблицу до 
+\begin_inset Formula $r=k-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $\sum_{i}k\frac{-c_{i-1}}{t_{i+k}-t_{i}}B_{i,k-1}+\sum_{i}k\frac{c_{i}}{t_{i+k}-t_{i}}B_{i,k-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+———
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{i-k+1,k-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{i-k+2,k-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{i,k-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{i-k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{i-k+1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{i-k+2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+———
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $m_{i}:=\frac{k}{t_{i+k}-t_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $f'=-m_{i}c_{i-k}B_{i-k+1,k-1}+\left(m_{i}B_{i-k+1,k-1}-m_{i+1}B_{i-k+2,k-1}\right)c_{i-k+1}+\left(m_{i+1}B_{i-k+2,k-1}+...\right)c_{i-k+2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+последнюю строчку заполняю значениями
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{0,k}^{'}=-\frac{k}{t_{i+j+1}-t_{i-k+j+1}}d_{1,k-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{j,k}^{'}=k\left(\frac{1}{t_{i+j}-t_{i-k+j}}d_{j,k-1}-\frac{1}{t_{i+j+1}-t_{i-k+j+1}}d_{j+1,k-1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+и.т.д.
+ В итоге получаю табличку
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="7">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i-k
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+i
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=k-2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=k-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+j=k
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k-1,1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k-2,2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k-1,2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+r=k-1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{1,k-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{2,k-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,k-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{0,k}^{'}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{1,k}^{'}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+...
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $d_{k,k}^{'}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Алгоритм Де Бура
+\end_layout
+
+\begin_layout Subsection
+Значение функции
+\end_layout
+
+\begin_layout Standard
+Создаём массив из 
+\begin_inset Formula $k+1$
+\end_inset
+
+ элементов 
+\begin_inset Formula $d_{0},d_{1},...,d_{k}$
+\end_inset
+
+, заполняя его значениями 
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j}^{0} & = & c_{i-k+j}\quad\text{for}\,j=0..k
+\end{eqnarray*}
+
+\end_inset
+
+Пробегаемся по массиву справа налево, перезаписывая 
+\begin_inset Formula $d_{j}^{0}\mapsto d_{j}^{1}$
+\end_inset
+
+ по правилу
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{j}^{r} & = & \frac{x-t_{i-k+j}}{t_{i+j+1-r}-t_{i-k+j}}\\
+d_{j}^{1} & = & \left(1-\alpha_{j}^{1}\right)d_{j-1}^{0}+\alpha_{j}^{1}d_{j}^{0}
+\end{eqnarray*}
+
+\end_inset
+
+для всех 
+\begin_inset Formula $j=k..1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{j}^{r} & = & \left(1-\alpha_{j}^{r}\right)d_{j-1}^{r-1}+\alpha_{j}^{r}d_{j}^{r-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Производная
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dB_{i,k}}{dx}=k\left(\frac{B_{i,k-1}}{t_{i+k}-t_{i}}-\frac{B_{i+1,k-1}}{t_{i+k+1}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'=\sum k\frac{c_{i}-c_{i-1}}{t_{i+k}-t_{i}}B_{i,k-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'=\sum d_{i}B_{i,k-1}$
+\end_inset
+
+ где .
+\begin_inset Formula 
+\begin{eqnarray*}
+d_{i} & = & k\frac{c_{i}-c_{i-1}}{t_{i+k}-t_{i}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f''=\sum d_{i}B_{i,k-1}^{'}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dB_{i,k-1}}{dx}=\left(k-1\right)\left(\frac{B_{i,k-2}}{t_{i+k-1}-t_{i}}-\frac{B_{i+1,k-2}}{t_{i+k}-t_{i+1}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum d_{i}\frac{dB_{i,k-1}}{dx}=\left(k-1\right)\left[\sum d_{i}\frac{B_{i,k-2}}{t_{i+k-1}-t_{i}}-\sum d_{i}\frac{B_{i+1,k-2}}{t_{i+k}-t_{i+1}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(k-1\right)\left[\sum_{i}d_{i}\frac{B_{i,k-2}}{t_{i+k-1}-t_{i}}-\sum_{i}d_{i-1}\frac{B_{i,k-2}}{t_{i+k-1}-t_{i}}\right]=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sum_{i}\left(k-1\right)\frac{d_{i}-d_{i-1}}{t_{i+k-1}-t_{i}}B_{i,k-2}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+a_{i} & = & \left(k-1\right)\frac{d_{i}-d_{i-1}}{t_{i+k-1}-t_{i}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Сплайн апроксимация
+\end_layout
+
+\begin_layout Standard
+Необходимо найти слайн (его коэффициенты 
+\begin_inset Formula $c$
+\end_inset
+
+, узлы заданы изначально), который минимизирует критерий качества 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Phi & =\sum_{i}\left[\left\Vert y_{i}-f\left(c,x_{i}\right)\right\Vert ^{2}+s\int_{0}^{T}\left\Vert f^{''}\left(c,x\right)\right\Vert ^{2}dx\right]\\
+c & =\arg\min_{c}\Phi\left(c\right)
+\end{align*}
+
+\end_inset
+
+для заданного набора пар 
+\begin_inset Formula $\left(x_{i},y_{i}\right)$
+\end_inset
+
+.
+ Рассмотрим случай 
+\begin_inset Formula $x_{i},y_{i}\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Случай 
+\begin_inset Formula $s=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Применяем МНК 
+\begin_inset Formula 
+\begin{align*}
+\Phi & =\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)^{2}\\
+\frac{\partial\Phi}{\partial c_{l}} & =2\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)B_{l,k}\left(x_{i}\right)
+\end{align*}
+
+\end_inset
+
+получаем СЛАУ 
+\begin_inset Formula 
+\[
+\sum_{j}\left[\sum_{i}B_{j,k}\left(x_{i}\right)B_{l,k}\left(x_{i}\right)\right]c_{j}=\sum_{i}y_{i}B_{l,k}\left(x_{i}\right)
+\]
+
+\end_inset
+
+в матричном виде 
+\begin_inset Formula 
+\begin{align*}
+Ac & =h,\\
+A_{lj} & =\sum_{i}B_{j,k}\left(x_{i}\right)B_{l,k}\left(x_{i}\right),\\
+h_{l} & =\sum_{i}y_{i}B_{l,k}\left(x_{i}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Случай 
+\begin_inset Formula $s\ne0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\Phi & =\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)^{2}+s\int_{0}^{T}\left(f^{''}\left(c,x\right)\right)^{2}dx\\
+\frac{\partial\Phi}{\partial c_{l}} & =2\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)B_{l,k}\left(x_{i}\right)+2s\sum_{j}\left[\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\right]c_{j}
+\end{align*}
+
+\end_inset
+
+получаем СЛУ 
+\begin_inset Formula 
+\[
+\sum_{j}\left[\sum_{i}B_{j,k}\left(x_{i}\right)B_{l,k}\left(x_{i}\right)\right]c_{j}+s\sum_{j}\left[\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\right]c_{j}=\sum_{i}y_{i}B_{l,k}\left(x_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Условия на границе
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{dy}{dx}=f\left(c,x\right)=\sum_{j}c_{j}B_{j,k}^{'}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi=B^{'}c-y_{0}^{'}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\cdot c-B^{'}\cdot\lambda=b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B^{'}c=y_{0}^{'}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{A}=\left(\begin{array}{cc}
+A & -B^{'}\\
+B'
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+linear system 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Ax=B$
+\end_inset
+
+ wrt 
+\begin_inset Formula $Zx=W$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Ax-Z\lambda=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Zx=W$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{x}=\left(x,\lambda\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{A}=\left(\begin{array}{cc}
+A & -Z\\
+Z & 0
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{B}=\left(\begin{array}{c}
+B\\
+W
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -90,7 +90,8 @@ Kinematics of rotation
 Equation of kinematics is
 \begin_inset Formula 
 \begin{eqnarray*}
-\dot{R} & = & \omega_{\text{world}}^{\wedge}R
+\dot{R} & = & \omega_{\text{world}}^{\wedge}R\\
+\dot{R} & = & R\omega_{\text{body}}^{\wedge}
 \end{eqnarray*}
 
 \end_inset
@@ -222,6 +223,24 @@ a_{z}
 \end{array}\right)\\
 a^{\wedge} & =\sum_{i}\left(a\times e_{i}\right)\otimes e_{i}
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Second derivative:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\ddot{R} & = & \dot{\omega}_{\text{world}}^{\wedge}R+\omega_{\text{world}}^{\wedge}\dot{R}\\
+ & = & \left(\dot{\omega}_{\text{world}}^{\wedge}+\omega_{\text{world}}^{\wedge}\omega_{\text{world}}^{\wedge}\right)R\\
+\ddot{R} & = & \dot{R}\omega_{\text{body}}^{\wedge}+R\dot{\omega}_{\text{body}}^{\wedge}\\
+ & = & R\left(\omega_{\text{body}}^{\wedge}\omega_{\text{body}}^{\wedge}+\dot{\omega}_{\text{body}}^{\wedge}\right)
+\end{eqnarray*}
 
 \end_inset
 
@@ -712,6 +731,29 @@ R^{T}\dot{R}=\lim_{\delta t\to0}\frac{\delta r^{\wedge}}{\delta t}=\omega^{\wedg
 \begin_inset Formula 
 \[
 \dot{\omega}_{b,ab}=R_{ba}\dot{\omega}_{a,ab}
+\]
+
+\end_inset
+
+В обратную сторону 
+\begin_inset Formula 
+\begin{align*}
+\dot{\omega}_{a,ab}^{\wedge} & =\frac{d}{dt}\omega_{a,ab}^{\wedge}\\
+ & =\frac{d}{dt}\left(\dot{R}_{ab}R_{ab}^{T}\right)\\
+ & =\frac{d}{dt}\left(R_{ab}R_{ab}^{T}\dot{R}_{ab}R_{ab}^{T}\right)\\
+ & =\frac{d}{dt}\left(R_{ab}\omega_{b,ab}^{\wedge}R_{ab}^{T}\right)\\
+ & =\frac{d}{dt}\left(R_{ab}\omega_{b,ab}\right)^{\wedge}\\
+ & =\left(\dot{R}_{ab}\omega_{b,ab}+R_{ab}\dot{\omega}_{b,ab}\right)^{\wedge}\\
+ & =\left(R_{ab}\omega_{b,ab}^{\wedge}\omega_{b,ab}+R_{ab}\dot{\omega}_{b,ab}\right)^{\wedge}\\
+ & =\left(R_{ab}\dot{\omega}_{b,ab}\right)^{\wedge}
+\end{align*}
+
+\end_inset
+
+значит 
+\begin_inset Formula 
+\[
+\dot{\omega}_{a,ab}=R_{ab}\dot{\omega}_{b,ab}
 \]
 
 \end_inset
