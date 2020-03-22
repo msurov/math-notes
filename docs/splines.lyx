@@ -2079,7 +2079,7 @@ a_{i} & = & \left(k-1\right)\frac{d_{i}-d_{i-1}}{t_{i+k-1}-t_{i}}
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\Phi & =\sum_{i}\left[\left\Vert y_{i}-f\left(c,x_{i}\right)\right\Vert ^{2}+s\int_{0}^{T}\left\Vert f^{''}\left(c,x\right)\right\Vert ^{2}dx\right]\\
+\Phi & =\left(1-s\right)\sum_{i}\left\Vert y_{i}-f\left(c,x_{i}\right)\right\Vert ^{2}+s\int_{0}^{T}\left\Vert f^{''}\left(c,x\right)\right\Vert ^{2}dx\\
 c & =\arg\min_{c}\Phi\left(c\right)
 \end{align*}
 
@@ -2147,8 +2147,8 @@ h_{l} & =\sum_{i}y_{i}B_{l,k}\left(x_{i}\right).
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\Phi & =\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)^{2}+s\int_{0}^{T}\left(f^{''}\left(c,x\right)\right)^{2}dx\\
-\frac{\partial\Phi}{\partial c_{l}} & =2\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)B_{l,k}\left(x_{i}\right)+2s\sum_{j}\left[\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\right]c_{j}
+\Phi & =\left(1-s\right)\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)^{2}+s\int_{0}^{T}\left(f^{''}\left(c,x\right)\right)^{2}dx\\
+\frac{\partial\Phi}{\partial c_{l}} & =2\left(1-s\right)\sum_{i}\left(\sum_{j}c_{j}B_{j,k}\left(x_{i}\right)-y_{i}\right)B_{l,k}\left(x_{i}\right)+2s\sum_{j}\left[\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\right]c_{j}
 \end{align*}
 
 \end_inset
@@ -2156,7 +2156,7 @@ h_{l} & =\sum_{i}y_{i}B_{l,k}\left(x_{i}\right).
 получаем СЛУ 
 \begin_inset Formula 
 \[
-\sum_{j}\left[\sum_{i}B_{j,k}\left(x_{i}\right)B_{l,k}\left(x_{i}\right)\right]c_{j}+s\sum_{j}\left[\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\right]c_{j}=\sum_{i}y_{i}B_{l,k}\left(x_{i}\right)
+\left(1-s\right)\sum_{j}\left[\sum_{i}B_{j,k}\left(x_{i}\right)B_{l,k}\left(x_{i}\right)\right]c_{j}+s\sum_{j}\left[\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\right]c_{j}=\sum_{i}y_{i}B_{l,k}\left(x_{i}\right)
 \]
 
 \end_inset
@@ -2169,129 +2169,103 @@ h_{l} & =\sum_{i}y_{i}B_{l,k}\left(x_{i}\right).
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\frac{dy}{dx}=f\left(c,x\right)=\sum_{j}c_{j}B_{j,k}^{'}\left(x\right)$
+К исходной системе 
+\begin_inset Formula 
+\[
+Ac=b
+\]
+
 \end_inset
 
+ добавляем ограничения 
+\begin_inset Formula 
+\[
+\phi=B^{'}c-y_{0}^{'}=0.
+\]
 
+\end_inset
+
+Получаем
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\phi=B^{'}c-y_{0}^{'}=0$
+\begin_inset Formula 
+\begin{align*}
+A\cdot c+B^{'}\cdot\lambda & =b\\
+B^{'}c & =y_{0}^{'}
+\end{align*}
+
 \end_inset
 
+или в матричном виде 
+\begin_inset Formula 
+\[
+\bar{A}\cdot\left(c,z\right)=\bar{b}
+\]
 
+\end_inset
+
+где
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $A\cdot c-B^{'}\cdot\lambda=b$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $B^{'}c=y_{0}^{'}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\bar{A}=\left(\begin{array}{cc}
-A & -B^{'}\\
+\begin_inset Formula 
+\begin{align*}
+\bar{A} & =\left(\begin{array}{cc}
+A & B^{'}\\
 B'
-\end{array}\right)$
+\end{array}\right)\\
+\bar{b} & =\left(\begin{array}{c}
+b\\
+y_{0}^{'}
+\end{array}\right).
+\end{align*}
+
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
+\begin_layout Section
+Апроксимация с учётом производной
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
+Минимизация функции
+\begin_inset Formula 
+\[
+\Phi=\sum_{i}\left\Vert y_{i}-f\left(c,x_{i}\right)\right\Vert ^{2}+k_{1}\sum_{i}\left\Vert y_{i}^{'}-f^{'}\left(c,x_{i}\right)\right\Vert ^{2}+k_{2}\int_{0}^{T}\left\Vert f^{''}\left(c,x\right)\right\Vert ^{2}dx
+\]
+
 \end_inset
 
+по параметрам 
+\begin_inset Formula $c$
+\end_inset
 
+ даёт СЛУ
+\begin_inset Formula 
+\[
+Ac=B
+\]
+
+\end_inset
+
+где
 \end_layout
 
 \begin_layout Standard
-linear system 
-\end_layout
+\begin_inset Formula 
+\begin{align*}
+A & =A_{1}+k_{1}A_{2}+k_{2}A_{3}\\
+B & =B_{1}+k_{1}B_{2}\\
+A_{1} & =\sum_{i}B_{j,k}\left(x_{i}\right)B_{l,k}\left(x_{i}\right)\\
+A_{2} & =\sum_{i}B_{j,k}^{'}\left(x_{i}\right)B_{l,k}^{'}\left(x_{i}\right)\\
+A_{3} & =\int_{0}^{T}B_{l,k}^{''}\left(x\right)B_{j,k}^{''}\left(x\right)dx\\
+B_{1} & =\sum_{i}y_{i}B_{l,k}\left(x_{i}\right)\\
+B_{2} & =\sum_{i}y_{i}^{'}B_{l,k}^{'}\left(x_{i}\right)
+\end{align*}
 
-\begin_layout Standard
-\begin_inset Formula $Ax=B$
-\end_inset
-
- wrt 
-\begin_inset Formula $Zx=W$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $Ax-Z\lambda=B$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $Zx=W$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\bar{x}=\left(x,\lambda\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\bar{A}=\left(\begin{array}{cc}
-A & -Z\\
-Z & 0
-\end{array}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $\bar{B}=\left(\begin{array}{c}
-B\\
-W
-\end{array}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
 
