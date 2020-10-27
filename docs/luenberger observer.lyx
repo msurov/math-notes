@@ -127,7 +127,7 @@
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\dot{\bar{x}}=Bu+A\bar{x}+L\left(y-\bar{y}\right)$
+\begin_inset Formula $\dot{\bar{x}}=A\bar{x}+Bu+L\left(y-C\bar{x}\right)$
 \end_inset
 
 
@@ -145,7 +145,7 @@
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\dot{\bar{x}}=Bu+K\bar{x}-Kx+Ax$
+\begin_inset Formula $\dot{\bar{x}}=K\bar{x}+Bu-Kx+Ax$
 \end_inset
 
 

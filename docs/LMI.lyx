@@ -1,0 +1,1004 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Задано неравенство с некоторой положительной константой 
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left\Vert A\right\Vert _{2}\leq\gamma.
+\]
+
+\end_inset
+
+Оно эквивалентно (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:maxtrix_norm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lambda_{\max}\left(A^{T}A\right)\leq\gamma^{2},
+\]
+
+\end_inset
+
+которое может быть записано как (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:positive-definite-property"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+A^{T}A\leq\gamma^{2}I
+\]
+
+\end_inset
+
+Это неравенство можно записать в виде (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:schur_complement"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left[\begin{array}{cc}
+I & A\\
+A^{T} & \gamma^{2}I
+\end{array}\right] & \geq & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Сингулярные числа матрицы 
+\begin_inset Formula $A$
+\end_inset
+
+: 
+\begin_inset Formula $\sigma_{i}\left(A\right)=\sqrt{\lambda_{i}\left(A^{T}A\right)}$
+\end_inset
+
+.
+ Свойства собственных чисел
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\sigma_{i}^{2}\left(A\right)=\lambda_{i}\left(A^{T}A\right)\in\mathbb{R}^{+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathbf{tr}A=\sum_{i}\lambda_{i}\left(A\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\det A=\prod_{i}\lambda_{i}\left(A\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:maxtrix_norm"
+
+\end_inset
+
+ По определению нормы 
+\begin_inset Formula $\left\Vert A\right\Vert _{2}=\sigma_{\max}\left(A\right)=\sqrt{\lambda_{\max}\left(A^{T}A\right)}$
+\end_inset
+
+ – максимальное сингулярное число матрицы 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:positive-definite-property"
+
+\end_inset
+
+ Для любой ПО матрицы 
+\begin_inset Formula $X<\lambda_{\max}I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+По определению нормы Фробениуса 
+\begin_inset Formula $\left\Vert A\right\Vert _{F}\equiv\sqrt{\mathbf{tr}A^{T}A}=\sqrt{\sum_{i}\sigma_{i}^{2}\left(A\right)}$
+\end_inset
+
+.
+ Применяем СВД разложение 
+\begin_inset Formula $A=U\Lambda V^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $A^{T}A=V\Lambda^{2}V^{T}$
+\end_inset
+
+.
+ В связи с тем, что след произведения матриц обладает свойством 
+\begin_inset Formula $\mathbf{tr}XYZ=\mathbf{tr}ZXY$
+\end_inset
+
+, получаем 
+\begin_inset Formula $\mathbf{tr}A^{T}A=\mathbf{tr}V\Lambda^{2}V^{T}=\mathbf{tr}V^{T}V\Lambda^{2}=\mathbf{tr}\Lambda^{2}=\sum_{i}\sigma_{i}^{2}\left(A\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Доказательство 
+\begin_inset Formula $\mathbf{tr}XYZ=\mathbf{tr}ZXY$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\begin{align*}
+\mathbf{tr}A= & A_{ii}\\
+\mathbf{tr}X_{ij}Y_{jk}Z_{kl}= & \delta_{il}X_{ij}Y_{jk}Z_{kl}\\
+= & Z_{kl}\delta_{li}X_{ij}Y_{jk}\\
+= & Z_{ki}X_{ij}Y_{jk}\\
+= & \delta_{mk}Z_{mi}X_{ij}Y_{jk}\\
+= & \delta_{il}Z_{ij}X_{jk}Y_{kl}\\
+= & \mathbf{tr}ZXY
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+второй способ доказательства 
+\begin_inset Formula $\left\Vert A\right\Vert _{F}\equiv\sqrt{\mathbf{tr}A^{T}A}=\sqrt{\sum_{i}\lambda_{i}\left(A^{T}A\right)}=\sqrt{\sum_{i}\sigma_{i}^{2}\left(A\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:schur_complement"
+
+\end_inset
+
+ Дополнение Шура блочной матрицы 
+\begin_inset Formula $M=\left(\begin{array}{cc}
+A & B\\
+C & D
+\end{array}\right)$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+M/D & :=A-BD^{-1}C\\
+M/A & :=D-CA^{-1}B.
+\end{align*}
+
+\end_inset
+
+Свойства
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $M\succ0$
+\end_inset
+
+ 
+\begin_inset Formula $\iff$
+\end_inset
+
+ 
+\begin_inset Formula $D\succ0$
+\end_inset
+
+ and 
+\begin_inset Formula $M/D\succ0$
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M\succ0$
+\end_inset
+
+ 
+\begin_inset Formula $\iff$
+\end_inset
+
+ 
+\begin_inset Formula $A\succ0$
+\end_inset
+
+ and 
+\begin_inset Formula $M/A\succ0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Задача о минимизации сингулярных чисел матрицы
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{\star}=\arg\min_{x}\sigma_{\max}\left(F\left(x\right)\right)
+\]
+
+\end_inset
+
+где 
+\begin_inset Formula $F\left(x\right)$
+\end_inset
+
+ – линейная матричная функция: 
+\begin_inset Formula $F\left(ax+by\right)=aF\left(x\right)+bF\left(y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Записываем по определению сингулярного числа
+\begin_inset Formula 
+\[
+\sigma\left(F\right)=\lambda\left(F^{T}F\right).
+\]
+
+\end_inset
+
+Заменяем задачу минимизации неравенством 
+\begin_inset Formula 
+\[
+\lambda_{\max}\left(F^{T}F\right)<\gamma^{2}
+\]
+
+\end_inset
+
+Значит 
+\begin_inset Formula 
+\[
+F^{T}F\prec I\gamma^{2}
+\]
+
+\end_inset
+
+или
+\begin_inset Formula 
+\[
+I\gamma^{2}-F^{T}F\succ0.
+\]
+
+\end_inset
+
+Используем дополнение Шура 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:schur_complement"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Существует блочная матрица 
+\begin_inset Formula $M=\left(\begin{array}{cc}
+A & B\\
+C & D
+\end{array}\right)$
+\end_inset
+
+, что 
+\begin_inset Formula 
+\begin{align*}
+D & \succ0\\
+M/D=A-BD^{-1}C & \succ0.
+\end{align*}
+
+\end_inset
+
+Сравниваем 
+\begin_inset Formula $A=I\gamma^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $F^{T}F=BD^{-1}C$
+\end_inset
+
+.
+ Здесь 
+\begin_inset Formula $D=I$
+\end_inset
+
+, 
+\begin_inset Formula $F^{T}=B,F=C$
+\end_inset
+
+.
+ Тогда 
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+I\gamma^{2} & F^{T}\\
+F & I
+\end{array}\right)\succ0.
+\]
+
+\end_inset
+
+Или 
+\begin_inset Formula $\left(\begin{array}{cc}
+I\gamma & F^{T}\\
+F & I\gamma
+\end{array}\right)\succ0$
+\end_inset
+
+.
+ Или 
+\begin_inset Formula $I\gamma-\frac{1}{\gamma}F^{T}F\succ0$
+\end_inset
+
+, 
+\begin_inset Formula $D-CA^{-1}B\succ0$
+\end_inset
+
+; 
+\begin_inset Formula $D=I\gamma$
+\end_inset
+
+, 
+\begin_inset Formula $F^{T}=C$
+\end_inset
+
+, 
+\begin_inset Formula $F=B$
+\end_inset
+
+, 
+\begin_inset Formula $A=I\gamma$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+I\gamma & F\\
+F^{T} & I\gamma
+\end{array}\right)\succ0.
+\]
+
+\end_inset
+
+В итоге: минимизировать 
+\begin_inset Formula $\gamma$
+\end_inset
+
+, при условии 
+\begin_inset Formula $\left(\begin{array}{cc}
+I\gamma & F\\
+F^{T} & I\gamma
+\end{array}\right)\succ0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Inverse LQR
+\end_layout
+
+\begin_layout Standard
+Выбираем 
+\begin_inset Formula $R=I$
+\end_inset
+
+.
+ Тогда матрицы 
+\begin_inset Formula $P,Q,K$
+\end_inset
+
+ должны удовлетворять уравнениям
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+A^{T}P+PA-PBB^{T}P+Q & =0\\
+K & =-B^{T}P
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Можно определить оптимизационную задачу
+\end_layout
+
+\begin_layout Standard
+minimize 
+\begin_inset Formula 
+\begin{align*}
+\mathbf{minimize}_{X\in S}\left\Vert K+B^{T}X\right\Vert \\
+\text{s.t.}\\
+X=X^{T}\\
+X\succ0\\
+K=-B^{T}P\\
+A^{T}X+XA+XBK\prec0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Приводим к виду
+\begin_inset Formula 
+\begin{align*}
+\mathbf{minimize}_{X\in S}\left\Vert K+B^{T}X\right\Vert \\
+\text{s.t.}\\
+\left(\begin{array}{cc}
+-X & 0\\
+0 & A^{T}X+XA+XBK^{T}
+\end{array}\right)\prec0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Существенное условие 
+\begin_inset Formula 
+\begin{align*}
+T^{H}\left(j\omega\right)T\left(j\omega\right)-I & \succeq0\\
+T\left(s\right) & :=I-K\left(Is-A\right)^{-1}B
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Другой критерий оптимальности
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{T}P+PA-\left(PB+N\right)R^{-1}\left(B^{T}P+N^{T}\right)+Q=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $K=-R^{-1}\left(B^{T}P+N^{T}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Выбираем 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{T}P+PA+\left(PB+N\right)K+Q=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{T}P+PA-K^{T}K=-Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+LMI в задаче построения LQR
+\end_layout
+
+\begin_layout Standard
+Начинаем с неравенства Риккати
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+A^{T}P+PA-PBR^{-1}B^{T}P=-Q\prec0
+\]
+
+\end_inset
+
+Делаем замену 
+\begin_inset Formula $S=P^{-1}\succ0$
+\end_inset
+
+, умножаем слева и справа на 
+\begin_inset Formula $S$
+\end_inset
+
+, получаем 
+\begin_inset Formula 
+\[
+SA^{T}+AS-BR^{-1}B^{T}+SQS\preceq0
+\]
+
+\end_inset
+
+Меняем знак 
+\begin_inset Formula 
+\[
+BR^{-1}B^{T}-SA^{T}-AS-SQS\succeq0
+\]
+
+\end_inset
+
+Используем 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+дополнение Шура 
+\begin_inset Formula $M=\left(\begin{array}{cc}
+M_{11} & M_{12}\\
+M_{21} & M_{22}
+\end{array}\right)\succeq0,M_{11}=M_{11}^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{22}=M_{22}^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{12}=M_{21}^{T}$
+\end_inset
+
+, 
+\begin_inset Formula $M_{22}\succeq0$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+M/M_{22} & :=M_{11}-M_{12}M_{22}^{-1}M_{21}\succeq0
+\end{align*}
+
+\end_inset
+
+где 
+\begin_inset Formula $M/M_{22}=\underbrace{BR^{-1}B^{T}-SA^{T}-AS}_{M_{11}}-\underbrace{S}_{M_{12}}\underbrace{Q}_{M_{22}^{-1}}\underbrace{S}_{M_{21}}\succeq0$
+\end_inset
+
+ , тогда 
+\begin_inset Formula 
+\[
+M=\left(\begin{array}{cc}
+BR^{-1}B^{T}-SA^{T}-AS & S\\
+S & Q^{-1}
+\end{array}\right)\succeq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda_{\max}\left(A+BK\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda_{\max}\left(A-BR^{-1}B^{T}P\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{minimize}_{S}\lambda_{\max}\left(A-BR^{-1}B^{T}S^{-1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Критерии качества
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+J_{1}\ddot{\theta}_{1}+f\left(\dot{\theta}_{1}-\dot{\theta}_{2}\right)+k\left(\theta_{1}-\theta_{2}\right) & =T+w\\
+J_{2}\ddot{\theta}_{2}+f\left(\dot{\theta}_{2}-\dot{\theta}_{1}\right)+k\left(\theta_{2}-\theta_{1}\right) & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\ddot{\theta}_{1} & =-\frac{k}{J_{1}}\theta_{1}+\frac{k}{J_{1}}\theta_{2}-\frac{f}{J_{1}}\dot{\theta}_{1}+\frac{f}{J_{1}}\dot{\theta}_{2}+\frac{1}{J_{1}}T+\frac{1}{J_{1}}w\\
+\ddot{\theta}_{2} & =\frac{k}{J_{2}}\theta_{1}-\frac{k}{J_{2}}\theta_{2}-\frac{f}{J_{2}}\dot{\theta}_{2}+\frac{f}{J_{2}}\dot{\theta}_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{dt}\left(\begin{array}{c}
+\theta_{1}\\
+\theta_{2}\\
+\dot{\theta}_{1}\\
+\dot{\theta}_{2}
+\end{array}\right) & =\left(\begin{array}{cccc}
+ &  & 1\\
+ &  &  & 1\\
+-\frac{k}{J_{1}} & \frac{k}{J_{1}} & -\frac{f}{J_{1}} & \frac{f}{J_{1}}\\
+\frac{k}{J_{2}} & -\frac{k}{J_{2}} & -\frac{f}{J_{2}} & \frac{f}{J_{2}}
+\end{array}\right)\left(\begin{array}{c}
+\theta_{1}\\
+\theta_{2}\\
+\dot{\theta}_{1}\\
+\dot{\theta}_{2}
+\end{array}\right)+\left(\begin{array}{c}
+\\
+\\
+\frac{1}{J_{1}}\\
+\\
+\end{array}\right)T+\left(\begin{array}{c}
+\\
+\\
+\frac{1}{J_{1}}\\
+\\
+\end{array}\right)w\\
+z_{\infty} & =\left(\begin{array}{cccc}
+0 & 1 & 0 & 0\end{array}\right)\left(\begin{array}{c}
+\theta_{1}\\
+\theta_{2}\\
+\dot{\theta}_{1}\\
+\dot{\theta}_{2}
+\end{array}\right)\\
+z_{2} & =\left(\begin{array}{cccc}
+1\\
+ & 1\\
+\\
+\end{array}\right)\left(\begin{array}{c}
+\theta_{1}\\
+\theta_{2}\\
+\dot{\theta}_{1}\\
+\dot{\theta}_{2}
+\end{array}\right)+\left(\begin{array}{c}
+\\
+\\
+1
+\end{array}\right)T
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+A & =\left(\begin{array}{cccc}
+ &  & 1\\
+ &  &  & 1\\
+-\frac{k}{J_{1}} & \frac{k}{J_{1}} & -\frac{f}{J_{1}} & \frac{f}{J_{1}}\\
+\frac{k}{J_{2}} & -\frac{k}{J_{2}} & -\frac{f}{J_{2}} & \frac{f}{J_{2}}
+\end{array}\right)\\
+B_{w} & =\left(\begin{array}{c}
+\\
+\\
+\frac{1}{J_{1}}\\
+\\
+\end{array}\right)\\
+B_{u} & =\left(\begin{array}{c}
+\\
+\\
+\frac{1}{J_{1}}\\
+\\
+\end{array}\right)\\
+C_{1} & =1\\
+D_{1w} & =0\\
+D_{1u} & =0\\
+C_{2} & =\left(\begin{array}{cccc}
+1\\
+ & 1\\
+\\
+\end{array}\right)\\
+D_{2u} & =\left(\begin{array}{c}
+\\
+\\
+1
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
