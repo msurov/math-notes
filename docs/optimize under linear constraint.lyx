@@ -1,0 +1,489 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula $A=U\Sigma V^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $AA^{\dagger}=I_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\in\mathbb{R}^{n\times m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{\dagger}\in\mathbb{R}^{m\times n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\Sigma V^{T}X=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Z:=V^{T}X\in\mathbb{R}^{m\times k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\Sigma Z=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\left(\begin{array}{cccc}
+\sigma\\
+ & \sigma\\
+ &  & 0
+\end{array}\right)Z=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+then I can find 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\left(\begin{array}{cccc}
+\sigma\\
+ & \sigma\\
+ &  & 0
+\end{array}\right)\left(\begin{array}{cc}
+Z & Z\\
+Z & Z\\
+0 & 0\\
+0 & 0
+\end{array}\right)=B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Sigma Z=U^{T}B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $I_{m}Z=\frac{1}{\Sigma}U^{T}B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+–
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $AA^{\perp}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Sigma=\left(\begin{array}{cccc}
+\sigma\\
+ & \sigma\\
+ &  & 0
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A^{\perp}=V\cdot\left(\begin{array}{cc}
+0 & 0\\
+0 & 0\\
+1 & 0\\
+0 & 1
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ decompose 
+\begin_inset Formula 
+\[
+A=U\Sigma V^{T}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ find pseudo-inverse 
+\begin_inset Formula 
+\[
+A^{\dagger}:=V\frac{1}{\Sigma}U^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ eval dimension of the null-space as 
+\begin_inset Formula 
+\[
+d:=m-n+\mathbf{count}_{i}\sigma_{i}<\epsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ find left annihilator 
+\begin_inset Formula 
+\begin{align*}
+A^{\perp} & :=V\cdot J_{m\times d}\in\mathbb{R}^{m\times d}\\
+J_{m\times d} & :=\left(\begin{array}{ccc}
+\\
+\ddots\\
+ & 1\\
+ &  & 1
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ find a particular solution of the linear system 
+\begin_inset Formula 
+\[
+x_{1}:=A^{\dagger}B
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+6.
+ find the general solution in the form
+\begin_inset Formula 
+\[
+x:=x_{1}+A^{\perp}\alpha
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+* if 
+\begin_inset Formula $B\in\mathbb{R}^{n\times k}$
+\end_inset
+
+, then 
+\begin_inset Formula $x_{1}\in\mathbb{R}^{m\times k}$
+\end_inset
+
+, 
+\begin_inset Formula $A^{\perp}\in\mathbb{R}^{m\times d}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha\in\mathbb{R}^{d\times k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Minimize
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+F & =\mathbf{trace}\left(X^{T}QX\right)\\
+ & =Q_{jk}X_{ki}X_{ji}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\begin{align*}
+\\
+\frac{\partial\mathbf{trace}\left(X^{T}QX\right)}{\partial X} & =Q_{jk}\frac{\partial X_{ki}X_{ji}}{\partial X_{ab}}\\
+ & =Q_{jk}\frac{\partial X_{ki}}{\partial X_{ab}}X_{ji}+Q_{jk}X_{ki}\frac{\partial X_{ji}}{\partial X_{ab}}\\
+ & =Q_{jk}\delta_{ka}\delta_{ib}X_{ji}+Q_{jk}X_{ki}\delta_{ja}\delta_{ib}\\
+ & =Q_{ak}X_{kb}+Q_{ka}X_{kb}\\
+ & =\left(Q_{ja}+Q_{aj}\right)X_{jb}\\
+ & =\left(Q^{T}+Q\right)X\\
+\\
+\frac{\partial\mathbf{trace}\left(QX\right)}{\partial X} & =Q_{ij}\frac{\partial X_{ji}}{\partial X_{ab}}\\
+ & =Q_{ba}\\
+ & =Q^{T}\\
+\\
+\frac{\partial\mathbf{trace}\left(XQ\right)}{\partial X} & =X_{ij}Q_{ji}\\
+ & =\frac{\partial X_{ij}}{\partial X_{ab}}Q_{ji}\\
+ & =Q_{ba}\\
+ & =Q^{T}\\
+\\
+\frac{\partial\mathbf{trace}\left(X^{T}Q\right)}{\partial X} & =Q
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $X=X_{1}+A_{\perp}Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+F & =\mathbf{trace}\left(X_{1}^{T}QX_{1}+X_{1}^{T}QA_{\perp}Y+Y^{T}A_{\perp}^{T}QX_{1}+Y^{T}A_{\perp}^{T}QA_{\perp}Y\right)\\
+ & =\mathbf{trace}\left(X_{1}^{T}QX_{1}\right)+\mathbf{trace}\left(X_{1}^{T}QA_{\perp}Y\right)+\mathbf{trace}\left(Y^{T}A_{\perp}^{T}QX_{1}\right)+\mathbf{trace}\left(Y^{T}A_{\perp}^{T}QA_{\perp}Y\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial F}{\partial Y}=2A_{\perp}^{T}QX_{1}+2A_{\perp}^{T}QA_{\perp}\cdot Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2A_{\perp}^{T}QX_{1}+2A_{\perp}^{T}QA_{\perp}\cdot Z=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $A_{\perp}^{T}QA_{\perp}\cdot Y=-A_{\perp}^{T}QX_{1}$
+\end_inset
+
+ solve for 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

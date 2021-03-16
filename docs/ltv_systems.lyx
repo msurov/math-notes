@@ -1,0 +1,726 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Линейная непрерывная система с зависящими от времени коэффициентами
+\end_layout
+
+\begin_layout Standard
+Исходная система
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{x}=A_{t}x+B_{t}u
+\]
+
+\end_inset
+
+При 
+\begin_inset Formula $u\equiv0$
+\end_inset
+
+ существует фундаментальное решение 
+\begin_inset Formula 
+\[
+x=\Phi\left(t,t_{0}\right)x_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Решение в явном виде
+\end_layout
+
+\begin_layout Standard
+Для исходной системы 
+\begin_inset Formula $\dot{x}=A_{t}x+B_{t}u$
+\end_inset
+
+ ищем решение методом вариации постоянной 
+\begin_inset Formula 
+\begin{align*}
+x & =\Phi\left(t,t_{0}\right)C\\
+\dot{x} & =\frac{\partial\Phi\left(t,t_{0}\right)}{\partial t}C+\Phi\left(t,t_{0}\right)\dot{C}\\
+ & =A_{t}\Phi\left(t,t_{0}\right)C+\Phi\left(t,t_{0}\right)\dot{C}\\
+A_{t}\Phi\left(t,t_{0}\right)C+\Phi\left(t,t_{0}\right)\dot{C} & =A_{t}x+B_{t}u\\
+\dot{C} & =\Phi\left(t_{0},t\right)B_{t}u\\
+C_{t} & =\int_{t_{0}}^{t}\Phi\left(t_{0},\tau\right)B_{\tau}ud\tau+C_{1}
+\end{align*}
+
+\end_inset
+
+Тогда 
+\begin_inset Formula 
+\begin{align*}
+x & =\Phi\left(t,t_{0}\right)\left[\int_{t_{0}}^{t}\Phi\left(t_{0},\tau\right)B_{\tau}ud\tau+C_{1}\right]\\
+ & =\int_{t_{0}}^{t}\Phi\left(t,t_{0}\right)\Phi\left(t_{0},\tau\right)B_{\tau}ud\tau+\Phi\left(t,t_{0}\right)C_{1}\\
+ & =\Phi\left(t,t_{0}\right)C_{1}+\int_{t_{0}}^{t}\Phi\left(t,\tau\right)B_{\tau}ud\tau
+\end{align*}
+
+\end_inset
+
+Учитываем начальные условия 
+\begin_inset Formula $x\left(t_{0}\right)=x_{0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x & =\Phi\left(t,t_{0}\right)x_{0}+\int_{t_{0}}^{t}\Phi\left(t,\tau\right)B_{\tau}ud\tau
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Преобразование координат
+\end_layout
+
+\begin_layout Standard
+Пусть обратимая матрица 
+\begin_inset Formula $P_{t}$
+\end_inset
+
+ задаёт преобразование 
+\begin_inset Formula $x=P_{t}z$
+\end_inset
+
+, тогда в координатах 
+\begin_inset Formula $z$
+\end_inset
+
+ динамика будет выглядеть как
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{z} & =\left[P_{t}^{-1}A_{t}P_{t}-P_{t}^{-1}\dot{P}_{t}\right]z+P_{t}^{-1}B_{t}u
+\end{align*}
+
+\end_inset
+
+Фундаментальная матрица преобразуется как 
+\begin_inset Formula 
+\[
+\bar{\Phi}\left(t,\tau\right)=P_{t}^{-1}\Phi\left(t,\tau\right)P_{\tau}.
+\]
+
+\end_inset
+
+
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Проверяю 
+\begin_inset Formula 
+\begin{align*}
+x & =\Phi\left(t,t_{0}\right)x_{0}\\
+z & =\Psi\left(t,t_{0}\right)z_{0}\\
+P_{t}^{-1}\Phi\left(t,t_{0}\right)x_{0} & =\Psi\left(t,t_{0}\right)z_{0}\\
+P_{t}^{-1}\Phi\left(t,\tau\right)P_{\tau} & =\Psi\left(t,\tau\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Хочу задать конкретный вид матрицы 
+\begin_inset Formula $\bar{A}$
+\end_inset
+
+ в новых координатах:
+\begin_inset Formula 
+\begin{align*}
+\bar{A} & =P^{-1}AP-P^{-1}\dot{P}\\
+\dot{P} & =AP-P\bar{A}\\
+P & =\Phi\left(t,a\right)\bar{\Phi}\left(a,t\right)\\
+\bar{B} & =P^{-1}B
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Если матрица 
+\begin_inset Formula $P\in SO\left(n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{P}=AP-P\bar{A}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{A}=P^{T}AP-P^{T}\dot{P}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{A}=X-S
+\]
+
+\end_inset
+
+Тогда матрицу 
+\begin_inset Formula $A$
+\end_inset
+
+ можно привести к виде нижне-треугольному виду
+\end_layout
+
+\begin_layout Subsection
+Для абсолютно управляемых систем
+\end_layout
+
+\begin_layout Standard
+Преобразуем систему 
+\begin_inset Formula $\dot{x}=Ax+Bu$
+\end_inset
+
+ к виду 
+\begin_inset Formula 
+\[
+\dot{z}=\left(\begin{array}{cccc}
+0 & 1\\
+0 & 0 & 1\\
+ & \vdots &  & \ddots\\
+a_{1} & a_{2} & \cdots & a_{n}
+\end{array}\right)z+\left(\begin{array}{c}
+0\\
+\vdots\\
+0\\
+b
+\end{array}\right)u
+\]
+
+\end_inset
+
+Пусть 
+\begin_inset Formula 
+\[
+z_{1}=w^{T}x
+\]
+
+\end_inset
+
+Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\dot{z}_{1} & =\dot{w}^{T}x+w^{T}\dot{x}\\
+ & =\dot{w}^{T}x+w^{T}Ax+\underbrace{w^{T}B}_{=0}u\\
+ & \Rightarrow w^{T}B=0\\
+\dot{z}_{1} & =\dot{w}^{T}x+w^{T}Ax=:z_{2}\\
+\dot{z}_{2} & =\ddot{w}^{T}x+\dot{w}^{T}\dot{x}+\dot{w}^{T}Ax+w^{T}\dot{A}x+w^{T}A\dot{x}\\
+ & =\ddot{w}^{T}x+\dot{w}^{T}Ax+w^{T}\dot{A}x+\left(\dot{w}^{T}+w^{T}A\right)\left(Ax+Bu\right)\\
+ & =\ddot{w}^{T}x+\dot{w}^{T}Ax+w^{T}\dot{A}x+\dot{w}^{T}Ax+\dot{w}^{T}Bu+w^{T}AAx+w^{T}ABu\\
+ & =\ddot{w}^{T}x+2\dot{w}^{T}Ax+w^{T}\dot{A}x+w^{T}AAx+\underbrace{\left(\dot{w}^{T}B+w^{T}AB\right)}_{=0}u\\
+ & \Rightarrow\dot{w}^{T}B+w^{T}AB=0\\
+\dot{z}_{2} & =\ddot{w}^{T}x+2\dot{w}^{T}Ax+w^{T}\dot{A}x+w^{T}AAx=:z_{3}\\
+\dot{z}_{3} & =\dddot{w}^{T}x+\ddot{w}^{T}\dot{x}\\
+ & +2\ddot{w}^{T}Ax+2\dot{w}^{T}\dot{A}x+2\dot{w}^{T}A\dot{x}\\
+ & +\dot{w}^{T}\dot{A}x+w^{T}\ddot{A}x+w^{T}\dot{A}\dot{x}\\
+ & +\dot{w}^{T}AAx+w^{T}\dot{A}Ax+w^{T}A\dot{A}x+w^{T}AA\dot{x}\\
+ & =\dddot{w}^{T}x+3\ddot{w}^{T}Ax+3\dot{w}^{T}\dot{A}x+w^{T}\ddot{A}x\\
+ & +3\dot{w}^{T}AAx+2w^{T}\dot{A}Ax+w^{T}A\dot{A}x+w^{T}AAAx\\
+ & +\left(\ddot{w}^{T}+2\dot{w}^{T}A+w^{T}AA+w^{T}\dot{A}\right)Bu\\
+\end{align*}
+
+\end_inset
+
+Получаем:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+w^{T}B & =0\\
+\dot{w}^{T}B+w^{T}AB & =0\\
+\dot{w}^{T}B+w^{T}\dot{B} & =0
+\end{align*}
+
+\end_inset
+
+Получаем условие для 
+\begin_inset Formula $w$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w^{T}\left(\begin{array}{c}
+B\\
+AB-\dot{B}
+\end{array}\right)=0
+\]
+
+\end_inset
+
+Тогда 
+\begin_inset Formula 
+\begin{align*}
+w & =B\times\left(AB-\dot{B}\right)\\
+P & =\left(\begin{array}{c}
+w^{T}\\
+\dot{w}^{T}+w^{T}A\\
+\ddot{w}^{T}+2\dot{w}^{T}A+w^{T}\dot{A}+w^{T}AA
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Управляемость
+\end_layout
+
+\begin_layout Standard
+Граммиан система
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+W\left(t_{1},t_{2}\right) & = & \int_{t_{1}}^{t_{2}}\Phi\left(t_{1},t\right)B\left(t\right)B^{T}\left(t\right)\Phi\left(t_{1},t\right)dt
+\end{eqnarray*}
+
+\end_inset
+
+должен быть невырожденным для 
+\begin_inset Formula $t_{1},t_{2}$
+\end_inset
+
+, тогда на этом интервале система управляема, т.е.
+ можно задать управление, переводящее из любого 
+\begin_inset Formula $x_{1},t_{1}$
+\end_inset
+
+ в 
+\begin_inset Formula $x_{2},t_{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+u\left(t\right) & = & -B^{T}\Phi^{T}\left(t_{1},t\right)W^{-1}\left(t_{1},t_{2}\right)\left[x_{1}-\Phi\left(t_{1},t_{2}\right)x_{2}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Оптимальный регулятор
+\end_layout
+
+\begin_layout Standard
+Управление 
+\begin_inset Formula $u_{t}$
+\end_inset
+
+ для системы 
+\begin_inset Formula 
+\[
+\dot{x}=Ax+Bu,
+\]
+
+\end_inset
+
+которое минимизирует функционал
+\begin_inset Formula 
+\[
+F=\int_{t_{1}}^{t_{2}}x^{T}Qx+u^{T}Rudt+x_{2}^{T}Sx_{2}
+\]
+
+\end_inset
+
+при 
+\begin_inset Formula $x\left(t_{1}\right)=x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $Q\succeq0$
+\end_inset
+
+, 
+\begin_inset Formula $R\succ0$
+\end_inset
+
+, 
+\begin_inset Formula $S\succeq0$
+\end_inset
+
+.
+ Решение 
+\begin_inset Formula 
+\[
+u=-R^{-1}B^{T}Px,
+\]
+
+\end_inset
+
+матрица 
+\begin_inset Formula $P\succeq0$
+\end_inset
+
+ – решение уравнения 
+\begin_inset Formula 
+\begin{align*}
+\dot{P}+A^{T}P+PA-PBR^{-1}B^{T}P+Q & =0,\\
+P\left(t_{2}\right) & =S.
+\end{align*}
+
+\end_inset
+
+Уравнение Риккати решается в обратном времени; при этом вне заивисимости
+ от начальных условий 
+\begin_inset Formula $P\left(t_{2}\right)$
+\end_inset
+
+ все решения при 
+\begin_inset Formula $t\to-\infty$
+\end_inset
+
+ сходятся к одной и той же функции 
+\begin_inset Formula $\bar{P}\left(t\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Доказательство.
+ Определим функцию Ляпунова 
+\begin_inset Formula 
+\begin{align*}
+V & :=\frac{1}{2}\mathbf{trace}\left(\left(P-\bar{P}\right)\bar{P}^{-1}\right)^{2}\\
+\dot{V} & =\mathbf{trace}\left(\left(P-\bar{P}\right)\bar{P}^{-1}\right)\mathbf{trace}\left(\frac{dP\bar{P}^{-1}}{dt}\right)\\
+ & =\mathbf{trace}\left(\left(P-\bar{P}\right)\bar{P}^{-1}\right)\mathbf{trace}\left(\dot{P}\bar{P}^{-1}-\bar{P}^{-1}\dot{\bar{P}}\bar{P}^{-1}\right)\\
+ & =\mathbf{trace}\left(P\bar{P}^{-1}-I\right)\left[\mathbf{trace}\left(\dot{P}\bar{P}^{-1}\right)-\mathbf{trace}\left(\bar{P}^{-1}\dot{\bar{P}}\bar{P}^{-1}\right)\right]\\
+ & =\left[\mathbf{tr}P\bar{P}^{-1}-n\right]\left[\mathbf{tr}\left(\dot{P}\bar{P}^{-1}\right)-\mathbf{tr}\left(\bar{P}^{-1}\dot{\bar{P}}\bar{P}^{-1}\right)\right]\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{P}=-A^{T}P-PA+PBR^{-1}B^{T}P-Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta P=P-\bar{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta\dot{P}=-A^{T}\delta P-\delta PA+\left[PBR^{-1}B^{T}\delta P+\delta PBR^{-1}B^{T}\bar{P}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{P}=-A^{T}P-PA+PBR^{-1}B^{T}P-Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\delta\dot{P} & =\dot{P}-\dot{\bar{P}}\\
+ & =\left(-A^{T}P-PA+PBR^{-1}B^{T}P-Q\right)-\left(-A^{T}\bar{P}-\bar{P}A+\bar{P}BR^{-1}B^{T}\bar{P}-Q\right)\\
+ & =-A^{T}P+A^{T}\bar{P}-PA+\bar{P}A+PBR^{-1}B^{T}P-\bar{P}BR^{-1}B^{T}\bar{P}\\
+ & =-A^{T}\delta P-\delta PA+PBR^{-1}B^{T}P-\bar{P}BR^{-1}B^{T}\bar{P}\\
+ & =-A^{T}\delta P-\delta PA+\left(\delta P+\bar{P}\right)BR^{-1}B^{T}\left(\delta P+\bar{P}\right)-\bar{P}BR^{-1}B^{T}\bar{P}\\
+ & =-A^{T}\delta P-\delta PA+\delta PBR^{-1}B^{T}\delta P+\delta PBR^{-1}B^{T}\bar{P}+\bar{P}BR^{-1}B^{T}\delta P\\
+ & =-A^{T}\delta P-\delta PA+\delta PBR^{-1}B^{T}\delta P+\delta PBR^{-1}B^{T}\bar{P}+\bar{P}BR^{-1}B^{T}\delta P\\
+ & =-A^{T}\delta P+\bar{P}BR^{-1}B^{T}\delta P-\delta PA+\delta PBR^{-1}B^{T}\bar{P}+\delta PBR^{-1}B^{T}\delta P\\
+ & =-\left(A-BR^{-1}B^{T}\bar{P}\right)^{T}\delta P-\delta P\underbrace{\left(A-BR^{-1}B^{T}\bar{P}\right)}_{=:\bar{A}}+\delta PBR^{-1}B^{T}\delta P\\
+ & =-\bar{A}^{T}\delta P-\delta P\bar{A}+\delta PBR^{-1}B^{T}\delta P
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\upsilon\left(\delta P\right)=\frac{1}{2}\mathbf{tr}\left(\delta P\bar{P}^{-1}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\delta P\bar{P}^{-1} & =\left(P-\bar{P}\right)\bar{P}^{-1}\\
+ & =\left(P\bar{P}^{-1}-I\right)\\
+\frac{d}{dt}\delta P\bar{P}^{-1} & =\left(\dot{P}-P\bar{P}^{-1}\dot{\bar{P}}\right)\bar{P}^{-1}\\
+ & =\left[\left(-A^{T}P-PA+PBR^{-1}B^{T}P-Q\right)-P\bar{P}^{-1}\left(-A^{T}\bar{P}-\bar{P}A+\bar{P}BR^{-1}B^{T}\bar{P}-Q\right)\right]\bar{P}^{-1}\\
+ & =\left(-A^{T}P-PA+PBR^{-1}B^{T}P-Q\right)\bar{P}^{-1}-P\left(-\bar{P}^{-1}A^{T}-A\bar{P}^{-1}+BR^{-1}B^{T}-\bar{P}^{-1}Q\bar{P}^{-1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{P}=-A^{T}P-PA+PBR^{-1}B^{T}P-Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=P^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{S}=-P^{-1}\dot{P}P^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $SP=I$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{S}P+S\dot{P}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-S^{-1}\dot{S}S^{-1}=\dot{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-S^{-1}\dot{S}S^{-1}=-A^{T}S^{-1}-S^{-1}A+S^{-1}BR^{-1}B^{T}S^{-1}-Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $-SS^{-1}\dot{S}S^{-1}S=-SA^{T}S^{-1}S-SS^{-1}AS+SS^{-1}BR^{-1}B^{T}S^{-1}S-SQS$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{S}=SA^{T}+AS-BR^{-1}B^{T}+SQS$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+Рассматриваю 2 решения задачи Коши
+\end_layout
+
+\begin_layout Standard
+1.
+ 
+\begin_inset Formula $\dot{S}=SA^{T}+AS-BR^{-1}B^{T}+SQS$
+\end_inset
+
+, 
+\begin_inset Formula $S\left(T\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ 
+\begin_inset Formula $\dot{P}=-A^{T}P-PA+PBR^{-1}B^{T}P-Q$
+\end_inset
+
+, 
+\begin_inset Formula $P\left(T\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получается, все решения должны быть зажаты между 
+\begin_inset Formula $P\left(t\right)$
+\end_inset
+
+ и 
+\begin_inset Formula $S^{-1}\left(t\right)$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+Кроме того, если решение уравнения Риккати вдруг расходится из-за больших
+ значений, то его всегда можно вычислить из уравнения для обратной матрицы.
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\end_body
+\end_document

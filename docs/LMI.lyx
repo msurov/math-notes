@@ -804,7 +804,312 @@ S & Q^{-1}
 
 \end_layout
 
+\begin_layout Section
+LTV LMI
+\end_layout
+
+\begin_layout Standard
+Исходное неравенство 
+\begin_inset Formula 
+\[
+PA+A^{T}P-2PBR^{-1}B^{T}P+\dot{P}\prec0
+\]
+
+\end_inset
+
+Заменяем 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+на
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+PA+A^{T}P-2PBR^{-1}B^{T}P+\dot{P}+Q\preceq0
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Замена 
+\begin_inset Formula $S:=P^{-1}$
+\end_inset
+
+, тогда 
+\begin_inset Formula $\dot{P}=-S^{-1}\dot{S}S^{-1}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+S^{-1}A+A^{T}S^{-1}-2S^{-1}BR^{-1}B^{T}S^{-1}-S^{-1}\dot{S}S^{-1}+Q\preceq0
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Умножаем слева и справа на 
+\begin_inset Formula $S$
+\end_inset
+
+, получаем 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+AS+SA^{T}-2BR^{-1}B^{T}-\dot{S}+SQS\preceq0
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+или 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+\underline{2BR^{-1}B^{T}+\dot{S}-AS-SA^{T}}-SQS\succeq0
+\]
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Используем 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+дополнение Шура 
+\begin_inset Formula $M=\left(\begin{array}{cc}
+A & B\\
+C & D
+\end{array}\right)\succeq0$
+\end_inset
+
+ 
+\begin_inset Formula $\iff$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $M/D:=A-BD^{-1}C\succeq0$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+M=\left(\begin{array}{cc}
+2BR^{-1}B^{T}+\dot{S}-AS-SA^{T} & S\\
+S & Q^{-1}
+\end{array}\right)\succeq0
+\]
+
+\end_inset
+
+Будем искать 
+\begin_inset Formula $S$
+\end_inset
+
+ в виде 
+\begin_inset Formula $S=\sum_{i}S_{i}b_{i}\left(t\right)$
+\end_inset
+
+.
+ Тогда 
+\begin_inset Formula $S=\sum_{i}S_{i}\dot{b}_{i}\left(t\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+В качестве 
+\begin_inset Formula $b_{i}\left(t\right)$
+\end_inset
+
+ можно выбрать полиномы Чебышева первого рода 
+\begin_inset Formula $T_{n}\left(x\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+b_{i}\left(t\right) & =1+T_{i}\left(2t-1\right)\\
+\frac{d}{dt}b_{i}\left(t\right) & =2iU_{i-1}\left(2t-1\right)\\
+S & =\sum_{i=1}^{N}S_{i}\left(1+T_{i}\left(2t-1\right)\right)\\
+\dot{S} & =2\sum_{i=1}^{N}S_{i}iU_{i-1}\left(2t-1\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M=\left(\begin{array}{cc}
+2BR^{-1}B^{T}+\dot{S}-AS-SA^{T} & S\\
+S & Q^{-1}
+\end{array}\right)\succeq0
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
+Дискретная система
+\end_layout
+
+\begin_layout Section
 Критерии качества
 \end_layout
 
