@@ -1,0 +1,189 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language russian
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style russian
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Знак отображения
+\end_layout
+
+\begin_layout Standard
+Задано отображение между двумя многообразиями одинаковой размерности 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+.
+ Отображение обладает локальным диффеоморфизмом (рис.
+ 1) около выбранной точки 
+\begin_inset Formula $x$
+\end_inset
+
+, при этом, обратное отображение может иметь неоднозначность.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/f-mapping.svg
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Функция 
+\begin_inset Formula $f$
+\end_inset
+
+ – локальный диффеоморфизм, но глобально может обратная функция может быть
+ определена неоднозначно.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Для отображения 
+\begin_inset Formula $f$
+\end_inset
+
+ можно вычислить якобиан 
+\begin_inset Formula $\frac{\partial f}{\partial x}$
+\end_inset
+
+.
+ Знаком отображения в точке 
+\begin_inset Formula $y$
+\end_inset
+
+ называется сумма 
+\begin_inset Formula 
+\[
+\mathbf{sign}\left(f,y\right):=\sum_{x\in\mathbf{preim}_{y}f}\mathbf{sign}\det\left(\frac{\partial f}{\partial x}\right)_{x}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Трансверсальные многообразия
+\end_layout
+
+\begin_layout Standard
+Есть два подмногообразия 
+\begin_inset Formula $U,V\subset M$
+\end_inset
+
+.
+ Говорят, что они трансверсальны, т.е.
+ 
+\begin_inset Formula $U\pitchfork V$
+\end_inset
+
+, если 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+U\pitchfork V\iff\forall p\in U\cap V,T_{p}M=T_{p}U+T_{p}V.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
