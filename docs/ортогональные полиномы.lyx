@@ -522,11 +522,195 @@ u_{n} & =\frac{n}{\sqrt{4n^{2}-1}}
 \end_layout
 
 \begin_layout Enumerate
-Вычисление производных
+Поскольку полином 
+\begin_inset Formula $\dot{b}_{n}$
+\end_inset
+
+ имеет порядок 
+\begin_inset Formula $n-1$
+\end_inset
+
+, он может быть разложен по полиномам 
+\begin_inset Formula $b_{0},\dots,b_{n-1}$
+\end_inset
+
+ с некоторыми коэффициентами 
+\begin_inset Formula $d_{k}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\dot{b}_{n}=\sum_{k=0}^{n-1}d_{k}b_{k}.
+\]
+
+\end_inset
+
+Вычислим коэффициенты этого разложения: 
+\begin_inset Formula 
+\[
+d_{k}=\left\langle b_{k},\dot{b}_{n}\right\rangle =\int b_{k}\dot{b}_{n}dx.
+\]
+
+\end_inset
+
+Проекция полинома 
+\begin_inset Formula $\dot{b}_{n}$
+\end_inset
+
+ на полиномы более высоких порядков будет равна нулю, поскольку 
+\begin_inset Formula 
+\[
+\left\langle x^{n-1},b_{k}\left(x\right)\right\rangle =0\,\forall k\geq n.
+\]
+
+\end_inset
+
+Итак, 
+\begin_inset Formula 
+\begin{align*}
+d_{k} & =\int b_{k}\dot{b}_{n}dx\\
+ & =\int b_{k}db_{n}\\
+ & =b_{n}b_{k}|_{-1}^{1}-\int b_{n}\dot{b}_{k}dx.
+\end{align*}
+
+\end_inset
+
+В свою очередь 
+\begin_inset Formula 
+\[
+\int b_{n}\dot{b}_{k}dx=0,\quad\forall k<n.
+\]
+
+\end_inset
+
+Значит 
+\begin_inset Formula 
+\begin{align*}
+d_{k} & =b_{n}b_{k}|_{-1}^{1}\\
+ & =b_{n}\left(1\right)b_{k}\left(1\right)-b_{n}\left(-1\right)b_{k}\left(-1\right),\\
+\dot{b}_{n} & =\sum_{k=0}^{n-1}d_{k}b_{k}.
+\end{align*}
+
+\end_inset
+
+Собственно, 
+\begin_inset Formula $b_{n}\left(1\right)=b_{n}\left(-1\right)$
+\end_inset
+
+ для чётных 
+\begin_inset Formula $n$
+\end_inset
+
+ и 
+\begin_inset Formula $b_{n}\left(1\right)=-b_{n}\left(-1\right)$
+\end_inset
+
+ для нечётных.
+ Значит, останутся 
+\begin_inset Formula 
+\[
+\dot{b}_{n}=d_{n-1}b_{n-1}+d_{n-3}b_{n-3}+\dots.
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
 \end_inset
 
 

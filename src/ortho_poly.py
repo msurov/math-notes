@@ -1,5 +1,3 @@
-import enum
-from tkinter import Y
 import sympy as sy
 import numpy as np
 import matplotlib.pyplot as plt
@@ -162,10 +160,32 @@ def test3():
     sy.pprint(bn1.expr)
     sy.pprint(basis[n+1].expr)
 
+
+def test_derivs():
+    x = sy.symbols('x', real=True)
+    basis = find_orthonormal_basis(x, 18)
+
+    n = 13
+    bn = basis[n]
+    dbn = bn.diff(x)
+
+    print('--------------')
+    for b in basis[:n]:
+        q = prod(dbn, b)
+        sy.pprint(q)
+
+    print('--------------')
+    for k in range(n):
+        bnbk = bn * basis[k]
+        c = bnbk(1) - bnbk(-1)
+        sy.pprint(c)
+
 if __name__ == '__main__':
     # test_ortho_basis()
     # test_orthonormal_basis()
     # collocation_points()
-    plot_basis()
+    # plot_basis()
     # test2()
     # test3()
+    # find_orthonormal_basis()
+    test_derivs()
