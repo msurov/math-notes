@@ -153,12 +153,39 @@ def test3():
     x = sy.symbols('x', real=True)
     basis = find_orthonormal_basis(x, 20)
 
-    n = 5
-    un = n / sy.sqrt(4*n**2 - 1)
-    un1 = (n + 1) / sy.sqrt(4*(n+1)**2 - 1)
-    bn1 = 1/un1 * x * basis[n] - un / un1 * basis[n-1]
-    sy.pprint(bn1.expr)
-    sy.pprint(basis[n+1].expr)
+    n = 3
+    m = 7
+    bn = basis[n]
+    bm = basis[m]
+
+    f = bn * bm
+    coefs = decompose(f, basis)
+    for c in coefs:
+        sy.pprint(c.expr)
+
+    # for k in range(0, n):
+    #     arg = sy.cos(sy.pi * (2 * k + 1) / (2 * n + 1))
+    #     v = bn(arg)
+    #     sy.pprint(v)
+
+def decompose_deriv(k):
+    '''
+        decompose d bk(x) / dx
+    '''
+    d = np.zeros(k-1)
+    i0 = k % 2
+    for i in range(1, k, 2):
+        v = (2 * k - 1) * (1 + 2*i)
+        d[i] = np.sqrt(v)
+    return d
+
+def test4():
+    x = sy.symbols('x', real=True)
+    basis = find_orthonormal_basis(x, 11)
+    db = basis[-1].diff(x)
+    coefs = decompose(db, basis)
+    coefs = [e.expr for e in coefs]
+    print(coefs)
 
 
 def test_derivs():
@@ -189,3 +216,4 @@ if __name__ == '__main__':
     # test3()
     # find_orthonormal_basis()
     test_derivs()
+    test4()
