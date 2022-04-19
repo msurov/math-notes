@@ -626,7 +626,30 @@ d_{k} & =b_{n}b_{k}|_{-1}^{1}\\
 \end_layout
 
 \begin_layout Standard
+Полином порядка 
+\begin_inset Formula $n$
+\end_inset
+
+ раскладываю по 
+\begin_inset Formula $n+1$
+\end_inset
+
+ полиномам базиса 
+\begin_inset Formula $b_{0},b_{1},\dots,b_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p=\sum_{k}\left\langle p,b_{k}\right\rangle b_{k}$
 \end_inset
 
 
