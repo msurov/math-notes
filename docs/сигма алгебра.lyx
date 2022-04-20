@@ -4,8 +4,14 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass article
+\textclass amsart
+\options 12pt
 \use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
 \language russian
 \language_package default
@@ -30,7 +36,17 @@
 \index_command default
 \paperfontsize default
 \spacing single
-\use_hyperref false
+\use_hyperref true
+\pdf_author "Максим Суров"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry false
 \use_package amsmath 1
@@ -43,8 +59,8 @@
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
+\cite_engine natbib
+\cite_engine_type authoryear
 \biblio_style plain
 \use_bibtopic false
 \use_indices false
@@ -152,7 +168,7 @@
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Example
 Пример 
 \begin_inset Formula $X=\{a,b,c,d\}$
 \end_inset
@@ -160,6 +176,7 @@
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
 Сигма алгебра: 
 \begin_inset Formula $\Sigma=\left\{ \emptyset,\left\{ a,b,c,d\right\} \right\} $
@@ -184,6 +201,7 @@
  – все возможные комбинации.
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -203,6 +221,216 @@
 \end_inset
 
 , их дополнений, всех возможных объединейний и пересечений (рекурсивно).
+\end_layout
+
+\begin_layout Section
+Измеримая функция
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Функция
+\series default
+ 
+\begin_inset Formula $f:X\to\mathbb{R}$
+\end_inset
+
+ называется 
+\series bold
+измеримой
+\series default
+, если 
+\begin_inset Formula 
+\[
+\left\{ x\in X\vert f\left(x\right)<c\right\} \in\Sigma\quad\forall c\in\mathbb{R}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Альтернативное равнозначное определение.
+ Функция 
+\begin_inset Formula $f:X\to\mathbb{R}$
+\end_inset
+
+ называется измеримой, если для любого интервала 
+\begin_inset Formula $\left\langle a,b\right\rangle \subset\mathbb{R}$
+\end_inset
+
+ (открытого или замкнутого)
+\begin_inset Formula 
+\[
+\left\{ x\in X\vert f\left(x\right)\in\left\langle a,b\right\rangle \right\} \in\Sigma.
+\]
+
+\end_inset
+
+В общем, прообраз функции 
+\begin_inset Formula $f$
+\end_inset
+
+ от любого интервала должен лежать в 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+Рассмотрим множество 
+\begin_inset Formula $X=\left[-1,1\right]$
+\end_inset
+
+ и определённую на нём борелевскую сигма-алгебру 
+\begin_inset Formula $\Sigma=\mathcal{B}\left(\left[-1,1\right]\right)$
+\end_inset
+
+, а также сигма алгебру 
+\begin_inset Formula $\Upsilon=\left\{ \left[-1,0\right),\left(0,1\right],\left[-1,0\right],\left[0,1\right],\left\{ 0\right\} ,\emptyset,\left[-1,1\right]\right\} .$
+\end_inset
+
+ На множестве 
+\begin_inset Formula $X$
+\end_inset
+
+ можно задать функцию 
+\begin_inset Formula $\sin:X\to\mathbb{R}$
+\end_inset
+
+.
+ В сигма алгебре 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ эта функция будет измеримой, но в сигма алгебре 
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+ – нет.
+ Проверим.
+ Выберем 
+\begin_inset Formula $c=\frac{1}{2}$
+\end_inset
+
+, тогда множество 
+\begin_inset Formula 
+\[
+\left\{ x\in X\vert\sin\left(x\right)<\frac{1}{2}\right\} 
+\]
+
+\end_inset
+
+соответствует интервалу 
+\begin_inset Formula $I=\left(-\frac{\pi}{6},\frac{\pi}{6}\right)$
+\end_inset
+
+, который 
+\begin_inset Formula $I\in\Sigma$
+\end_inset
+
+, но 
+\begin_inset Formula $I\notin\Upsilon$
+\end_inset
+
+.
+ На сигма-алгебре 
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+ измеримыми будут лишь кусочно-константные функции вроде 
+\begin_inset Formula $\mathbf{sign}$
+\end_inset
+
+.
+ Такая функция может принимать различные значения на интервалах 
+\begin_inset Formula $\left[-1,0\right),\left(0,1\right]$
+\end_inset
+
+ и в точке 
+\begin_inset Formula $\left\{ 0\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Простая функция (simple function)
+\end_layout
+
+\begin_layout Standard
+Функция 
+\begin_inset Formula $f$
+\end_inset
+
+ определена на сигма-алгебре 
+\begin_inset Formula $\left(X,\Sigma\right)$
+\end_inset
+
+.
+ Функция 
+\begin_inset Formula $f:X\to\mathbb{R}$
+\end_inset
+
+ называется простой, если существуют непересекающиеся множества 
+\begin_inset Formula $A_{1},A_{2},\dots,A_{k}$
+\end_inset
+
+, и набор чисел 
+\begin_inset Formula $a_{1},a_{2},\dots,a_{k}$
+\end_inset
+
+, такие, что 
+\begin_inset Formula 
+\[
+f\left(x\in A_{i}\right)=a_{i}.
+\]
+
+\end_inset
+
+Суть в том, что всё пространство можно разбить на счётное количество кусков
+ (каждый кусок – элемент сигма-алгебры), на каждом из которых функция 
+\begin_inset Formula $f$
+\end_inset
+
+ принимает константное значение.
+ Если такое разбиение существует, то функция называется простой.
+\end_layout
+
+\begin_layout Standard
+Пример – функция 
+\begin_inset Formula $\mathbf{sign}$
+\end_inset
+
+ на борелевской сигма-алгебре.
+\end_layout
+
+\begin_layout Section
+Случайная величина (random variable)
+\end_layout
+
+\begin_layout Standard
+Случайная величина – измеримая функция 
+\begin_inset Formula $\xi:X\to\mathbb{R}$
+\end_inset
+
+.
+ Может быть, также, векторной, тогда 
+\begin_inset Formula $\xi:X\to\mathbb{R}^{n}$
+\end_inset
+
+ или матричной.
 \end_layout
 
 \begin_layout Section
@@ -274,6 +502,30 @@
 пространство элементарных исходов
 \series default
  (sample space).
+ Функция 
+\begin_inset Formula $\mathbb{P}$
+\end_inset
+
+ задаёт вероятность событий из 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+.
+ Также 
+\begin_inset Formula $\mathbb{P}$
+\end_inset
+
+ может рассматриваться как мера, определённая на множестве.
+ Для меры, вообще говоря, достаточно выполнения условий (a) и (c).
+ Таким образом,
+\series bold
+ метрическое
+\series default
+ пространство отличается от 
+\series bold
+вероятностного 
+\series default
+нормировкой меры.
 \end_layout
 
 \begin_layout Standard
@@ -296,9 +548,8 @@
 
 \end_layout
 
-\begin_layout Standard
-Пример.
- Подбрасываем 6-гранный кубик.
+\begin_layout Example
+Подбрасываем 6-гранный кубик.
  Сигма алгебра (пространство событий) состоит из всех подмножеств множества
  элементарных исходов 
 \begin_inset Formula $\left\{ 1,2,3,4,5,6\right\} $
@@ -352,21 +603,79 @@
  незасивимые.
 \end_layout
 
-\begin_layout Section
-Случайная величина (random variable)
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Мера
 \end_layout
 
 \begin_layout Standard
-Случайная величина – измеримая функция 
-\begin_inset Formula $\xi:X\to\mathbb{R}$
+Задано множество 
+\begin_inset Formula $X$
+\end_inset
+
+ с определённой сигма-алгеброй 
+\begin_inset Formula $\Sigma$
 \end_inset
 
 .
- Может быть, также, векторной, тогда 
-\begin_inset Formula $\xi:X\to\mathbb{R}^{n}$
+ На сигма алгебре задана неотрицательная функция 
+\begin_inset Formula $\mu:\Sigma\to\left[0,\infty\right]$
 \end_inset
 
- или матричной.
+, которая обладает свойствами
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mu\left(A\cup B\right)=\mu\left(A\right)+\mu\left(B\right)$
+\end_inset
+
+ для любых непересекающихся 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+, 
+\begin_inset Formula $A,B\in\Sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mu\left(\emptyset\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Суть в том, что мера позволяет определить какую часть подмножество 
+\begin_inset Formula $A\in\Sigma$
+\end_inset
+
+ занимает от всего множество 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Поэтому условие аддитивности является существенным.
+ С другой стороны,
+\begin_inset space \space{}
+\end_inset
+
+вроде бы, можно задать меру, которая всюду равна нулю.
 \end_layout
 
 \begin_layout Section
@@ -401,9 +710,223 @@ F_{\xi}\left(w\right)=\mathbb{P}\left(\left\{ a\in\Sigma\vert\xi\left(a\right)<w
 \end_layout
 
 \begin_layout Standard
+Борелевская сигма-алгебра 
+\begin_inset Formula $\mathcal{B}\left(\mathbb{R}\right)$
+\end_inset
+
+ – самый простой способ построить сигма алгебру над множеством вещественных
+ чисел.
+ Определяет множество всех подмножеств вещественной прямой, их объединения,
+ пересечения, дополнения и пр.
+\end_layout
+
+\begin_layout Standard
 Борелевская сигма-алгебра даёт возможность построить сигма-алгебру для произволь
 ной вещественной случайной величины 
 \begin_inset Formula $\xi:X\to\mathbb{R}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Sigma_{\xi}=\left\{ \xi^{-1}\left(a\right)\vert a\in\mathcal{B}\left(\mathbb{R}\right)\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Матожидание
+\end_layout
+
+\begin_layout Subsection
+Дискретная случайная величина
+\end_layout
+
+\begin_layout Standard
+В вероятностном пространстве 
+\begin_inset Formula $\left(X,\Sigma,\mathbb{P}\right)$
+\end_inset
+
+ задана случайная величина (функция на 
+\begin_inset Formula $X$
+\end_inset
+
+)
+\begin_inset Formula 
+\[
+\xi:X\to\left\{ c_{1},c_{2},\dots,c_{n}\right\} \subset\mathbb{R},
+\]
+
+\end_inset
+
+принимающая дискретные значения 
+\begin_inset Formula $\left\{ c_{1},c_{2},\dots,c_{n}\right\} $
+\end_inset
+
+.
+ Поскольку функция 
+\begin_inset Formula $\xi$
+\end_inset
+
+ измерима, то 
+\begin_inset Formula 
+\[
+A_{k}=\left\{ x\in\Sigma\vert\xi\left(x\right)=c_{k}\right\} \in\Sigma.
+\]
+
+\end_inset
+
+Тогда матожиданием случайной переменной 
+\begin_inset Formula $\xi$
+\end_inset
+
+ называется функция 
+\begin_inset Formula 
+\[
+E\left[\xi\right]=\sum_{k=1}^{n}\mathbb{P}\left(A_{k}\right)c_{k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Есть монетка – на одной стороне 
+\begin_inset Formula $\kreuz,$
+\end_inset
+
+ на другой – 
+\begin_inset Formula $\blacktriangledown$
+\end_inset
+
+.
+ Сигма-алгебра 
+\begin_inset Formula $\Sigma=\left\{ \left\{ \kreuz\right\} ,\left\{ \blacktriangledown\right\} ,\left\{ \blacktriangledown,\kreuz\right\} \emptyset\right\} $
+\end_inset
+
+.
+ Вероятность 
+\begin_inset Formula $\mathbb{P}\left(\kreuz\right)=\frac{1}{3}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{P}\left(\blacktriangledown\right)=\frac{2}{3}$
+\end_inset
+
+.
+ На вероятностном пространстве задана функция 
+\begin_inset Formula $\xi$
+\end_inset
+
+: 
+\begin_inset Formula $\xi\left(\blacktriangledown\right)=2,$
+\end_inset
+
+
+\begin_inset Formula $\xi\left(\kreuz\right)=-3$
+\end_inset
+
+.
+ Можно интерпретировать так: при выпадении 
+\begin_inset Formula $\blacktriangledown$
+\end_inset
+
+ я получаю 2 рубля, при выпадении 
+\begin_inset Formula $\kreuz$
+\end_inset
+
+ – отдаю 3.
+ Выгодно ли играть в эту игру? 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Посчитаем матожидание 
+\begin_inset Formula $E\left[\xi\right]=2\frac{2}{3}-3\frac{1}{3}=\frac{1}{3}$
+\end_inset
+
+.
+ Значит, играть выгодно.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Интеграл Лебега
+\end_layout
+
+\begin_layout Subsection
+Интеграл Лебега простой функции
+\end_layout
+
+\begin_layout Standard
+Задано метрическое пространство 
+\begin_inset Formula $\left(X,\Sigma,\mu\right)$
+\end_inset
+
+ с алгеброй 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ и мерой 
+\begin_inset Formula $\mu:\Sigma\to\left[0,\infty\right]$
+\end_inset
+
+ (для вероятностного пространства вместо функции 
+\begin_inset Formula $\mu$
+\end_inset
+
+ будет 
+\begin_inset Formula $\mathbb{P}$
+\end_inset
+
+).
+ Интеграл Лебега для простой (измеримой) функции 
+\begin_inset Formula $f$
+\end_inset
+
+ определён как 
+\begin_inset Formula 
+\[
+\int_{X}fd\mu=\sum_{i=1}^{k}a_{i}\mu\left(A_{i}\right)
+\]
+
+\end_inset
+
+при условии 
+\begin_inset Formula 
+\[
+\mu\left(A_{i}\right)<\infty.
+\]
+
+\end_inset
+
+В чём суть.
+ Поскольку функция 
+\begin_inset Formula $f$
+\end_inset
+
+ простая, то всё множество 
+\begin_inset Formula $X$
+\end_inset
+
+ можно разбить на подмножества 
+\begin_inset Formula $A_{i}\in\Sigma$
+\end_inset
+
+, на которых функция принимает константные значения 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+.
+ Далее нужно просуммировать эти значения с учётом меры 
+\begin_inset Formula $\mu$
 \end_inset
 
 .
@@ -411,19 +934,167 @@ F_{\xi}\left(w\right)=\mathbb{P}\left(\left\{ a\in\Sigma\vert\xi\left(a\right)<w
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\Sigma_{\xi}=\left\{ \xi^{-1}\left(a\right)\vert a\in\mathcal{B}\left(\mathbb{R}\right)\right\} $
+В случае вероятностного пространства получаем ни что иное как матожидание
+ случайной переменной 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Example
+Круглая мишень для игры в дартс с кольцевыми сегментами.
+ Множество 
+\begin_inset Formula $X$
+\end_inset
+
+ состоит из всех точек круга.
+ Попадание дротика в одно из колец – элеметарное событие, таким образом
+ кольца, их объединения и пересечения формируют сигма-алгебру.
+ Мера на этом множестве задаётся как отношение площади кольца к площади
+ доски.
+ Простая функция 
+\begin_inset Formula $f$
+\end_inset
+
+ – количество очков при попадании в соответствующее кольцо.
+ Интеграл Лебега функции 
+\begin_inset Formula $f$
+\end_inset
+
+ – среднее количество выигранных очков, если дротик попадает равномерно
+ по всему кругу (вероятность попадания в кольцо пропорциональна площади
+ кольца).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsection
+Интеграл Лебега неотрицательной функции
+\end_layout
+
 \begin_layout Standard
-Здесь борелевская сигма-алгебра – 
-\begin_inset Formula $\mathcal{B}\left(\mathbb{R}\right)$
+Пусть на метрическом пространстве 
+\begin_inset Formula $\left(X,\Sigma,\mu\right)$
 \end_inset
 
- – множество подмножеств вещественной прямой, их объединения, пересечения,
- дополнения и пр.
+ задана измеримая функция 
+\begin_inset Formula $f$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(x\in X\right)\geq0.$
+\end_inset
+
+ Выберем произвольное разбиение множества 
+\begin_inset Formula $X$
+\end_inset
+
+ на непересекающиеся подмножества 
+\begin_inset Formula $A_{i}\in\Sigma$
+\end_inset
+
+.
+ Выберем простую функцию 
+\begin_inset Formula $f_{s}$
+\end_inset
+
+, которая принимает константные значения на этих подмножествах, такую, что
+ 
+\begin_inset Formula $f_{s}\left(x\right)\leq f\left(x\right)\forall x\in X$
+\end_inset
+
+.
+ Рассмотрим множество 
+\begin_inset Formula $P_{f}$
+\end_inset
+
+ всех возможных простых функций при всевозможных разбиениях.
+ Для каждой такой простой функции вычислим значение интеграла Лебега – получим
+ множество чисел.
+ Тогда интеграл Лебега функции 
+\begin_inset Formula $f$
+\end_inset
+
+ будет равен
+\begin_inset Formula 
+\[
+\int_{x\in X}fd\mu=\sup\left\{ \int_{x\in X}f_{s}d\mu\vert f_{s}\in P_{f}\right\} 
+\]
+
+\end_inset
+
+(грубо говоря, максимальному элементу множества).
+ Суть в том, что для простых функций интеграл Лебега определяется просто.
+ А чтобы вычислить интеграл Лебега произвольной функции, нужно посчитать
+ интегралы для всех простых функций множества 
+\begin_inset Formula $P_{f},$
+\end_inset
+
+ и взять максимальное из них (точнее – верхний предел, который может не
+ достигаться).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/lebegue-integral.png
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Разбиение множества 
+\begin_inset Formula $X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Интеграл Лебега произвольной функции
+\end_layout
+
+\begin_layout Standard
+Если нужно вычислить интеграл Лебега функции, которая принимает отрицательные
+ значения, то такую функцию 
+\begin_inset Formula $f$
+\end_inset
+
+ стоит представить в виде разности неотрицательных функций 
+\begin_inset Formula $f=f^{+}-f^{-}$
+\end_inset
+
+.
+ И далее проинтегрировать их по отдельности.
 \end_layout
 
 \end_body
