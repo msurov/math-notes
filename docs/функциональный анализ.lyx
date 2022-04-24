@@ -1,0 +1,212 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Топологическое пространство
+\end_layout
+
+\begin_layout Standard
+Задано произвольное топологическое пространство 
+\begin_inset Formula $\left(X,\tau\right)$
+\end_inset
+
+, где 
+\begin_inset Formula $X$
+\end_inset
+
+ – множество, 
+\begin_inset Formula $\tau$
+\end_inset
+
+ – его топология, т.е.
+ его открытые подмножества.
+\end_layout
+
+\begin_layout Section
+Покрытие множества
+\end_layout
+
+\begin_layout Standard
+Пусть в топологическом пространстве 
+\begin_inset Formula $\left(X,\tau\right)$
+\end_inset
+
+ задана последовательность (коллекция, семейство) подмножеств 
+\begin_inset Formula $\left\{ M_{n}\right\} $
+\end_inset
+
+ из элементов 
+\begin_inset Formula $M_{n}\in\tau$
+\end_inset
+
+.
+ Эта последовательность называется покрытием окрытого множества 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+, если 
+\begin_inset Formula 
+\[
+Y\subseteq\cup_{n}M_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Компактное множество
+\end_layout
+
+\begin_layout Standard
+Пусть в топологическом пространстве 
+\begin_inset Formula $\left(X,\tau\right)$
+\end_inset
+
+ задана бесконечная
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+можно выбрать конечную, но смысла в этом нет, т.к.
+ определение становится тривиальным
+\end_layout
+
+\end_inset
+
+ последовательность подмножеств 
+\begin_inset Formula $\left\{ M_{n}\right\} _{n=1}^{\infty}$
+\end_inset
+
+ из элементов 
+\begin_inset Formula $M_{n}\in\tau$
+\end_inset
+
+.
+ Пусть эта последовательность покрывает всё 
+\begin_inset Formula $X$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\cup_{n}M_{n}=X.
+\]
+
+\end_inset
+
+Если для 
+\series bold
+любой 
+\series default
+такой бесконечной последовательности можно оставить конечное число элементов,
+ которые покрывают 
+\begin_inset Formula $X$
+\end_inset
+
+, то топологическое пространство 
+\begin_inset Formula $X$
+\end_inset
+
+ называется компактным.
+\end_layout
+
+\begin_layout Standard
+Здесь не совсем ясно.
+ Допустим, задано топологическое пространство 
+\begin_inset Formula $X=\left(0,1\right),\tau=\left\{ \emptyset,X\right\} .$
+\end_inset
+
+ Такое топологическое пространство будет компактным? Кажется, что да, ведь
+ любую последовательность можно покрыть либо 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+, либо 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Пример
+\end_layout
+
+\end_body
+\end_document
