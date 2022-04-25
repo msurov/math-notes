@@ -4,12 +4,17 @@
 \begin_header
 \save_transient_properties true
 \origin unavailable
-\textclass article
+\textclass amsart
 \use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
 \maintain_unincluded_children false
-\language english
+\language russian
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman "default" "default"
 \font_sans "default" "default"
@@ -29,6 +34,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -44,6 +50,7 @@
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -61,7 +68,7 @@
 \paragraph_indentation default
 \is_math_indent 0
 \math_numbering_side default
-\quotes_style english
+\quotes_style russian
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
@@ -186,9 +193,8 @@ status collapsed
  называется компактным.
 \end_layout
 
-\begin_layout Standard
-Здесь не совсем ясно.
- Допустим, задано топологическое пространство 
+\begin_layout Example
+Допустим, задано топологическое пространство 
 \begin_inset Formula $X=\left(0,1\right),\tau=\left\{ \emptyset,X\right\} .$
 \end_inset
 
@@ -205,7 +211,73 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-Пример
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Рассматрим гильбертово пространство 
+\begin_inset Formula $l_{2}$
+\end_inset
+
+.
+ Рассмотрим заданные в нём бесконечные последовательности 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+, где 
+\begin_inset Formula 
+\begin{align*}
+x_{0} & =\left(1,0,0,\dots\right)\\
+x_{1} & =\left(0,1,0,\dots\right)\\
+ & \vdots.
+\end{align*}
+
+\end_inset
+
+Напомним, в пространстве 
+\begin_inset Formula $l_{2}$
+\end_inset
+
+ определен оператор сложения элементов (поэлементное сложение) и оператор
+ умножения на число – умножение элементов этой последовательности.
+ Оператор нормы в этом пространстве определён как
+\begin_inset Formula 
+\[
+\left\Vert f_{n}\right\Vert _{l_{2}}=\sqrt{\sum_{n=0}^{\infty}\left|f_{n}\right|^{2}}.
+\]
+
+\end_inset
+
+Вопрос: является ли это пространство ограниченным и замкнутым? Является
+ ли оно компактным? Поскольку пространство является метрическим, то можно
+ сказать, что все последовательности 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ лежат внутри шара радиуса больше 
+\begin_inset Formula $1$
+\end_inset
+
+, т.о.
+ пространство является ограниченным.
+ Пространство является замкнутым, если содержит все свои предельные точки.
+ 
+\series bold
+С этим не ясно
+\series default
+.
+ Является ли пространство компактным? Выберем последовательность множеств
+\begin_inset Formula 
+\begin{align*}
+U_{1} & =\left\{ \right\} \\
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \end_body
