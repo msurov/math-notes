@@ -1,0 +1,523 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part
+Angular velocity in Rodrigue parameters
+\end_layout
+
+\begin_layout Section
+Briefly about quaternions
+\end_layout
+
+\begin_layout Standard
+The set of quaternions 
+\begin_inset Formula $\mathbb{H}$
+\end_inset
+
+ is the four-dimensional cartesian space 
+\begin_inset Formula $\mathbb{R}^{4}$
+\end_inset
+
+ equipped with operator (quaternion product) 
+\begin_inset Formula $\circ:\mathbb{H}\times\mathbb{H}\to\mathbb{H}$
+\end_inset
+
+.
+ We denote components of a quaternion 
+\begin_inset Formula $q$
+\end_inset
+
+ as 
+\begin_inset Formula $\left(q_{w},q_{x},q_{y},q_{z}\right)$
+\end_inset
+
+.
+ The comonent 
+\begin_inset Formula $q_{w}$
+\end_inset
+
+ is the scalar part of quaternion 
+\begin_inset Formula $q$
+\end_inset
+
+, and the tuple 
+\begin_inset Formula $q_{v}\equiv\left(q_{x},q_{y},q_{z}\right)$
+\end_inset
+
+ is its vector part.
+ Let us introduce operators 
+\begin_inset Formula $\mathbf{scal},\mathbf{vec}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{align*}
+\mathbf{scal}\left(q\right) & \equiv q_{w},\\
+\mathbf{vec}\left(q\right) & \equiv q_{v}.
+\end{align*}
+
+\end_inset
+
+The product of quaternions 
+\begin_inset Formula $a,b$
+\end_inset
+
+ is quaternion 
+\begin_inset Formula $c=a\circ b$
+\end_inset
+
+ wich is defined as 
+\begin_inset Formula 
+\begin{align*}
+c_{w} & \equiv a_{w}b_{w}-a_{v}\cdot b_{v},\\
+c_{v} & \equiv a_{w}b_{v}+b_{w}a_{v}+a_{v}\times b_{v},
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{v}\cdot b_{v}$
+\end_inset
+
+ is the dot product of the vectors 
+\begin_inset Formula $a_{v},b_{v}$
+\end_inset
+
+, and 
+\begin_inset Formula $a_{v}\times b_{v}$
+\end_inset
+
+ is their cross-product.
+\end_layout
+
+\begin_layout Section
+Problem formulation
+\end_layout
+
+\begin_layout Standard
+Our goal is to find how angular velocity 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is expresses through Rodrgiue parameters 
+\begin_inset Formula $r$
+\end_inset
+
+ and their time derivative 
+\begin_inset Formula $\dot{r}=\frac{dr}{dt}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\omega=J\left(r\right)\dot{r}.
+\]
+
+\end_inset
+
+To this end we use the formula for the angular velocity in quaternions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega=2\mathbf{vec}\left(\tilde{q}\circ\dot{q}\right).\label{eq:omega}
+\end{equation}
+
+\end_inset
+
+So, we compute the expressions 
+\begin_inset Formula $q=q\left(r\right),$
+\end_inset
+
+
+\begin_inset Formula $\dot{q}=\frac{\partial q\left(r\right)}{\partial r}\dot{r}$
+\end_inset
+
+ and substitute them into the formula.
+\end_layout
+
+\begin_layout Section
+Rodrigue parameters
+\end_layout
+
+\begin_layout Standard
+The Rodrigue parameters are the vector 
+\begin_inset Formula $r$
+\end_inset
+
+ expressed from the rotation angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and the rotation axis 
+\begin_inset Formula $l$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+r=l\theta.
+\]
+
+\end_inset
+
+The inverse transform is written as
+\begin_inset Formula 
+\begin{align*}
+l & =\frac{r}{\left\Vert r\right\Vert }\\
+\theta & =\left\Vert r\right\Vert .
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rodrigue parameters to quaternion
+\end_layout
+
+\begin_layout Standard
+A rotation quaternion 
+\begin_inset Formula $q$
+\end_inset
+
+ is expressed from angle 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and axis 
+\begin_inset Formula $l$
+\end_inset
+
+ parameters as 
+\begin_inset Formula 
+\[
+q=\left(\underbrace{\cos\frac{\theta}{2}}_{\text{scalar part}},\underbrace{l\sin\frac{\theta}{2}}_{\text{vector part}}\right).
+\]
+
+\end_inset
+
+We denote the norm of 
+\begin_inset Formula $r$
+\end_inset
+
+ as 
+\begin_inset Formula $\theta=\left\Vert r\right\Vert $
+\end_inset
+
+, and substitute 
+\begin_inset Formula $l=\frac{r}{\theta},$
+\end_inset
+
+then the transformation 
+\begin_inset Formula $r\mapsto q$
+\end_inset
+
+ turns into
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+q & =\left(\cos\frac{\left\Vert r\right\Vert }{2},\frac{r}{\left\Vert r\right\Vert }\sin\frac{\left\Vert r\right\Vert }{2}\right)\nonumber \\
+ & =\left(\cos\frac{\theta}{2},\frac{r}{\theta}\sin\frac{\theta}{2}\right).\label{eq:q}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Quaternion time derivative
+\end_layout
+
+\begin_layout Standard
+To find 
+\begin_inset Formula $\dot{q}$
+\end_inset
+
+, we calculate the time derivatives of the auxiliary expressions
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{d\theta}{dt}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial r_{k}}\theta & =\frac{\partial}{\partial r_{k}}\sqrt{r_{i}r_{i}}=\frac{r_{k}}{\theta}\\
+\frac{d\theta}{dt} & =\frac{\partial\theta}{\partial r_{k}}\dot{r}_{k}=\frac{r\cdot\dot{r}}{\theta}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{d}{dt}\cos\frac{\theta}{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{d}{dt}\cos\frac{\theta}{2}=-\frac{r\cdot\dot{r}}{2\theta}\sin\frac{\theta}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{d}{dt}\sin\frac{\theta}{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{d}{dt}\sin\frac{\theta}{2}=\frac{r\cdot\dot{r}}{2\theta}\cos\frac{\theta}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{d}{dt}\frac{r}{\theta}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\frac{d}{dt}\frac{r}{\theta}=\frac{\dot{r}\theta-r\frac{r\cdot\dot{r}}{\theta}}{\theta^{2}}=\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\frac{d}{dt}\frac{r}{\theta}\sin\frac{\theta}{2}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{dt}\frac{r}{\theta}\sin\frac{\theta}{2} & =\left(\frac{d}{dt}\frac{r}{\theta}\right)\sin\frac{\theta}{2}+\frac{r}{\theta}\frac{d}{dt}\sin\frac{\theta}{2}\\
+ & =\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\frac{\theta}{2}+\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\cos\frac{\theta}{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $\dot{q}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{equation}
+\dot{q}=\left(-\frac{r\cdot\dot{r}}{2n}\sin\frac{n}{2},\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)\label{eq:dot_q}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Angular velocity
+\end_layout
+
+\begin_layout Standard
+The final step is to substitute the expressions (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:q"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dot_q"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) into 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:omega"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\omega & =2\left(\cos\frac{n}{2},-\frac{r}{n}\sin\frac{n}{2}\right)\circ\left(-\frac{r\cdot\dot{r}}{2n}\sin\frac{n}{2},\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=2\cos\frac{n}{2}\left(\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)+2\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\sin\frac{n}{2}\sin\frac{n}{2}-2\sin\frac{n}{2}\frac{r}{n}\times\left(\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin n+2\frac{r}{n}\frac{r\cdot\dot{r}}{2n}-2\frac{r\times\dot{r}}{n^{2}}\sin\frac{n}{2}\sin\frac{n}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=\left(I\frac{\sin n}{n}+\frac{r\otimes r}{n^{2}}\left(1-\frac{\sin n}{n}\right)-2\frac{r^{\wedge}}{n^{2}}\sin^{2}\frac{n}{2}\right)\dot{r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если 
+\begin_inset Formula $\mathbf{sinc}x=\frac{\sin x}{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{4}\frac{\sin^{2}\frac{n}{2}}{n^{2}/4}=\frac{1}{4}\mathbf{sinc}^{2}\frac{n}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=\left(I\mathbf{sinc}n+\left(\frac{1-\mathbf{sinc}n}{n^{2}}\right)r\otimes r-\frac{1}{2}\mathbf{sinc}^{2}\frac{n}{2}r^{\wedge}\right)\dot{r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+момент:
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
