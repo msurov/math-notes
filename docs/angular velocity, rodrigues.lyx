@@ -162,6 +162,79 @@ where
 \end_inset
 
  is their cross-product.
+ We associate a vector 
+\begin_inset Formula $u\in\mathbb{R}^{3}$
+\end_inset
+
+ with quaternion 
+\begin_inset Formula $u\in\mathbb{H}$
+\end_inset
+
+ which has zero scalar part: 
+\begin_inset Formula $\mathbf{scal}\left(u\right)=0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{vec}\left(u\right)=u$
+\end_inset
+
+.
+ We denote the quaternion 
+\begin_inset Formula $u$
+\end_inset
+
+ and the vector 
+\begin_inset Formula $u$
+\end_inset
+
+ with the same symbol, this is usually not ambiguous.
+ Also, when we multiply a quaternion 
+\begin_inset Formula $q$
+\end_inset
+
+ by a vector 
+\begin_inset Formula $u$
+\end_inset
+
+, this means, that we multiply the quaternion 
+\begin_inset Formula $q$
+\end_inset
+
+ by quaternion 
+\begin_inset Formula $\left(0,u\right)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{align*}
+q\circ u & \equiv q\circ\left(0,u\right)\\
+ & =\left(-q_{v}\cdot u,q_{w}u+q_{v}\times u\right)
+\end{align*}
+
+\end_inset
+
+The quaternion product of two vectors 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\series bold
+
+\begin_inset Formula $f$
+\end_inset
+
+
+\series default
+ is then 
+\begin_inset Formula 
+\begin{align*}
+u\circ f & =\left(0,u\right)\circ\left(0,f\right)\\
+ & =\left(-u\cdot f,u\times f\right).
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -173,7 +246,7 @@ Our goal is to find how angular velocity
 \begin_inset Formula $\omega$
 \end_inset
 
- is expresses through Rodrgiue parameters 
+ is expressed through Rodrigue parameters 
 \begin_inset Formula $r$
 \end_inset
 
@@ -323,7 +396,7 @@ To find
 :
 \begin_inset Formula 
 \begin{align*}
-\frac{\partial}{\partial r_{k}}\theta & =\frac{\partial}{\partial r_{k}}\sqrt{r_{i}r_{i}}=\frac{r_{k}}{\theta}\\
+\frac{\partial\theta}{\partial r_{k}} & =\frac{\partial}{\partial r_{k}}\sqrt{r_{i}r_{i}}=\frac{r_{k}}{\theta}\\
 \frac{d\theta}{dt} & =\frac{\partial\theta}{\partial r_{k}}\dot{r}_{k}=\frac{r\cdot\dot{r}}{\theta}
 \end{align*}
 
@@ -401,7 +474,7 @@ Then
  is
 \begin_inset Formula 
 \begin{equation}
-\dot{q}=\left(-\frac{r\cdot\dot{r}}{2n}\sin\frac{n}{2},\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)\label{eq:dot_q}
+\dot{q}=\left(-\frac{r\cdot\dot{r}}{2\theta}\sin\frac{\theta}{2},\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\frac{\theta}{2}+\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\cos\frac{\theta}{2}\right)\label{eq:dot_q}
 \end{equation}
 
 \end_inset
@@ -450,7 +523,168 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\omega & =2\left(\cos\frac{n}{2},-\frac{r}{n}\sin\frac{n}{2}\right)\circ\left(-\frac{r\cdot\dot{r}}{2n}\sin\frac{n}{2},\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)\\
+\omega & =2\left(\cos\frac{\theta}{2},-\frac{r}{\theta}\sin\frac{\theta}{2}\right)\circ\left(-\frac{r\cdot\dot{r}}{2\theta}\sin\frac{\theta}{2},\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\frac{\theta}{2}+\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\cos\frac{\theta}{2}\right)
+\end{align*}
+
+\end_inset
+
+The scalar part of 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is zero: 
+\begin_inset Formula 
+\begin{align*}
+\omega_{w} & =-\frac{r\cdot\dot{r}}{\theta}\sin\left(\frac{\theta}{2}\right)\cos\left(\frac{\theta}{2}\right)+2\sin\left(\frac{\theta}{2}\right)\frac{r}{\theta}\cdot\left(\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\frac{\theta}{2}+\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\cos\frac{\theta}{2}\right)\\
+ & =2\frac{r}{\theta}\cdot\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin^{2}\frac{\theta}{2}\\
+ & =2\left(\frac{r\cdot\dot{r}}{\theta^{2}}-\frac{r\cdot\dot{r}}{\theta^{2}}\right)\sin^{2}\frac{\theta}{2}\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Let us find the vector part:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\omega & =2\cos\left(\frac{\theta}{2}\right)\left(\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\left(\frac{\theta}{2}\right)+\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\cos\left(\frac{\theta}{2}\right)\right)\\
+ & +2\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\sin\frac{\theta}{2}\sin\frac{\theta}{2}\\
+ & -2\sin\left(\frac{\theta}{2}\right)\frac{r}{\theta}\times\left(\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\left(\frac{\theta}{2}\right)+\frac{r}{\theta}\frac{r\cdot\dot{r}}{2\theta}\cos\left(\frac{\theta}{2}\right)\right)
+\end{align*}
+
+\end_inset
+
+Use the equality 
+\begin_inset Formula $r\times r=0$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{align*}
+\omega & =2\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\cos\left(\frac{\theta}{2}\right)\sin\left(\frac{\theta}{2}\right)+r\frac{r\cdot\dot{r}}{\theta^{2}}\cos\left(\frac{\theta}{2}\right)\cos\left(\frac{\theta}{2}\right)\\
+ & +r\frac{r\cdot\dot{r}}{\theta^{2}}\sin^{2}\left(\frac{\theta}{2}\right)\\
+ & -2\frac{r\times\dot{r}}{\theta^{2}}\sin^{2}\left(\frac{\theta}{2}\right)
+\end{align*}
+
+\end_inset
+
+Next, use trigonometric identities:
+\begin_inset Formula 
+\begin{align*}
+\omega & =\left(\frac{\dot{r}}{\theta}-r\frac{r\cdot\dot{r}}{\theta^{3}}\right)\sin\theta+r\frac{r\cdot\dot{r}}{\theta^{2}}-2\frac{r\times\dot{r}}{\theta^{2}}\sin^{2}\left(\frac{\theta}{2}\right).
+\end{align*}
+
+\end_inset
+
+Finally, move 
+\begin_inset Formula $\dot{r}$
+\end_inset
+
+ out of the bracket:
+\begin_inset Formula 
+\begin{align*}
+J & =\frac{\sin\theta}{\theta}I+\frac{1}{\theta^{2}}\left(1-\frac{\sin\theta}{\theta}\right)r\otimes r-2\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}r^{\wedge}\\
+\omega & =J\dot{r}.
+\end{align*}
+
+\end_inset
+
+The operator 
+\begin_inset Formula $\otimes$
+\end_inset
+
+ defines the outer product.
+ If 
+\begin_inset Formula $\theta=0$
+\end_inset
+
+, then 
+\begin_inset Formula $J=I$
+\end_inset
+
+.
+ The coefficient 
+\begin_inset Formula 
+\[
+\frac{1}{\theta^{2}}\left(1-\frac{\sin\theta}{\theta}\right)
+\]
+
+\end_inset
+
+is regular at 
+\begin_inset Formula $\theta=0$
+\end_inset
+
+, it is easy to prove with Tailor decomposition
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\theta^{2}}\left(1-\frac{\theta-\frac{\theta^{3}}{3!}+\frac{\theta^{5}}{5!}-\frac{\theta^{7}}{7!}+\dots}{\theta}\right) & =\frac{1}{3!}-\frac{\theta^{2}}{5!}+\frac{\theta^{4}}{7!}-\dots.
+\end{align*}
+
+\end_inset
+
+The expressions 
+\begin_inset Formula $\frac{\sin\theta}{\theta}$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}$
+\end_inset
+
+ are also regular since the function 
+\begin_inset Formula $\mathbf{sinc}x\equiv\frac{\sin x}{x}$
+\end_inset
+
+ is regular.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+The angular velocity 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is expressed in terms of Rodrigue parameters 
+\begin_inset Formula $r$
+\end_inset
+
+ and their time derivative 
+\begin_inset Formula $\dot{r}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{align*}
+\omega & =J\left(r\right)\dot{r}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{align*}
+J\left(r\right) & =\frac{\sin\theta}{\theta}I+\frac{1}{\theta^{2}}\left(1-\frac{\sin\theta}{\theta}\right)r\otimes r-2\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}r^{\wedge},\\
+\theta & =\left\Vert r\right\Vert 
 \end{align*}
 
 \end_inset
@@ -458,51 +692,174 @@ noprefix "false"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Angular acceleration
+\end_layout
+
 \begin_layout Standard
-\begin_inset Formula $\omega=2\cos\frac{n}{2}\left(\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)+2\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\sin\frac{n}{2}\sin\frac{n}{2}-2\sin\frac{n}{2}\frac{r}{n}\times\left(\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin\frac{n}{2}+\frac{r}{n}\frac{r\cdot\dot{r}}{2n}\cos\frac{n}{2}\right)$
+Let us differentiate the expression 
+\begin_inset Formula 
+\[
+\dot{q}=\frac{1}{2}q\circ\omega
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+2\tilde{q}\circ\dot{q}=\omega
+\]
+
+\end_inset
+
+one more time 
+\begin_inset Formula 
+\begin{align*}
+\ddot{q} & =\frac{1}{2}\dot{q}\circ\omega+\frac{1}{2}q\circ\dot{\omega}\\
+ & =-\frac{\left\Vert \omega\right\Vert ^{2}}{4}q+\frac{1}{2}q\circ\dot{\omega}
+\end{align*}
+
+\end_inset
+
+and express 
+\begin_inset Formula 
+\[
+\dot{\omega}=2\tilde{q}\circ\ddot{q}+\frac{\left\Vert \omega\right\Vert ^{2}}{2}.
+\]
+
+\end_inset
+
+On the other hand 
+\begin_inset Formula $\left\Vert \omega\right\Vert ^{2}=\tilde{\omega}\circ\omega=4\dot{\tilde{q}}\circ\dot{q}=4\left\Vert \dot{q}\right\Vert ^{2},$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+\dot{\omega}=2\tilde{q}\circ\ddot{q}+2\left\Vert \dot{q}\right\Vert ^{2}.
+\]
+
+\end_inset
+
+Next step is to find 
+\begin_inset Formula $\ddot{q}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{q}=\frac{\partial q}{\partial r_{k}}\dot{r}_{k}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\omega=\left(\frac{\dot{r}}{n}-r\frac{r\cdot\dot{r}}{n^{3}}\right)\sin n+2\frac{r}{n}\frac{r\cdot\dot{r}}{2n}-2\frac{r\times\dot{r}}{n^{2}}\sin\frac{n}{2}\sin\frac{n}{2}$
+\begin_inset Formula $\ddot{q}=\frac{\partial^{2}q}{\partial r_{k}\partial r_{n}}\dot{r}_{k}\dot{r}_{n}+\frac{\partial q}{\partial r_{k}}\ddot{r}_{k}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\omega=\left(I\frac{\sin n}{n}+\frac{r\otimes r}{n^{2}}\left(1-\frac{\sin n}{n}\right)-2\frac{r^{\wedge}}{n^{2}}\sin^{2}\frac{n}{2}\right)\dot{r}$
+\begin_inset Formula $\frac{\partial q_{w}}{\partial r_{k}}=-\frac{r_{k}}{2\theta}\sin\frac{\theta}{2}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Если 
-\begin_inset Formula $\mathbf{sinc}x=\frac{\sin x}{x}$
+\begin_inset Formula $\frac{\partial q_{v}}{\partial r_{k}}=\frac{\partial}{\partial r_{k}}\frac{r_{v}}{\theta}\sin\frac{\theta}{2}=\left(\frac{\delta_{vk}}{\theta}-\frac{r_{v}r_{k}}{\theta^{3}}\right)\sin\frac{\theta}{2}+\frac{r_{v}r_{k}}{2\theta^{2}}\cos\frac{\theta}{2}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\frac{1}{4}\frac{\sin^{2}\frac{n}{2}}{n^{2}/4}=\frac{1}{4}\mathbf{sinc}^{2}\frac{n}{2}$
+\begin_inset Formula $\frac{\partial^{2}q_{v}}{\partial r_{n}\partial r_{k}}=...$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\omega=\left(I\mathbf{sinc}n+\left(\frac{1-\mathbf{sinc}n}{n^{2}}\right)r\otimes r-\frac{1}{2}\mathbf{sinc}^{2}\frac{n}{2}r^{\wedge}\right)\dot{r}$
+\begin_inset Formula $\frac{\partial}{\partial r_{n}}\frac{1}{\theta}=-\frac{r_{n}}{\theta^{3}}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-момент:
+\begin_inset Formula $\frac{\partial}{\partial r_{n}}f\left(\theta\right)=\frac{df}{d\theta}\frac{\partial\theta}{\partial r_{n}}=\frac{df}{d\theta}\frac{r_{n}}{\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial r_{n}}\frac{1}{\theta^{3}}=-3\frac{r_{n}}{\theta^{5}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial r_{n}}r_{v}r_{k}=\delta_{vn}r_{k}+r_{v}\delta_{nk}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial r_{n}}\frac{r_{v}r_{k}}{\theta^{3}}=$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+let 
+\begin_inset Formula $\rho\equiv\frac{r}{\theta}$
+\end_inset
+
+, then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial}{\partial r_{k}}\rho_{i}=\frac{1}{\theta}\left(\delta_{ik}-\rho_{i}\rho_{k}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J=\frac{\sin\theta}{\theta}I+\frac{1}{\theta^{2}}\left(1-\frac{\sin\theta}{\theta}\right)r\otimes r-2\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}r^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

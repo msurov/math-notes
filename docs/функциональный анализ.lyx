@@ -223,15 +223,19 @@ status collapsed
 \end_inset
 
 .
- Рассмотрим заданные в нём бесконечные последовательности 
+ Рассмотрим подмножество 
+\begin_inset Formula $X$
+\end_inset
+
+, состоящее из бесконечных последовательностей 
 \begin_inset Formula $x_{n}$
 \end_inset
 
 , где 
 \begin_inset Formula 
 \begin{align*}
-x_{0} & =\left(1,0,0,\dots\right)\\
-x_{1} & =\left(0,1,0,\dots\right)\\
+x_{1} & =\left(1,0,0,\dots\right)\\
+x_{2} & =\left(0,1,0,\dots\right)\\
  & \vdots.
 \end{align*}
 
@@ -246,38 +250,96 @@ x_{1} & =\left(0,1,0,\dots\right)\\
  Оператор нормы в этом пространстве определён как
 \begin_inset Formula 
 \[
-\left\Vert f_{n}\right\Vert _{l_{2}}=\sqrt{\sum_{n=0}^{\infty}\left|f_{n}\right|^{2}}.
+\left\Vert f_{n}\right\Vert _{l_{2}}=\sqrt{\sum_{n=1}^{\infty}\left|f_{n}\right|^{2}}.
 \]
 
 \end_inset
 
-Вопрос: является ли это пространство ограниченным и замкнутым? Является
- ли оно компактным? Поскольку пространство является метрическим, то можно
- сказать, что все последовательности 
+Вопрос: является ли пространство 
+\begin_inset Formula $X$
+\end_inset
+
+ ограниченным и замкнутым? Является ли оно компактным? 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution*
+Поскольку пространство 
+\begin_inset Formula $l_{2}$
+\end_inset
+
+ является метрическим, то можно сказать, что все последовательности 
 \begin_inset Formula $x_{n}$
 \end_inset
 
- лежат внутри шара радиуса больше 
-\begin_inset Formula $1$
+ лежат внутри шара (с радиусом например 
+\begin_inset Formula $2$
 \end_inset
 
-, т.о.
- пространство является ограниченным.
- Пространство является замкнутым, если содержит все свои предельные точки.
+).
+ Это следует из того факта, что 
+\begin_inset Formula $\left\Vert x_{k}\right\Vert _{l_{2}}=1$
+\end_inset
+
+.
+ Таким образом, множество 
+\begin_inset Formula $X$
+\end_inset
+
+ является ограниченным.
+ 
+\end_layout
+
+\begin_layout Solution*
+Пространство является замкнутым, если содержит все свои предельные точки.
  
 \series bold
 С этим не ясно
 \series default
 .
- Является ли пространство компактным? Выберем последовательность множеств
+ 
+\end_layout
+
+\begin_layout Solution*
+Является ли пространство компактным? Выберем последовательность множеств
 \begin_inset Formula 
 \begin{align*}
-U_{1} & =\left\{ \right\} \\
+U_{1} & =\left\{ x_{1}\right\} \\
+U_{2} & =\left\{ x_{1},x_{2}\right\} \\
+U_{k} & =\left\{ x_{1},x_{2},\dots,x_{k}\right\} .
 \end{align*}
 
 \end_inset
 
+Её объединение 
+\begin_inset Formula 
+\[
+U=\cup_{k=1}^{\infty}U_{k}
+\]
 
+\end_inset
+
+покрывает всё 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Но у этой последовательности невозможно выбрать конечную подпоследовательность,
+ которая будет покрывать всё 
+\begin_inset Formula $X.$
+\end_inset
+
+ Поэтому 
+\begin_inset Formula $X$
+\end_inset
+
+ не является компактным.
 \end_layout
 
 \end_body
