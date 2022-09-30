@@ -7,9 +7,9 @@
 \textclass article
 \use_default_options true
 \maintain_unincluded_children false
-\language english
+\language russian
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman "default" "default"
 \font_sans "default" "default"
@@ -29,6 +29,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -44,6 +45,7 @@
 \use_package undertilde 1
 \cite_engine basic
 \cite_engine_type default
+\biblio_style plain
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -61,7 +63,7 @@
 \paragraph_indentation default
 \is_math_indent 0
 \math_numbering_side default
-\quotes_style english
+\quotes_style russian
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
@@ -99,14 +101,6 @@ F\left(\xi\right)=\mathcal{F}\left\{ f\left(x\right)\right\} :=\int_{-\infty}^{\
 \begin_inset Formula 
 \[
 f\left(x\right)=\mathcal{F}^{-1}\left\{ F\left(\xi\right)\right\} :=\int_{-\infty}^{\infty}F\left(\xi\right)e^{2\pi ix\xi}d\xi
-\]
-
-\end_inset
-
-Вычисление производной 
-\begin_inset Formula 
-\[
-\mathcal{F}\left\{ \frac{df\left(x\right)}{dx}\right\} =2\pi j\xi F\left(\xi\right)
 \]
 
 \end_inset
@@ -149,7 +143,7 @@ F_{k}=\left(F_{0},F_{1},F_{2},\dots,F_{N-2},F_{N-1}\right)
 
 \end_inset
 
-или 
+или
 \begin_inset Formula 
 \begin{align*}
 F_{k} & =\left(F_{0},F_{1},F_{2},\dots,F_{-2},F_{-1}\right)\\
@@ -158,12 +152,8 @@ F_{k} & =\left(F_{0},F_{1},F_{2},\dots,F_{-2},F_{-1}\right)\\
 
 \end_inset
 
-то есть сначала идёт нулевая частота (сумма всех значений функции – или
- среднее – если 
-\begin_inset Formula $F_{k}=\frac{1}{N}\sum_{n=0}^{N-1}e^{-2\pi j\frac{kn}{N}}f_{n}$
-\end_inset
-
-), затем первая, а её комплексное сопряжение последним и т.д.
+то есть сначала идёт нулевая частота (сумма всех значений функции), затем
+ первая, а её комплексное сопряжение последним и т.д.
 \end_layout
 
 \begin_layout Standard
@@ -199,32 +189,348 @@ F_{k}=\left(F_{0},F_{1},F_{2},\dots,F_{\frac{N-1}{2}},F_{\frac{N+1}{2}}^{*},\dot
 
 \end_layout
 
-\begin_layout Subsection
-Вычисление производной дискретного сигнала
+\begin_layout Section
+Свёртка сигналов
 \end_layout
 
 \begin_layout Standard
-Для производной функции 
+Свёртка нерпрерывных сигналов
+\begin_inset Formula 
+\[
+\left(f*g\right)\left(y\right):=\int_{-\infty}^{\infty}f\left(x\right)g\left(y-x\right)dx
+\]
+
+\end_inset
+
+Свёртка дискретных сигналов 
+\begin_inset Formula 
+\[
+\left(f*g\right)_{m}:=\sum_{n=0}^{N-1}f_{n}g_{\left(m-n\right)\mod N}
+\]
+
+\end_inset
+
+Здесь 
+\begin_inset Formula $g$
+\end_inset
+
+ – сигнал, 
 \begin_inset Formula $f$
 \end_inset
 
- преобразование Фурье вычисляется как 
-\begin_inset Formula $\mathcal{F}\left\{ \frac{df\left(x\right)}{dx}\right\} =2\pi j\xi\mathcal{F}\left\{ f\left(x\right)\right\} $
+ – действующий на сигнал оператор.
+ В OpenCV свёртка устроена чуть иначе.
+ Симметричный оператор 
+\begin_inset Formula $d$
+\end_inset
+
+ размера 
+\begin_inset Formula $w$
+\end_inset
+
+, действующий на сигнал 
+\begin_inset Formula $u$
+\end_inset
+
+, определяется как 
+\begin_inset Formula 
+\[
+\left(d*u\right)_{m}:=\sum_{n=0}^{w}d_{n}u_{m+n-\frac{w-1}{2}},
+\]
+
+\end_inset
+
+например, для пятипиксельного фильтра будет 
+\begin_inset Formula 
+\[
+\left(d*u\right)_{x}=d_{0}u_{x-2}+d_{1}u_{x-1}+d_{2}u_{x}+d_{3}u_{x+1}+d_{4}u_{x+2}.
+\]
+
+\end_inset
+
+Разница в порядке следования элементов оператора свёртки.
+\end_layout
+
+\begin_layout Section
+Вычисление производной дискретного сигнала
+\end_layout
+
+\begin_layout Subsection
+По аналогии с производной непрерывной функции через преобразование Фурье
+\end_layout
+
+\begin_layout Standard
+Задача: оператор дифференцирования можно записать как свёртку с некоторым
+ ядром 
+\begin_inset Formula $d_{n}$
 \end_inset
 
 .
- По аналогии определим производную дискретного преобразования Фурье 
+ Как выглядит это ядро?
+\end_layout
+
+\begin_layout Standard
+Вычислим производную 
+\begin_inset Formula $\frac{d}{dn}f_{n}$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-DF_{k} & :=\frac{2\pi j}{N}F_{k}\cdot\begin{cases}
+\frac{d}{dn}f_{n} & =\frac{1}{N}\sum_{k=0}^{N-1}\frac{d}{dn}e^{2\pi j\frac{kn}{N}}F_{k}\\
+ & =\frac{1}{N}\sum_{k=0}^{N-1}e^{2\pi j\frac{kn}{N}}\left(2\pi j\frac{k}{N}F_{k}\right)
+\end{align*}
+
+\end_inset
+
+Получили обратное преобразование от 
+\begin_inset Formula $2\pi j\frac{k}{N}F_{k}$
+\end_inset
+
+.
+ Значит, Фурье образ оператора дифференцирования 
+\begin_inset Formula $D_{k}=2\pi j\frac{k}{N}$
+\end_inset
+
+.
+ Нам нужно учесть, что оператор дифференцирования во временной области является
+ вещественным, значит нужно, чтобы в частотной области его коэффициенты
+ 
+\begin_inset Formula $D_{k}$
+\end_inset
+
+ были комплексно сопряжёнными.
+ Заметим, что 
+\begin_inset Formula $e^{2\pi j\frac{kn}{N}}F_{k}=e^{2\pi j\frac{kn}{N}-2\pi jn}F_{k}$
+\end_inset
+
+, тогда изменится значение производной 
+\begin_inset Formula $\frac{d}{dn}f_{n}=\frac{1}{N}\sum_{k=0}^{N-1}e^{2\pi j\frac{kn}{N}}\left(2\pi j\frac{k-N}{N}\right)F_{k}$
+\end_inset
+
+.
+ Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+D_{k} & =\frac{2\pi j}{N}\cdot\begin{cases}
 k & k\leq\frac{N}{2}\\
 k-N & k>\frac{N}{2}
-\end{cases}\\
-\frac{df_{n}}{dn} & =\mathcal{F}^{-1}\left\{ DF_{k}\right\} 
+\end{cases}
 \end{align*}
+
+\end_inset
+
+Вычислим обратное преобразование Фурье оператора 
+\begin_inset Formula $D$
+\end_inset
+
+ – получим оператор дифференцирования во временной области.
+ Получим оконный фильтр с коэффициентами 
+\begin_inset Formula $d_{k}$
+\end_inset
+
+ как на картинке 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Коэффициенты-оператора-дифференц"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/fourier-derivative.png
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Коэффициенты-оператора-дифференц"
+
+\end_inset
+
+ Коэффициенты оператора дифференцирования (сдвинуты для наглядности на 
+\begin_inset Formula $N/2$
+\end_inset
+
+).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Вывод: чтобы вычислить производную сигнала 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ нужно выполнить его свёртку с сигналом 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Коэффициенты-оператора-дифференц"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Вычисление образа оператора Sobel
+\end_layout
+
+\begin_layout Standard
+На практике вычислять свёртку сигнала с оконным фильтром размера 
+\begin_inset Formula $N$
+\end_inset
+
+ довольно накладно.
+ Обычно размер фильтра выбирают 3-5 пикселей, ограничившись несколькими
+ коэффициентами фильтра 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Коэффициенты-оператора-дифференц"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ и выполнив нормировку.
+ Например, часто используют свёртку вида
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+u'_{x}\approx & \frac{1}{2}u_{x+1}-\frac{1}{2}u_{x-1}\\
+= & d*u
+\end{align*}
+
+\end_inset
+
+Задача: найти представление фильтра 
+\begin_inset Formula $d$
+\end_inset
+
+ в частотной области.
+\end_layout
+
+\begin_layout Standard
+Поскольку свёртка сигнала 
+\begin_inset Formula $f$
+\end_inset
+
+ с ядром 
+\begin_inset Formula $d$
+\end_inset
+
+ в частотной области превращается в умножение (согласно теореме о свёртке)
+ 
+\begin_inset Formula 
+\[
+\mathcal{F}\left\{ d*f\right\} =D_{k}F_{k},
+\]
+
+\end_inset
+
+вычислим 
+\begin_inset Formula $D_{k}$
+\end_inset
+
+, применив преобразование Фурье к сигналу 
+\begin_inset Formula $d=\left[0,-\frac{1}{2},0,\dots,0,\frac{1}{2}\right].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подставляем 
+\begin_inset Formula 
+\begin{align*}
+D_{k} & =\sum_{n=0}^{N-1}e^{-\frac{2\pi jkn}{N}}d_{n}\\
+ & =e^{-\frac{2\pi jk}{N}}d_{1}+e^{-\frac{2\pi jk\left(N-1\right)}{N}}d_{N-1}\\
+ & =j\frac{e^{\frac{2\pi jk}{N}}-e^{-\frac{2\pi jk}{N}}}{2j}\\
+ & =j\sin\frac{2\pi k}{N}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+Другой оператор 
+\begin_inset Formula 
+\[
+u'_{x}\approx u_{x+\frac{1}{2}}-u_{x-\frac{1}{2}}
+\]
+
+\end_inset
+
+Образ Фурье 
+\begin_inset Formula 
+\begin{align*}
+D & =2j\frac{e^{\frac{\pi k}{N}j}-e^{-\frac{\pi k}{N}j}}{2j}\\
+ & =2j\sin\frac{\pi k}{N}
+\end{align*}
+
+\end_inset
+
+Как его вычислять? Можно вычислить 
+\begin_inset Formula $\Delta u_{x}=u_{x+1}-u_{x}$
+\end_inset
+
+, потом, когда будем использовать преобразование Фурье 
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\left\{ u'_{x}\right\} \approx\mathcal{F}\left\{ \Delta u_{x-\frac{1}{2}}\right\}  & =e^{-\frac{\pi jk}{N}}\mathcal{F}\left\{ \Delta u_{x}\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -463,6 +769,14 @@ L_{u} & =2\left(u-f\right)\\
 
 \end_inset
 
+или в краткой форме 
+\begin_inset Formula 
+\[
+\lambda\triangle u-u=\lambda\nabla\cdot g+f.
+\]
+
+\end_inset
+
 Преобразование Фурье 
 \begin_inset Formula 
 \begin{align*}
@@ -489,6 +803,10 @@ u & = & \mathcal{F}^{-1}\left\{ U\right\}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+—
 \end_layout
 
 \begin_layout Standard
