@@ -1,0 +1,1062 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Пространство состояний
+\end_layout
+
+\begin_layout Standard
+Передаточной функции
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W=\frac{\frac{b_{0}}{a_{n}}+\frac{b_{1}}{a_{n}}s+...+\frac{b_{n}}{a_{n}}s^{n}}{\frac{a_{0}}{a_{n}}+\frac{a_{1}}{a_{n}}s+...+1s^{n}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+соответствует модель пространства состояний с матрицами
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+A & =\left(\begin{array}{cccc}
+ & 1\\
+ &  & 1\\
+\\
+-\frac{a_{0}}{a_{n}} & -\frac{a_{1}}{a_{n}} & ... & \frac{a_{n-1}}{a_{n}}
+\end{array}\right)\\
+B & =\left(\begin{array}{c}
+0\\
+\vdots\\
+0\\
+1
+\end{array}\right)\\
+C & =\left(\frac{b_{0}}{a_{n}}-\frac{a_{0}}{a_{n}}\frac{b_{n}}{a_{n}},\frac{b_{1}}{a_{n}}-\frac{a_{1}}{a_{n}}\frac{b_{n}}{a_{n}},\dots\right)\\
+D & =\left(\frac{b_{n}}{a_{n}}\right)
+\end{align*}
+
+\end_inset
+
+Сделаем замену 
+\begin_inset Formula $\frac{x}{a_{n}}=z,$
+\end_inset
+
+ тогда 
+\begin_inset Formula 
+\begin{align*}
+\frac{\dot{x}}{a_{n}} & =A\frac{x}{a_{n}}+\frac{B}{a_{n}}u\\
+y & =\left(Ca_{n}\right)z+Du
+\end{align*}
+
+\end_inset
+
+Получим новую систему: 
+\begin_inset Formula 
+\begin{align*}
+\dot{x} & =Ax+Bu\\
+y & =Cx+Du
+\end{align*}
+
+\end_inset
+
+с матрицами
+\begin_inset Formula 
+\begin{align*}
+A & =\left(\begin{array}{cccc}
+ & 1\\
+ &  & 1\\
+\\
+-\frac{a_{0}}{a_{n}} & -\frac{a_{1}}{a_{n}} & ... & \frac{a_{n-1}}{a_{n}}
+\end{array}\right)\\
+B & =\left(\begin{array}{c}
+0\\
+\vdots\\
+0\\
+\frac{1}{a_{n}}
+\end{array}\right)\\
+C & =\left(b_{0}-\frac{a_{0}}{a_{n}}b_{n},b_{1}-\frac{a_{1}}{a_{n}}b_{n},\dots\right)\\
+D & =\left(\frac{b_{n}}{a_{n}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Пример 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим фильтр низких частот
+\begin_inset Formula 
+\[
+W=\frac{1}{T^{2}s^{2}+2Ts+1}
+\]
+
+\end_inset
+
+здесь 
+\begin_inset Formula $b_{0}=1$
+\end_inset
+
+, 
+\begin_inset Formula $a_{2}=T^{2},a_{1}=2T,a_{0}=1$
+\end_inset
+
+.
+ Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{cc}
+0 & 1\\
+-\frac{1}{T^{2}} & -\frac{2}{T}
+\end{array}\right),\quad B=\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right),\quad C=\left(1,0\right),\quad D=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Пример 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим фильтр низких частот
+\begin_inset Formula 
+\[
+W=\frac{s}{T^{2}s^{2}+2Ts+1}
+\]
+
+\end_inset
+
+здесь 
+\begin_inset Formula $b_{1}=1$
+\end_inset
+
+, 
+\begin_inset Formula $a_{2}=T^{2},a_{1}=2T,a_{0}=1$
+\end_inset
+
+.
+ Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{cc}
+0 & 1\\
+-\frac{1}{T^{2}} & -\frac{2}{T}
+\end{array}\right),\quad B=\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right),\quad C=\left(0,1\right),\quad D=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Пример 
+\end_layout
+
+\begin_layout Standard
+Рассмотрим дифференцирующий фильтр второго порядка
+\begin_inset Formula 
+\[
+W=\frac{s^{2}}{T^{2}s^{2}+2Ts+1}
+\]
+
+\end_inset
+
+здесь 
+\begin_inset Formula $b_{2}=1$
+\end_inset
+
+, 
+\begin_inset Formula $a_{2}=T^{2},a_{1}=2T,a_{0}=1$
+\end_inset
+
+.
+ Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{cc}
+0 & 1\\
+-\frac{1}{T^{2}} & -\frac{2}{T}
+\end{array}\right),\quad B=\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right),\quad C=\left(-\frac{1}{T^{2}},-\frac{2}{T}\right),\quad D=\left(\frac{1}{T^{2}}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ограничивающий фильтр
+\end_layout
+
+\begin_layout Standard
+Рассмотрим дифференцирующий фильтр второго порядка с ПФ 
+\begin_inset Formula 
+\begin{align*}
+x_{n+1} & =Ax_{n}+Bu_{n}\\
+y_{n+1} & =C_{1}x_{n+1}
+\end{align*}
+
+\end_inset
+
+где 
+\begin_inset Formula 
+\begin{align*}
+A & =I+\left(\begin{array}{cc}
+0 & 1\\
+-\frac{1}{T^{2}} & -\frac{2}{T}
+\end{array}\right)\Delta t,\\
+B & =\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right)\Delta t\\
+C_{1} & =\left(0,1\right),\\
+D & =0.
+\end{align*}
+
+\end_inset
+
+Требуется ограничить 
+\begin_inset Formula $u$
+\end_inset
+
+, чтобы 
+\begin_inset Formula $y\in\left[\dot{s}_{\min},\dot{s}_{\max}\right]$
+\end_inset
+
+.
+ Выпишем
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $x_{n+1}=Ax_{n}+Bu_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $a_{0}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $a_{1}=2T$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $a_{2}=T^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $A=\left(\begin{array}{cc}
+1 & 1\\
+-\frac{1}{T^{2}} & 1-\frac{2}{T}
+\end{array}\right)\Delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $B=\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right)\Delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{0}=\left[1,0\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}=\left[0,1\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2}=\left[-\frac{1}{T^{2}},-\frac{2}{T}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D_{2}=\left[\frac{1}{T^{2}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+————
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{1}=C_{1}x_{n}+C_{1}u_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $u_{n}\in\frac{1}{C_{1}B}\left[\dot{s}_{\min},\dot{s}_{\max}\right]-\frac{1}{C_{1}B}C_{1}Ax_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+————
+\end_layout
+
+\begin_layout Plain Layout
+2nd derivative
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C=\left(-\frac{a_{0}}{a_{2}},-\frac{a_{1}}{a_{2}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $d=\frac{1}{a_{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{0}=C_{0}x\in\left[s_{\min},s_{\max}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{1}=C_{1}x\in\left[\dot{s}_{\min},\dot{s}_{\max}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $x=C^{-1}\cdot\left(\begin{array}{c}
+y_{0}\\
+y_{1}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+y_{2} & =C_{2}x+d\bar{u}\\
+ & =C_{2}C^{-1}\cdot\left(\begin{array}{c}
+y_{0}\\
+y_{1}
+\end{array}\right)+d\bar{u}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{2}=\left[C_{2}C^{-1}-d\frac{1}{C_{1}B}C_{1}AC^{-1}\right]\cdot\left(\begin{array}{c}
+y_{0}\\
+y_{1}
+\end{array}\right)+d\frac{1}{C_{1}B}\left[\dot{s}_{\min},\dot{s}_{\max}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{0}\in\left[s_{\min},s_{\max}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{1}\in\left[\dot{s}_{\min},\dot{s}_{\max}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
+y_{2} & =\left[C_{2}C^{-1}-d\frac{1}{C_{1}B}C_{1}AC^{-1}\right]\cdot\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)y_{0}\\
+ & +\left[C_{2}C^{-1}-d\frac{1}{C_{1}B}C_{1}AC^{-1}\right]\cdot\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)y_{1}\\
+ & +d\frac{1}{C_{1}B}\left[\dot{s}_{\min},\dot{s}_{\max}\right]\\
+\\
+\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $A=\left(\begin{array}{cc}
+1 & 1\\
+-\frac{1}{T^{2}} & 1-\frac{2}{T}
+\end{array}\right)\Delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $B=\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right)\Delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{0}=\left[1,0\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}=\left[0,1\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{2}=\left[-\frac{1}{T^{2}},-\frac{2}{T}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D_{2}=\left[\frac{1}{T^{2}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+y_{n+1} & =C_{1}Ax_{n}+C_{1}Bu_{n}\in\left[\dot{s}_{\min},\dot{s}_{\max}\right]\\
+\frac{\dot{s}_{\min}-C_{1}Ax_{n}}{C_{1}B}\leq & u_{n}\leq\frac{\dot{s}_{\max}-C_{1}Ax_{n}}{C_{1}B}
+\end{align*}
+
+\end_inset
+
+Тогда 
+\begin_inset Formula 
+\[
+\bar{u}_{n}=\mathbf{sat}\left(u_{n},\frac{\dot{s}_{\min}-C_{1}Ax_{n}}{C_{1}B},\frac{\dot{s}_{\max}-C_{1}Ax_{n}}{C_{1}B}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Вторая производная
+\end_layout
+
+\begin_layout Standard
+Трубется оценить область значений выходна фильтра 
+\begin_inset Formula 
+\[
+W=\frac{s^{2}}{T^{2}s^{2}+2Ts+1}
+\]
+
+\end_inset
+
+при условии 
+\begin_inset Formula 
+\[
+\frac{\dot{s}_{\min}-C_{1}Ax_{n}}{C_{1}B}\leq u_{n}\leq\frac{\dot{s}_{\max}-C_{1}Ax_{n}}{C_{1}B}.
+\]
+
+\end_inset
+
+Выход фильтра выписавали выше 
+\begin_inset Formula 
+\[
+y_{2}=C_{2}x+D_{2}u
+\]
+
+\end_inset
+
+где 
+\begin_inset Formula 
+\[
+C_{2}=\left(-\frac{1}{T^{2}},-\frac{2}{T}\right),\quad D_{2}=\left(\frac{1}{T^{2}}\right).
+\]
+
+\end_inset
+
+Состояние можно выразить через нулевой и первый выходы: 
+\begin_inset Formula 
+\begin{align*}
+y_{0} & =C_{0}x=\left(1,0\right)x,\\
+y_{1} & =C_{1}x=\left(0,1\right)x.
+\end{align*}
+
+\end_inset
+
+Тогда 
+\begin_inset Formula $x=\left(\begin{array}{c}
+y_{0}\\
+y_{1}
+\end{array}\right).$
+\end_inset
+
+ Тогда 
+\begin_inset Formula 
+\begin{align*}
+y_{2} & =C_{2}\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)y_{0}+C_{2}\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)y_{1}+D_{2}u\\
+ & =C_{2}\left(\begin{array}{c}
+1\\
+0
+\end{array}\right)y_{0}+C_{2}\left(\begin{array}{c}
+0\\
+1
+\end{array}\right)y_{1}+D_{2}\frac{1}{C_{1}B}\left[\dot{s}_{\min},\dot{s}_{\max}\right]-D_{2}\frac{1}{C_{1}B}C_{1}Ax_{n}\\
+ & =-\frac{1}{T^{2}}y_{0}-\frac{2}{T}y_{1}+\frac{1}{T^{2}}\frac{1}{C_{1}B}\left[\dot{s}_{\min},\dot{s}_{\max}\right]-\frac{1}{T^{2}}\frac{T^{2}}{\Delta t}\left(\begin{array}{c|c}
+-\frac{1\Delta t}{T^{2}} & 1-\frac{2\Delta t}{T}\end{array}\right)x_{n}\\
+ & =-\frac{1}{T^{2}}y_{0}-\frac{2}{T}y_{1}+\frac{1}{\Delta t}\left[\dot{s}_{\min},\dot{s}_{\max}\right]+\frac{1}{\Delta t}\left(\begin{array}{c|c}
++\frac{1\Delta t}{T^{2}} & \frac{2\Delta t}{T}-1\end{array}\right)x_{n}\\
+ & =-\frac{1}{T^{2}}y_{0}-\frac{2}{T}y_{1}+\frac{1}{\Delta t}\left[\dot{s}_{\min},\dot{s}_{\max}\right]+\frac{1}{T^{2}}y_{0}+\frac{2}{T}y_{1}-\frac{1}{\Delta t}y_{1}\\
+ & =\frac{1}{\Delta t}\left[\dot{s}_{\min},\dot{s}_{\max}\right]-\frac{1}{\Delta t}y_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}B=\frac{\Delta t}{T^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $C_{1}A=\left(\begin{array}{c|c}
+-\frac{1\Delta t}{T^{2}} & 1-\frac{2\Delta t}{T}\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Первое слагаемое принадлежит интервалу
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{\Delta t}\left[\dot{s}_{\min},\dot{s}_{\max}\right]
+\]
+
+\end_inset
+
+Второе слагаемое принадлежит интервалу
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\frac{1}{\Delta t}\left[-\dot{s}_{\max},-\dot{s}_{\min}\right]
+\]
+
+\end_inset
+
+Значит, результат принадлежит интервалу 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\[
+y_{2}=\frac{1}{\Delta t}\left[\dot{s}_{\min}-\dot{s}_{\max},\dot{s}_{\max}-\dot{s}_{\min}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{n}=Cx_{n}+D\mathbf{sat}\left(u_{n},\frac{y_{1}^{\min}-C_{1}Ax_{n}}{C_{1}B},\frac{y_{1}^{\max}-C_{1}Ax_{n}}{C_{1}B}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y_{n}^{\min} & =Cx_{n}^{*}+Du_{n}^{*}\\
+ & =Cx_{n}^{*}+Du_{n}^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{2}=\left(-\frac{1}{T^{2}},-\frac{2}{T}\right),\quad D_{2}=\left(\frac{1}{T^{2}}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbf{sat}\left(u_{n},\frac{y_{1}^{\min}-C_{1}Ax_{n}}{C_{1}B},\frac{y_{1}^{\max}-C_{1}Ax_{n}}{C_{1}B}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y_{n} & =Cx_{n}+D\left(\frac{1}{C_{1}B}\left[y_{1}^{\min},y_{1}^{\max}\right]-\frac{C_{1}Ax_{n}}{C_{1}B}\right)\\
+ & =\left(C-D\frac{C_{1}A}{C_{1}B}\right)x_{n}+D\frac{1}{C_{1}B}\left[y_{1}^{\min},y_{1}^{\max}\right]\\
+y_{n}^{\min} & =\left(\left(-\frac{1}{T^{2}},-\frac{2}{T}\right)+\left(\begin{array}{c|c}
+\frac{1}{T^{2}} & \frac{2}{T}-\frac{1}{\Delta t}\end{array}\right)\right)x_{n}+\frac{1}{\Delta t}\left[y_{1}^{\min},y_{1}^{\max}\right]\\
+ & =\frac{y_{1}^{\min}-y_{1}^{\max}}{\Delta t}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Comment
+status collapsed
+
+\begin_layout Plain Layout
+minimal:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{n}=\left(-\frac{1}{T^{2}},-\frac{2}{T}\right)x_{n}^{\max}+\left(\frac{1}{T^{2}}\right)\frac{\dot{s}_{\min}-C_{1}Ax_{n}^{*}}{C_{1}B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{n}=\frac{1}{T^{2}}\left(y_{0}^{\min}-y_{0}^{\max}\right)+\left(\frac{2}{T}+\frac{1}{\Delta t}\right)\left(y_{1}^{\min}-y_{1}^{\max}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+2nd derivative
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{2}^{\min}=\frac{y_{0}^{\min}-y_{0}^{\max}}{T^{2}}+2\frac{y_{1}^{\min}-y_{1}^{\max}}{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $y_{2}^{\max}=\frac{y_{0}^{\max}-y_{0}^{\min}}{T^{2}}+2\frac{y_{1}^{\max}-y_{1}^{\min}}{T}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{2}\in\left[\frac{y_{1}^{\min}-y_{1}^{\max}}{\Delta t},\frac{y_{1}^{\max}-y_{1}^{\min}}{\Delta t}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Что если на вход подаётся 
+\begin_inset Formula $\infty$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\bar{u}_{n}=\frac{\dot{s}_{\max}-C_{1}Ax_{n}}{C_{1}B}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y_{n}^{2} & =Cx_{n}+Du_{n}\\
+ & =Cx_{n}+D\frac{\dot{s}_{\max}-C_{1}Ax_{n}}{C_{1}B}\\
+ & =\left(C-D\frac{C_{1}A}{C_{1}B}\right)x_{n}+D\frac{\dot{s}_{\max}}{C_{1}B}\\
+ & =-\frac{1}{\Delta t}y_{n}^{1}+\frac{1}{\Delta t}\dot{s}_{\max}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Получаю =
+\begin_inset Formula 
+\begin{align*}
+y_{n}^{1} & =C_{1}x_{n}\\
+y_{n}^{2} & =-\frac{1}{\Delta t}y_{n}^{1}+\frac{1}{\Delta t}\dot{s}_{\max}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Подаю максимальный входной сигнал
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $u_{\max}=\min\left(u^{\max},\frac{y_{1}^{\max}-C_{1}Ax_{n}}{C_{1}B}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y_{n}^{2} & =Cx_{n}+Du_{n}\\
+ & =\left(-\frac{1}{T^{2}},-\frac{2}{T}\right)x_{n}+\left(\frac{1}{T^{2}}\right)u^{\max}\\
+x_{n} & =\left(I+\left(\begin{array}{cc}
+0 & 1\\
+-\frac{1}{T^{2}} & -\frac{2}{T}
+\end{array}\right)\Delta t\right)\left(\begin{array}{c}
+y_{0}\\
+y_{1}
+\end{array}\right)+\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right)\Delta tu^{\max}\\
+y_{n}^{2} & =-\frac{1}{T^{2}}y^{0}-\frac{2}{T}y^{1}+\frac{1}{T^{2}}u^{\max}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+A & =I+\left(\begin{array}{cc}
+0 & 1\\
+-\frac{1}{T^{2}} & -\frac{2}{T}
+\end{array}\right)\Delta t,\\
+B & =\left(\begin{array}{c}
+0\\
+\frac{1}{T^{2}}
+\end{array}\right)\Delta t\\
+C_{1} & =\left(0,1\right),\\
+D & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Если нужна оценка джерка, то примерно 
+\begin_inset Formula $dj_{\max}\approx\frac{v_{\max}}{T^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

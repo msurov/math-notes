@@ -1,0 +1,339 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Plane equation
+\end_layout
+
+\begin_layout Standard
+Let us consider a plane given in implicit form 
+\begin_inset Formula 
+\[
+ax+by+cz+d=0.
+\]
+
+\end_inset
+
+Let us define Euclidean space 
+\begin_inset Formula $\mathbb{E}^{3}$
+\end_inset
+
+ with scalar product 
+\begin_inset Formula $\left\langle v,w\right\rangle \equiv v^{T}Pw$
+\end_inset
+
+, where 
+\begin_inset Formula $P$
+\end_inset
+
+ is a positive definite matrix.
+ Then the plane equation can be written as 
+\begin_inset Formula 
+\begin{align*}
+\left\langle v,p-p_{0}\right\rangle  & =0
+\end{align*}
+
+\end_inset
+
+or
+\begin_inset Formula 
+\begin{align*}
+\left\langle v,p\right\rangle +r & =0
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{align*}
+v & \equiv\frac{1}{\lambda}P^{-T}\left(\begin{array}{c|c|c}
+a & b & c\end{array}\right)^{T}\\
+d & =-\left(\begin{array}{c|c|c}
+a & b & c\end{array}\right)p_{0}.\\
+r & \equiv-\left\langle v,p_{0}\right\rangle =\frac{d}{\lambda}\\
+\lambda & \equiv\sqrt{\left(\begin{array}{c|c|c}
+a & b & c\end{array}\right)P^{-1}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The point closest to the given plane
+\end_layout
+
+\begin_layout Standard
+Let the plane is given with the equation 
+\begin_inset Formula $\left\langle v,p-p_{0}\right\rangle =0$
+\end_inset
+
+, where 
+\begin_inset Formula $\left\langle \cdot,\cdot\right\rangle $
+\end_inset
+
+ is the scalar product defined as 
+\begin_inset Formula 
+\[
+\left\langle v,w\right\rangle \equiv v^{T}Pw
+\]
+
+\end_inset
+
+with the help of a positive definite matrix 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ Let the vectors 
+\begin_inset Formula $v_{1},v_{2},v$
+\end_inset
+
+ form an orthonornmal basis (in terms of operator 
+\begin_inset Formula $\left\langle \cdot,\cdot\right\rangle $
+\end_inset
+
+).
+ The closest to 
+\begin_inset Formula $q$
+\end_inset
+
+ point is then 
+\begin_inset Formula 
+\[
+q_{*}=\alpha v_{1}+\beta v_{2}+p_{0}.
+\]
+
+\end_inset
+
+The distance is
+\begin_inset Formula 
+\[
+\left\langle \alpha v_{1}+\beta v_{2}+p_{0}-q,\alpha v_{1}+\beta v_{2}+p_{0}-q\right\rangle .
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula 
+\begin{align*}
+\left\langle \alpha v_{1}+\beta v_{2}+p_{0}-q,\alpha v_{1}+\beta v_{2}+p_{0}-q\right\rangle  & =\\
+\alpha^{2}+\beta^{2}+2\alpha\left\langle v_{1},p_{0}-q\right\rangle +2\beta\left\langle v_{2},p_{0}-q\right\rangle +\left\langle p_{0}-q,p_{0}-q\right\rangle  & =0.
+\end{align*}
+
+\end_inset
+
+The extremum point is 
+\begin_inset Formula 
+\begin{align*}
+\alpha & =\left\langle v_{1},q-p_{0}\right\rangle \\
+\beta & =\left\langle v_{2},q-p_{0}\right\rangle 
+\end{align*}
+
+\end_inset
+
+The point coordinates 
+\begin_inset Formula 
+\begin{align*}
+q_{*} & =v_{1}\left\langle v_{1},q-p_{0}\right\rangle +v_{2}\left\langle v_{2},q-p_{0}\right\rangle +p_{0}\\
+ & =v_{1}v_{1}^{T}P\left(q-p_{0}\right)+v_{2}v_{2}^{T}P\left(q-p_{0}\right)+p_{0}\\
+ & =\left[v_{1}v_{1}^{T}P+v_{2}v_{2}^{T}P\right]\left(q-p_{0}\right)+p_{0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Note Greyedout
+status collapsed
+
+\begin_layout Plain Layout
+For the triple of orthonormal vectors the equality holds 
+\begin_inset Formula 
+\[
+vv^{T}P+v_{1}v_{1}^{T}P+v_{2}v_{2}^{T}P=I,
+\]
+
+\end_inset
+
+since arbitrary vector 
+\begin_inset Formula $a$
+\end_inset
+
+ can be decomposed as 
+\begin_inset Formula $a=a_{1}v_{1}+a_{2}v_{2}+a_{3}v$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\left(vv^{T}P+v_{1}v_{1}^{T}P+v_{2}v_{2}^{T}P\right)a & =\\
+vv^{T}Pa+v_{1}v_{1}^{T}Pa+v_{2}v_{2}^{T}Pa & =\\
+vv^{T}Pa_{3}v+v_{1}v_{1}^{T}Pa_{1}v_{1}+v_{2}v_{2}^{T}Pa_{2}v_{2} & =\\
+a_{3}v+a_{1}v_{1}+a_{2}v_{2} & =a.
+\end{align*}
+
+\end_inset
+
+Since vector 
+\begin_inset Formula $a$
+\end_inset
+
+ is arbitrary, the matrix 
+\begin_inset Formula $vv^{T}P+v_{1}v_{1}^{T}P+v_{2}v_{2}^{T}P$
+\end_inset
+
+ is identity.
+ Then 
+\begin_inset Formula $v_{1}v_{1}^{T}P+v_{2}v_{2}^{T}P=I-vv^{T}P$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+q_{*} & =\left[I-vv^{T}P\right]\left(q-p_{0}\right)+p_{0}\\
+ & =\left[I-vv^{T}P\right]q+v\left\langle v,p_{0}\right\rangle \\
+ & =\left[I-vv^{T}P\right]q-rv
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+The algorithm
+\end_layout
+
+\begin_layout Enumerate
+We are given the weighting matrix 
+\begin_inset Formula $P,$
+\end_inset
+
+ and the plane coefficients 
+\begin_inset Formula $a,b,c,d.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compute 
+\begin_inset Formula 
+\begin{align*}
+\lambda & :=\sqrt{\left(\begin{array}{c|c|c}
+a & b & c\end{array}\right)P^{-1}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)}\\
+v & :=\frac{1}{\lambda}P^{-T}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)\\
+r & :=\frac{d}{\lambda}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compute the vector 
+\begin_inset Formula 
+\[
+q_{*}=\left[I-vv^{T}P\right]q-rv.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

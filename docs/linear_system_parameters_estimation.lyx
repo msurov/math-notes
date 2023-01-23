@@ -1,0 +1,184 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Let us consider the system
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dot{x}=ax+bu+c.
+\]
+
+\end_inset
+
+Apply the filter 
+\begin_inset Formula $W\left(s\right)=\frac{1}{\left(Ts+1\right)^{2}}$
+\end_inset
+
+ then the parameters satisfy the linear algebraic equation
+\begin_inset Formula 
+\[
+\left[\frac{1}{\left(Ts+1\right)^{2}}x\right]a+\left[\frac{1}{\left(Ts+1\right)^{2}}u\right]b+1\cdot c+\left[-\frac{s}{\left(Ts+1\right)^{2}}x\right]=0.
+\]
+
+\end_inset
+
+For brevity 
+\begin_inset Formula 
+\[
+W_{x}a+W_{u}b+c-W_{\dot{x}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ley us define euclidean structure on the parametric space with the help
+ of the scalar product operator 
+\begin_inset Formula $a\cdot b\equiv a^{T}Pb,$
+\end_inset
+
+where 
+\begin_inset Formula $P$
+\end_inset
+
+ is a positive-definite symmetric matrix.
+ Let the vector 
+\begin_inset Formula $\hat{p}\equiv\left(\hat{a},\hat{b},\hat{c}\right)$
+\end_inset
+
+ be the estimation of the parameters 
+\begin_inset Formula $p\equiv\left(a,b,c\right)$
+\end_inset
+
+.
+ The adaptation algorithm is
+\end_layout
+
+\begin_layout Enumerate
+Compute 
+\begin_inset Formula 
+\begin{align*}
+\lambda & :=\sqrt{\left(\begin{array}{c|c|c}
+W_{x} & W_{u} & 1\end{array}\right)P^{-1}\left(\begin{array}{c}
+W_{x}\\
+W_{u}\\
+1
+\end{array}\right)}\\
+v & :=\frac{1}{\lambda}P^{-1}\left(\begin{array}{c}
+W_{x}\\
+W_{u}\\
+1
+\end{array}\right)\\
+r & :=-\frac{1}{\lambda}W_{\dot{x}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Update the parameters
+\begin_inset Formula 
+\[
+\hat{p}_{n+1}=\left[I-vv^{T}P\right]\hat{p}_{n}-rv.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compute the control 
+\begin_inset Formula 
+\[
+u=\frac{\dot{x}_{*}-\alpha\left(x-x_{*}\right)-\hat{a}x-\hat{c}}{\hat{b}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
