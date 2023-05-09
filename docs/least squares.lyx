@@ -1,0 +1,444 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Итеративный МНК
+\end_layout
+
+\begin_layout Standard
+Задана динамическая система
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+x_{n+1}=ax_{n}+bu_{n}+c
+\]
+
+\end_inset
+
+Есть 
+\begin_inset Formula $N$
+\end_inset
+
+ измерений
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+x_{1} & =ax_{0}+bu_{0}+c\\
+x_{2} & =ax_{1}+bu_{1}+c\\
+\vdots\\
+x_{N} & =ax_{N-1}+bu_{N-1}+c
+\end{align*}
+
+\end_inset
+
+тогда 
+\begin_inset Formula $a,b,c$
+\end_inset
+
+ можно вычислить как
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+x_{0} & u_{0} & 1\\
+x_{1} & u_{1} & 1\\
+\vdots & \vdots & \vdots\\
+x_{N-1} & u_{N-1} & 1
+\end{array}\right)\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)=\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{N-1}
+\end{array}\right)
+\]
+
+\end_inset
+
+тогда 
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)=\left(\begin{array}{ccc}
+x_{0} & u_{0} & 1\\
+x_{1} & u_{1} & 1\\
+\vdots & \vdots & \vdots\\
+x_{N-1} & u_{N-1} & 1
+\end{array}\right)^{+}\left(\begin{array}{c}
+x_{1}\\
+x_{2}\\
+\vdots\\
+x_{N-1}
+\end{array}\right)
+\]
+
+\end_inset
+
+Появляется новое измерение 
+\begin_inset Formula $x_{N+1},x_{N},u_{N}$
+\end_inset
+
+ – как изменятся 
+\begin_inset Formula $\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+Абстрактно: 
+\begin_inset Formula 
+\[
+p_{*}=\arg\min_{p}\left\Vert Ap-b\right\Vert 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{*}=\left(A^{T}A\right)^{-1}A^{T}b
+\]
+
+\end_inset
+
+Как теперь обновить?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{c}
+A\\
+a_{1}
+\end{array}\right)p=\left(\begin{array}{c}
+b\\
+b_{1}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(A^{T}|a_{1}^{T}\right)\left(\begin{array}{c}
+A\\
+a_{1}
+\end{array}\right)p=\left(A^{T}|a_{1}^{T}\right)\left(\begin{array}{c}
+b\\
+b_{1}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(A^{T}|a_{1}^{T}\right)\left(\begin{array}{c}
+A\\
+a_{1}
+\end{array}\right)=\left(A^{T}A+a_{1}^{T}a_{1}\right)p=\left(A^{T}|a_{1}^{T}\right)\left(\begin{array}{c}
+b\\
+b_{1}
+\end{array}\right)=A^{T}b+a_{1}^{T}b_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Initial formula
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{1}=\left(A^{T}A+a_{1}^{T}a_{1}\right)^{-1}\left(A^{T}|a_{1}^{T}\right)\left(\begin{array}{c}
+b\\
+b_{1}
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(A^{T}A+a_{1}^{T}a_{1}\right)^{-1}=\left(A^{T}A\right)^{-1}-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(A^{T}A+a_{1}^{T}a_{1}\right)^{-1}\left(A^{T}b+a_{1}b_{1}\right)=\left[\left(A^{T}A\right)^{-1}-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}\right]\left(A^{T}b+a_{1}^{T}b_{1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1: 
+\begin_inset Formula $\left(A^{T}A\right)^{-1}A^{T}b=p_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2: 
+\begin_inset Formula $\left(A^{T}A\right)^{-1}a_{1}^{T}b_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3: 
+\begin_inset Formula $-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}A^{T}b=-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}p_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4: 
+\begin_inset Formula $-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}a_{1}^{T}b_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $p_{1}=\left(I-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}\right)p_{0}+\left(I-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}\left(A^{T}A\right)^{-1}}\left(A^{T}A\right)^{-1}a_{1}^{T}a_{1}\right)\left(A^{T}A\right)^{-1}a_{1}^{T}b_{1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Обозначу
+\begin_inset Formula 
+\begin{align*}
+Z & :=A^{T}A\\
+X & :=I-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}Z^{-1}}Z^{-1}a_{1}^{T}a_{1}
+\end{align*}
+
+\end_inset
+
+тогда
+\begin_inset Formula 
+\[
+p_{1}=Xp_{0}+XZ^{-1}a_{1}^{T}b_{1}
+\]
+
+\end_inset
+
+Алгоритм:
+\end_layout
+
+\begin_layout Enumerate
+Инициализирую начальные значения 
+\begin_inset Formula $p_{0},Z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Для каждого нового измерения 
+\begin_inset Formula $a_{1},b_{1}$
+\end_inset
+
+ обновляю их 
+\begin_inset Formula 
+\begin{align*}
+Z_{1} & =\left(A^{T}|a_{1}^{T}\right)\left(\begin{array}{c}
+A\\
+a_{1}
+\end{array}\right)=Z+a_{1}^{T}a_{1}\\
+X & =I-\frac{1}{1+\mathbf{tr}a_{1}^{T}a_{1}Z^{-1}}Z^{-1}a_{1}^{T}a_{1}\\
+p_{1} & =Xp_{0}+XZ^{-1}a_{1}^{T}b_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
