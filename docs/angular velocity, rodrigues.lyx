@@ -697,6 +697,20 @@ J\left(r\right) & =\frac{\sin\theta}{\theta}I+\frac{1}{\theta^{2}}\left(1-\frac{
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Formula $J\left(r\right)=\mathrm{sinc}\theta\cdot I-\left(\frac{\sin\theta-\theta}{\theta^{3}}\right)\cdot r\otimes r-\frac{1}{2}\mathrm{sinc}^{2}\left(\frac{\theta}{2}\right)r^{\wedge},$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J\left(0\right)=I$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Angular acceleration
 \end_layout
@@ -849,7 +863,21 @@ let
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $J=\frac{\sin\theta}{\theta}I+\frac{1}{\theta^{2}}\left(1-\frac{\sin\theta}{\theta}\right)r\otimes r-2\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}r^{\wedge}$
+\begin_inset Formula $J=\frac{\sin\theta}{\theta}I+\left(1-\frac{\sin\theta}{\theta}\right)\rho\otimes\rho-2\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}r^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathrm{sinc}x=\frac{\sin x}{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{d}{dx}\mathrm{sinc}x=\frac{\cos xx-\sin x}{x^{2}}=\frac{\left(\cos x-\mathrm{sinc}x\right)}{x}$
 \end_inset
 
 
@@ -874,6 +902,292 @@ let
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Rotation matrix
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\left(l,\theta\right)=\cos\theta\cdot I+\left(1-\cos\theta\right)l\otimes l+\sin\theta l^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $J\left(l,\theta\right)=\mathrm{sinc}\theta\cdot I-\left(\frac{\sin\theta-\theta}{\theta}\right)\cdot l\otimes l-\theta\frac{1}{2}\mathrm{sinc}^{2}\left(\frac{\theta}{2}\right)l^{\wedge},$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=J\dot{r}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+Если в другом виде
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega=J_{l}\dot{l}+J_{\theta}\dot{\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\omega}=J_{l\theta}\dot{l}\dot{\theta}+J_{\theta l}\dot{\theta}\dot{l}+J_{l}\ddot{l}+J_{\theta}\ddot{\theta}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\left(l,\theta\right)=\cos\theta\cdot I+\left(1-\cos\theta\right)l\otimes l+\sin\theta l^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\omega^{\wedge}=R^{T}\dot{R}=R^{T}\frac{\partial R}{\partial\theta}\dot{\theta}+R^{T}\frac{\partial R}{\partial l}\dot{l}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{\theta}=-\sin\theta\cdot I+\sin\theta\cdot l\otimes l+\cos\theta\cdot l^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{\theta\theta}=-\cos\theta\cdot I+\cos\theta\cdot l\otimes l-\sin\theta\cdot l^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{l}=\left(1-\cos\theta\right)\left(l_{i}\delta_{jk}+l_{j}\delta_{ik}\right)-\sin\theta e_{ijk}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{\theta l}=\sin\theta\left(l_{i}\delta_{jk}+l_{j}\delta_{ik}\right)-\cos\theta e_{ijk}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{ll}=\left(1-\cos\theta\right)\left(\delta_{im}\delta_{jk}+\delta_{jm}\delta_{ik}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{l}\dot{l}=\left(1-\cos\theta\right)\left(l\otimes\dot{l}+\dot{l}\otimes l\right)+\sin\theta\dot{l}^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{\theta}\dot{\theta}=-\sin\theta\dot{\theta}\cdot I+\sin\theta\dot{\theta}\cdot l\otimes l+\cos\theta\dot{\theta}\cdot l^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{l\theta}\dot{l}\dot{\theta}=\sin\theta\dot{\theta}\left(l\otimes\dot{l}+\dot{l}\otimes l\right)+\cos\theta\dot{\theta}\dot{l}^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R_{ll}\dot{l}\dot{l}=2\left(1-\cos\theta\right)\left(\dot{l}\otimes\dot{l}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ddot{R}=\left(1-\cos\theta\right)\left(l\otimes\ddot{l}+\ddot{l}\otimes l\right)+\sin\theta\ddot{l}^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Даны 
+\begin_inset Formula $r,\dot{r},\ddot{r}$
+\end_inset
+
+ – нужно найти 
+\begin_inset Formula $\omega,\dot{\omega}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\omega & =J\left(r\right)\dot{r}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{align*}
+J\left(r\right) & =\frac{\sin\theta}{\theta}I+\frac{1}{\theta^{2}}\left(1-\frac{\sin\theta}{\theta}\right)r\otimes r-2\frac{\sin^{2}\left(\frac{\theta}{2}\right)}{\theta^{2}}r^{\wedge},\\
+\theta & =\left\Vert r\right\Vert 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{\omega}=?$
+\end_inset
+
+ уже сложнее
+\end_layout
+
+\begin_layout Standard
+——————————————
+\end_layout
+
+\begin_layout Standard
+о чём ещё подумать...
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mu=\frac{1}{2}\left(R-R^{T}\right)^{\vee}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+как эти координаты соотносятся с
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\rho=\mathbf{vec}q$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $R\left(l,\theta\right)=\cos\theta\cdot I+\left(1-\cos\theta\right)l\otimes l+\sin\theta l^{\wedge}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{1}{2}\left(R-R^{T}\right)=\frac{1}{2}\left(2\sin\theta l^{\wedge}\right)^{\vee}=l\sin\theta$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+в свою очередь, 
+\begin_inset Formula $\mathbf{vec}q=l\sin\frac{\theta}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+в первом приближении равны с точностю до множителя 
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+——————————————
+\end_layout
+
+\begin_layout Standard
+Параметризация матрицы поворота
+\end_layout
+
+\begin_layout Standard
+Если параметризация тривиальная, т.е.
+ 
+\begin_inset Formula $R=R_{\alpha}R_{\beta}$
+\end_inset
+
+, то производные 
+\begin_inset Formula $\dot{R},\ddot{R}$
+\end_inset
+
+ найти довольно просто.
+ У меня сложность в том, что и ось вращения, и угол зависят от параметров.
+ Ось вращения не распадается на две константные оси.
+ Сложно искать 
+\begin_inset Formula $\frac{\partial R}{\partial r}$
+\end_inset
+
+.
+ Но
 \end_layout
 
 \end_body
