@@ -335,5 +335,134 @@ q_{*}=\left[I-vv^{T}P\right]q-rv.
 
 \end_layout
 
+\begin_layout Standard
+—
+\end_layout
+
+\begin_layout Standard
+We work in Euclidean space with the scalar product defined as 
+\begin_inset Formula $\left\langle v,w\right\rangle \equiv v^{T}Pw$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+1.
+ There is a plane defined in implicit form 
+\begin_inset Formula $ax+by+cz+d=0$
+\end_inset
+
+ or 
+\begin_inset Formula $\left\langle n,p-p_{0}\right\rangle =0$
+\end_inset
+
+.
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ is a unit vector which is normal to the plane: 
+\begin_inset Formula $\left\langle n,n\right\rangle =1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+2.
+ The relation betwen 
+\begin_inset Formula $n$
+\end_inset
+
+ and coefficients 
+\begin_inset Formula $\left(a,b,c\right)$
+\end_inset
+
+ is 
+\begin_inset Formula $n=\lambda P^{-1}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)$
+\end_inset
+
+ where coefficient 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is responsible for normalization.
+ This relation follows from the plane equation 
+\begin_inset Formula 
+\begin{align*}
+\left\langle \lambda P^{-T}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right),p-p_{0}\right\rangle  & =\lambda\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)^{T}P^{-1}P\left(p-p_{0}\right)=\lambda\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)^{T}\left(p-p_{0}\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v=\lambda P^{-T}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $v^{T}Pv=\lambda\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)^{T}P^{-1}P\lambda P^{-T}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)=\lambda^{2}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)^{T}P^{-T}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\lambda=\pm\frac{1}{\sqrt{\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)^{T}P^{-1}\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)}}$
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
